@@ -986,8 +986,20 @@ class NZTripApp {
     this.day10Option = localStorage.getItem('nz_day10_option') || 'A';
     this.checkedActivities = JSON.parse(localStorage.getItem('nz_checked_activities') || '{}');
     this.packingList = this.loadPackingList();
+    this.geminiApiKey = localStorage.getItem('nz_gemini_api_key') || '';
+    this.copilotDay = 1;
+    this.copilotLoading = false;
+    this.chatHistory = this.loadChatHistory();
 
     this.init();
+  }
+
+  loadChatHistory() {
+    try {
+      return JSON.parse(localStorage.getItem('nz_copilot_chat') || '[]');
+    } catch(e) {
+      return [];
+    }
   }
 
   init() {
@@ -1196,6 +1208,9 @@ class NZTripApp {
       case 'timeline':
         this.renderTimelineView();
         break;
+      case 'copilot':
+        this.renderCopilotView();
+        break;
       case 'stays':
         this.renderStaysView();
         break;
@@ -1392,6 +1407,353 @@ class NZTripApp {
     this.saveCheckedActivities();
     this.renderTimelineView();
     this.updateStatsBar();
+  }
+
+  /* ==========================================================================
+     GEMINI AI ROAD CO-PILOT (100% Client-Side Local Storage)
+     ========================================================================== */
+
+  saveGeminiKey(key) {
+    if (!key || !key.trim()) return;
+    this.geminiApiKey = key.trim();
+    localStorage.setItem('nz_gemini_api_key', this.geminiApiKey);
+    this.renderCopilotView();
+  }
+
+  removeGeminiKey() {
+    if (confirm("Remove your Gemini API key from this device?")) {
+      this.geminiApiKey = '';
+      localStorage.removeItem('nz_gemini_api_key');
+      this.renderCopilotView();
+    }
+  }
+
+  clearCopilotChat() {
+    this.chatHistory = [];
+    localStorage.removeItem('nz_copilot_chat');
+    this.renderCopilotView();
+  }
+
+  setCopilotDay(d) {
+    this.copilotDay = parseInt(d, 10);
+    this.renderCopilotView();
+  }
+
+  formatMarkdown(text) {
+    if (!text) return '';
+    let escaped = text
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;');
+
+    // Bold **text**
+    escaped = escaped.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+    // Italic *text*
+    escaped = escaped.replace(/\*(.*?)\*/g, '<em>$1</em>');
+    // Bullet points
+    escaped = escaped.replace(/^\s*[-•]\s+(.*)$/gm, '<li>$1</li>');
+    escaped = escaped.replace(/(<li>.*<\/li>)/s, '<ul>$1</ul>');
+    // Line breaks
+    escaped = escaped.replace(/\n\n/g, '<br><br>').replace(/\n/g, '<br>');
+
+    return escaped;
+  }
+
+  async sendCopilotMessage(promptText) {
+    const text = promptText || (document.getElementById('copilotInput') ? document.getElementById('copilotInput').value.trim() : '');
+    if (!text) return;
+
+    if (!this.geminiApiKey) {
+      alert('Please enter and save your Gemini API key first.');
+      return;
+    }
+
+    const userMsg = {
+      role: 'user',
+      text: text,
+      time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+    };
+    this.chatHistory.push(userMsg);
+    this.copilotLoading = true;
+    this.renderCopilotView();
+
+    setTimeout(() => {
+      const chatArea = document.getElementById('copilotMessagesArea');
+      if (chatArea) chatArea.scrollTop = chatArea.scrollHeight;
+    }, 50);
+
+    try {
+      const responseText = await this.callGeminiAPI(text);
+      this.chatHistory.push({
+        role: 'model',
+        text: responseText,
+        time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+      });
+      localStorage.setItem('nz_copilot_chat', JSON.stringify(this.chatHistory));
+    } catch (err) {
+      console.error(err);
+      this.chatHistory.push({
+        role: 'model',
+        text: `⚠️ Error calling Gemini API: ${err.message}\n\nPlease check that your API key is valid at https://aistudio.google.com/app/apikey.`,
+        time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+        isError: true
+      });
+    } finally {
+      this.copilotLoading = false;
+      this.renderCopilotView();
+      setTimeout(() => {
+        const chatArea = document.getElementById('copilotMessagesArea');
+        if (chatArea) chatArea.scrollTop = chatArea.scrollHeight;
+      }, 50);
+    }
+  }
+
+  async callGeminiAPI(userQuery) {
+    const day = TRIP_DATA.days.find(d => d.dayNum === this.copilotDay) || TRIP_DATA.days[0];
+    const stay = day.accommodationId ? TRIP_DATA.accommodations.find(a => a.id === day.accommodationId) : null;
+    const car = TRIP_DATA.carRental;
+
+    const systemInstruction = `You are the expert New Zealand South Island road trip co-pilot for Simar and Sheen. They are on a 13-day road trip from 29 Sep to 11 Oct 2026 driving a ${car.vehicle} SUV from APEX Car Rentals.
+Current Trip Context:
+- Day ${day.dayNum} (${day.date}): "${day.title}"
+- Route: ${day.route}
+- Estimated drive time: ${day.driveTime}
+- Key planned highlights: ${(day.highlights || []).join(', ')}
+${stay ? `- Tonight's stay: ${stay.name} in ${stay.city} (${stay.address}). Check-in: ${stay.checkIn}` : ''}
+
+Your Mission:
+Give concise, highly practical, actionable advice tailored for on-the-road travelers.
+- State specific distances, approximate drive times, exact names for Google Maps search, reputable bakeries/cafes, scenic roadside viewpoints, petrol stops, or bad-weather alternatives.
+- Use clean formatting with **bold** for place names and bullet points.`;
+
+    const requestBody = {
+      contents: [
+        {
+          role: "user",
+          parts: [
+            { text: systemInstruction },
+            { text: `Traveler's question for Day ${day.dayNum} (${day.baseCity}): ${userQuery}` }
+          ]
+        }
+      ],
+      generationConfig: {
+        temperature: 0.7,
+        maxOutputTokens: 800
+      }
+    };
+
+    // Try Gemini 2.0 Flash first, fallback to 1.5 Flash
+    let endpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${encodeURIComponent(this.geminiApiKey)}`;
+    let res = await fetch(endpoint, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(requestBody)
+    });
+
+    if (!res.ok) {
+      endpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${encodeURIComponent(this.geminiApiKey)}`;
+      res = await fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(requestBody)
+      });
+    }
+
+    if (!res.ok) {
+      const errData = await res.json().catch(() => ({}));
+      const msg = (errData && errData.error && errData.error.message) ? errData.error.message : `HTTP ${res.status}`;
+      throw new Error(msg);
+    }
+
+    const data = await res.json();
+    if (data.candidates && data.candidates[0] && data.candidates[0].content && data.candidates[0].content.parts) {
+      return data.candidates[0].content.parts.map(p => p.text).join('\n');
+    }
+    return "No response generated. Please try again.";
+  }
+
+  renderCopilotView() {
+    const container = document.getElementById('mainViewContainer');
+    if (!container) return;
+
+    const day = TRIP_DATA.days.find(d => d.dayNum === this.copilotDay) || TRIP_DATA.days[0];
+    const maskedKey = this.geminiApiKey ? `${this.geminiApiKey.slice(0, 6)}••••••••${this.geminiApiKey.slice(-4)}` : '';
+
+    // If API Key is NOT configured
+    if (!this.geminiApiKey) {
+      container.innerHTML = `
+        <div class="view-header-box">
+          <h2 class="view-title">✨ Gemini Road Co-Pilot</h2>
+          <p class="view-subtitle">AI-powered on-the-route searches, scenic detours, food stops & weather backups.</p>
+        </div>
+
+        <div class="copilot-key-card">
+          <div class="key-card-header">
+            <div class="security-shield-icon">🔒</div>
+            <div>
+              <h3>Private Gemini API Setup</h3>
+              <p class="security-guarantee-text">
+                <strong>100% Private &amp; Secure:</strong> Your key is stored strictly on this phone's browser memory (<code>localStorage</code>). It is <em>never</em> sent to GitHub or any server other than Google's official Gemini endpoint.
+              </p>
+            </div>
+          </div>
+
+          <div class="key-input-group">
+            <label for="geminiKeyInput" class="key-input-lbl">Enter Google Gemini API Key</label>
+            <div class="key-input-row">
+              <input type="password" id="geminiKeyInput" placeholder="Paste your AIzaSy... key here" class="key-input-field" autocomplete="off">
+              <button class="btn-toggle-key-vis" onclick="
+                const f = document.getElementById('geminiKeyInput');
+                f.type = f.type === 'password' ? 'text' : 'password';
+                this.textContent = f.type === 'password' ? '👁️' : '🙈';
+              " title="Show/Hide Key">👁️</button>
+            </div>
+            <button class="btn-action-glow btn-save-key" onclick="
+              const val = document.getElementById('geminiKeyInput').value;
+              window.nzApp.saveGeminiKey(val);
+            ">
+              Save Securely to Phone
+            </button>
+          </div>
+
+          <div class="key-help-box">
+            <h4>💡 How to get a free API key in 10 seconds:</h4>
+            <ol>
+              <li>Open <strong><a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener">Google AI Studio (aistudio.google.com/app/apikey)</a></strong> in your browser.</li>
+              <li>Sign in with your Google account.</li>
+              <li>Click <strong>"Create API Key"</strong> &rarr; copy the key.</li>
+              <li>Paste it into the box above and tap <strong>Save Securely</strong>.</li>
+            </ol>
+            <p class="key-note">Works with both free Google accounts and paid Google One AI subscriptions.</p>
+          </div>
+        </div>
+      `;
+      return;
+    }
+
+    // If API Key IS configured: Full Chat Interface
+    let chatHtml = '';
+    if (this.chatHistory.length === 0) {
+      chatHtml = `
+        <div class="copilot-welcome-card">
+          <div class="welcome-icon">🇳🇿✨</div>
+          <h4>Kia Ora, Simar & Sheen!</h4>
+          <p>I am your South Island road trip co-pilot. I know your full 13-day itinerary, today's route, driving times, and tonight's accommodation.</p>
+          <p class="welcome-sub">Tap any question below or ask me anything as you drive!</p>
+        </div>
+      `;
+    } else {
+      this.chatHistory.forEach(msg => {
+        const isUser = msg.role === 'user';
+        chatHtml += `
+          <div class="copilot-msg ${isUser ? 'user-msg' : 'ai-msg'} ${msg.isError ? 'error-msg' : ''}">
+            <div class="msg-header">
+              <span class="msg-sender">${isUser ? '👤 You' : '✨ Gemini Co-Pilot'}</span>
+              <span class="msg-time">${msg.time}</span>
+            </div>
+            <div class="msg-content">
+              ${isUser ? `<p>${msg.text}</p>` : this.formatMarkdown(msg.text)}
+            </div>
+          </div>
+        `;
+      });
+    }
+
+    if (this.copilotLoading) {
+      chatHtml += `
+        <div class="copilot-msg ai-msg loading-msg">
+          <div class="msg-header">
+            <span class="msg-sender">✨ Gemini Co-Pilot</span>
+            <span class="msg-time">Thinking...</span>
+          </div>
+          <div class="shimmer-dots">
+            <span></span><span></span><span></span>
+          </div>
+          <div class="loading-subtext">Searching route recommendations for Day ${day.dayNum} (${day.baseCity})...</div>
+        </div>
+      `;
+    }
+
+    // Render active day context options
+    const dayOptions = TRIP_DATA.days.map(d => `
+      <option value="${d.dayNum}" ${d.dayNum === this.copilotDay ? 'selected' : ''}>
+        Day ${d.dayNum} (${d.date}): ${d.baseCity}
+      </option>
+    `).join('');
+
+    container.innerHTML = `
+      <div class="copilot-container">
+        <!-- Top Status Bar with Privacy Badge & Key Settings -->
+        <div class="copilot-top-bar">
+          <div class="security-status-badge">
+            <span class="lock-dot"></span>
+            <span>Gemini Connected (Key: ${maskedKey})</span>
+          </div>
+          <div class="top-bar-actions">
+            <button class="btn-sm-ghost" onclick="window.nzApp.clearCopilotChat()" title="Clear Chat History">Clear Chat</button>
+            <button class="btn-sm-ghost btn-remove-key" onclick="window.nzApp.removeGeminiKey()" title="Remove API Key">Remove Key</button>
+          </div>
+        </div>
+
+        <!-- Route Context Selector -->
+        <div class="copilot-context-bar">
+          <div class="context-info">
+            <span class="context-lbl">📍 Active Route Context:</span>
+            <select class="context-select" onchange="window.nzApp.setCopilotDay(this.value)">
+              ${dayOptions}
+            </select>
+          </div>
+          <div class="context-route-sub">
+            🛣️ <strong>${day.route}</strong> (${day.driveTime})
+          </div>
+        </div>
+
+        <!-- Quick 1-Tap Prompt Chips -->
+        <div class="copilot-chips-wrap">
+          <button class="copilot-chip" onclick="window.nzApp.sendCopilotMessage('What are the best hidden scenic lookouts, photo spots, or short 10-minute walks right along our drive today?')">
+            📸 Scenic Stops on Way
+          </button>
+          <button class="copilot-chip" onclick="window.nzApp.sendCopilotMessage('What are the top-rated local cafes, coffee spots, and famous bakeries along this route?')">
+            ☕ Best Coffee & Bakeries
+          </button>
+          <button class="copilot-chip" onclick="window.nzApp.sendCopilotMessage('Where can we find famous gourmet meat pies near our route today?')">
+            🥧 Famous Pies Nearby
+          </button>
+          <button class="copilot-chip" onclick="window.nzApp.sendCopilotMessage('If it starts raining today, what are the best indoor backup activities, cozy spots, or alternative plans?')">
+            ☔ Rainy Day Backups
+          </button>
+          <button class="copilot-chip" onclick="window.nzApp.sendCopilotMessage('Are there any long stretches without petrol stations or restrooms along today\'s drive? Where should we fill up?')">
+            ⛽ Petrol & Rest Stops
+          </button>
+          <button class="copilot-chip" onclick="window.nzApp.sendCopilotMessage('What are the best sunset viewpoints or cozy dinner recommendations near tonight\'s accommodation?')">
+            🌅 Sunset & Dinner Spots
+          </button>
+        </div>
+
+        <!-- Chat Stream Area -->
+        <div class="copilot-messages-area" id="copilotMessagesArea">
+          ${chatHtml}
+        </div>
+
+        <!-- Sticky Chat Input Bar -->
+        <div class="copilot-input-bar">
+          <input 
+            type="text" 
+            id="copilotInput" 
+            placeholder="Ask about stops, food, parking, weather along Day ${day.dayNum}..." 
+            class="copilot-input-field" 
+            autocomplete="off"
+            onkeypress="if(event.key === 'Enter') window.nzApp.sendCopilotMessage()"
+          >
+          <button class="btn-copilot-send" onclick="window.nzApp.sendCopilotMessage()" title="Send Question">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="22" y1="2" x2="11" y2="13"></line>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+            </svg>
+          </button>
+        </div>
+      </div>
+    `;
   }
 
   renderStaysView() {
