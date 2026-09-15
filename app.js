@@ -1441,22 +1441,54 @@ class NZTripApp {
 
   formatMarkdown(text) {
     if (!text) return '';
-    let escaped = text
+    let str = text
       .replace(/&/g, '&amp;')
       .replace(/</g, '&lt;')
       .replace(/>/g, '&gt;');
 
-    // Bold **text**
-    escaped = escaped.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-    // Italic *text*
-    escaped = escaped.replace(/\*(.*?)\*/g, '<em>$1</em>');
-    // Bullet points
-    escaped = escaped.replace(/^\s*[-•]\s+(.*)$/gm, '<li>$1</li>');
-    escaped = escaped.replace(/(<li>.*<\/li>)/s, '<ul>$1</ul>');
-    // Line breaks
-    escaped = escaped.replace(/\n\n/g, '<br><br>').replace(/\n/g, '<br>');
+    // Markdown links: [text](https://...)
+    str = str.replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
 
-    return escaped;
+    // Headers
+    str = str.replace(/^###\s+(.*)$/gm, '<h4>$1</h4>');
+    str = str.replace(/^##\s+(.*)$/gm, '<h3>$1</h3>');
+    str = str.replace(/^#\s+(.*)$/gm, '<h2>$1</h2>');
+
+    // Bold **text**
+    str = str.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+    // Italic *text*
+    str = str.replace(/(?<!\*)\*(?!\*)(.*?)(?<!\*)\*(?!\*)/g, '<em>$1</em>');
+
+    // Unordered bullet lists: match contiguous block of lines starting with *, -, or •
+    str = str.replace(/((?:^[ \t]*[-*•]\s+.*(?:\r?\n|$))+)/gm, (match) => {
+      const items = match.trim().split(/\r?\n/).map(line => {
+        const item = line.replace(/^[ \t]*[-*•]\s+/, '').trim();
+        return `<li>${item}</li>`;
+      }).join('');
+      return `<ul>${items}</ul>\n`;
+    });
+
+    // Ordered lists: match contiguous block of lines starting with 1., 2., etc.
+    str = str.replace(/((?:^[ \t]*\d+\.\s+.*(?:\r?\n|$))+)/gm, (match) => {
+      const items = match.trim().split(/\r?\n/).map(line => {
+        const item = line.replace(/^[ \t]*\d+\.\s+/, '').trim();
+        return `<li>${item}</li>`;
+      }).join('');
+      return `<ol>${items}</ol>\n`;
+    });
+
+    // Paragraphs: split by double newlines
+    const paragraphs = str.split(/\n\n+/);
+    str = paragraphs.map(p => {
+      p = p.trim();
+      if (!p) return '';
+      if (p.startsWith('<ul') || p.startsWith('<ol') || p.startsWith('<h2') || p.startsWith('<h3') || p.startsWith('<h4')) {
+        return p;
+      }
+      return `<p>${p.replace(/\n/g, '<br>')}</p>`;
+    }).filter(Boolean).join('');
+
+    return str;
   }
 
   async sendCopilotMessage(promptText) {
@@ -1571,7 +1603,8 @@ ${stay ? `- Tonight's stay: ${stay.name} in ${stay.city} (${stay.address}). Chec
 Your Mission:
 Give concise, highly practical, actionable advice tailored for on-the-road travelers.
 - State specific distances, approximate drive times, exact names for Google Maps search, reputable bakeries/cafes, scenic roadside viewpoints, petrol stops, or bad-weather alternatives.
-- Use clean formatting with **bold** for place names and bullet points.`;
+- Use clean formatting with **bold** for place names, section titles (###), and bullet points.
+- Provide thorough, complete answers without cutting off. Conclude with a helpful travel tip.`;
 
     const requestBody = {
       contents: [
@@ -1585,7 +1618,7 @@ Give concise, highly practical, actionable advice tailored for on-the-road trave
       ],
       generationConfig: {
         temperature: 0.7,
-        maxOutputTokens: 800
+        maxOutputTokens: 4096
       }
     };
 
@@ -1610,8 +1643,15 @@ Give concise, highly practical, actionable advice tailored for on-the-road trave
           if (res.ok) {
             const data = await res.json();
             if (data.candidates && data.candidates[0] && data.candidates[0].content && data.candidates[0].content.parts) {
-              this.cachedModel = model;
-              return data.candidates[0].content.parts.map(p => p.text).join('\n');
+              const parts = data.candidates[0].content.parts;
+              // Filter out thought parts if present, fallback to all parts if needed
+              const nonThoughtParts = parts.filter(p => p.text && !p.thought);
+              const validParts = nonThoughtParts.length > 0 ? nonThoughtParts : parts;
+              const reply = validParts.map(p => p.text || '').join('\n').trim();
+              if (reply) {
+                this.cachedModel = model;
+                return reply;
+              }
             }
           } else {
             const errData = await res.json().catch(() => ({}));
