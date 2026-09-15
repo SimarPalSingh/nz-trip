@@ -1508,6 +1508,53 @@ class NZTripApp {
     }
   }
 
+  async getAvailableModels() {
+    if (this.cachedModel) return [this.cachedModel];
+
+    try {
+      const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models?key=${encodeURIComponent(this.geminiApiKey)}`);
+      if (res.ok) {
+        const data = await res.json();
+        const available = (data.models || [])
+          .filter(m => m.supportedGenerationMethods && m.supportedGenerationMethods.includes('generateContent'))
+          .map(m => m.name.replace(/^models\//, ''));
+
+        if (available.length > 0) {
+          const preferences = [
+            'gemini-2.5-flash',
+            'gemini-3.8-flash',
+            'gemini-2.0-flash',
+            'gemini-2.0-flash-exp',
+            'gemini-1.5-flash-latest',
+            'gemini-1.5-flash',
+            'gemini-1.5-pro-latest',
+            'gemini-1.5-pro',
+            'gemini-pro'
+          ];
+          const sorted = [];
+          for (const pref of preferences) {
+            if (available.includes(pref)) sorted.push(pref);
+          }
+          for (const m of available) {
+            if (!sorted.includes(m)) sorted.push(m);
+          }
+          return sorted;
+        }
+      }
+    } catch (e) {
+      console.warn("Could not list models:", e);
+    }
+
+    // Default fallback order if listModels is unavailable
+    return [
+      'gemini-2.5-flash',
+      'gemini-2.0-flash',
+      'gemini-1.5-flash-latest',
+      'gemini-1.5-pro-latest',
+      'gemini-pro'
+    ];
+  }
+
   async callGeminiAPI(userQuery) {
     const day = TRIP_DATA.days.find(d => d.dayNum === this.copilotDay) || TRIP_DATA.days[0];
     const stay = day.accommodationId ? TRIP_DATA.accommodations.find(a => a.id === day.accommodationId) : null;
@@ -1542,34 +1589,49 @@ Give concise, highly practical, actionable advice tailored for on-the-road trave
       }
     };
 
-    // Try Gemini 2.0 Flash first, fallback to 1.5 Flash
-    let endpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${encodeURIComponent(this.geminiApiKey)}`;
-    let res = await fetch(endpoint, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(requestBody)
-    });
+    const candidateModels = await this.getAvailableModels();
+    let lastError = null;
 
-    if (!res.ok) {
-      endpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${encodeURIComponent(this.geminiApiKey)}`;
-      res = await fetch(endpoint, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(requestBody)
-      });
+    for (const model of candidateModels) {
+      // Try v1beta then v1
+      const endpoints = [
+        `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${encodeURIComponent(this.geminiApiKey)}`,
+        `https://generativelanguage.googleapis.com/v1/models/${model}:generateContent?key=${encodeURIComponent(this.geminiApiKey)}`
+      ];
+
+      for (const endpoint of endpoints) {
+        try {
+          const res = await fetch(endpoint, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(requestBody)
+          });
+
+          if (res.ok) {
+            const data = await res.json();
+            if (data.candidates && data.candidates[0] && data.candidates[0].content && data.candidates[0].content.parts) {
+              this.cachedModel = model;
+              return data.candidates[0].content.parts.map(p => p.text).join('\n');
+            }
+          } else {
+            const errData = await res.json().catch(() => ({}));
+            lastError = (errData && errData.error && errData.error.message) ? errData.error.message : `HTTP ${res.status}`;
+            // If it is 404 (model not found), continue loop to try next model
+            if (res.status !== 404) {
+              // Authentication or permission errors
+              throw new Error(lastError);
+            }
+          }
+        } catch (err) {
+          if (err.message && !err.message.includes('404') && !err.message.includes('not found')) {
+            throw err;
+          }
+          lastError = err.message;
+        }
+      }
     }
 
-    if (!res.ok) {
-      const errData = await res.json().catch(() => ({}));
-      const msg = (errData && errData.error && errData.error.message) ? errData.error.message : `HTTP ${res.status}`;
-      throw new Error(msg);
-    }
-
-    const data = await res.json();
-    if (data.candidates && data.candidates[0] && data.candidates[0].content && data.candidates[0].content.parts) {
-      return data.candidates[0].content.parts.map(p => p.text).join('\n');
-    }
-    return "No response generated. Please try again.";
+    throw new Error(lastError || "Could not find a supported Gemini model for this API key.");
   }
 
   renderCopilotView() {
