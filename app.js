@@ -1,5 +1,6 @@
 // NZ Trip Companion App - Logic & Comprehensive Data
 // Designed for Simar & Sheen's New Zealand South Island Adventure
+// Fully updated with Final Master Itinerary and Essential Logistics
 
 const TRIP_DATA = {
   tripTitle: "New Zealand South Island Odyssey",
@@ -36,7 +37,7 @@ const TRIP_DATA = {
       bookingUrl: "https://www.agoda.com/en-au/account/editbooking.html?bookingId=wcYpUPpr2wLM96ALV0m2pg%3D%3D",
       emailLink: "https://mail.google.com/mail/u/0/?hl=en#label/NZ+Trip/FMfcgzQgMMHNDJStHbfnZrXWNxbvWSGd",
       badge: "Night 1",
-      notes: "Central motel location. Walkable or short drive to Riverside Market and Tram."
+      notes: "Central motel location. Walkable or short drive to Riverside Market and Avon River Walk."
     },
     {
       id: "acc-2",
@@ -99,15 +100,14 @@ const TRIP_DATA = {
       platform: "Airbnb",
       cost: "688 AUD (Total)",
       checkIn: "After 3:00 PM",
-      checkOut: "Before 10:00 AM",
+      checkOut: "8:30 AM (8-Oct)",
       bookingRef: "Confirmed via Airbnb",
       badge: "Nights 6 to 9",
-      alert: "Note: Check whether Queenstown stay ends 8-Oct morning or 9-Oct morning relative to Mount Cook booking.",
-      notes: "Central base for Jetboat, Skyline Gondola, Glenorchy, and early Milford coach pickup."
+      notes: "Central base for Jetboat, Steamer Wharf, Arrowtown, Glenorchy, and early Milford coach pickup."
     },
     {
       id: "acc-6",
-      city: "Twizel / Mount Cook Village",
+      city: "Twizel / Mount Cook & Lake Tekapo Base",
       name: "Twizel Alpine Home",
       dates: "8 – 11 Oct 2026 (3 Nights)",
       nights: 3,
@@ -115,865 +115,1260 @@ const TRIP_DATA = {
       mapsQuery: "15 Sealy Street, Twizel, Canterbury 7901, New Zealand",
       platform: "Airbnb",
       cost: "541 AUD (Total)",
-      checkIn: "3:00 PM – 10:00 PM",
-      checkOut: "Before 10:00 AM",
+      checkIn: "3:00 PM – 10:00 PM (8-Oct)",
+      checkOut: "Before 10:00 AM (11-Oct)",
       bookingRef: "Confirmed via Airbnb",
       badge: "Nights 10 to 12",
-      alert: "Check dates: Booked 8-11 Oct (3 nights). Ideal staging base for Hooker Valley & Tekapo.",
-      notes: "Spacious stay near Lake Ruataniwha and direct gateway to Aoraki / Mount Cook & Lake Tekapo."
+      notes: "Spacious stay in Twizel for 3 nights. Your single base for Mount Cook, Hooker Valley, Tasman Glacier, and Lake Tekapo day trip."
+    }
+  ],
+  essentialDetails: [
+    {
+      id: "biosecurity",
+      category: "Border & Customs",
+      title: "Biosecurity at Arrival (Christchurch Airport)",
+      icon: "🛃",
+      summary: "Clean your boots before flying & declare outdoor gear to avoid an instant $400 NZD fine.",
+      rules: [
+        "Clean your outdoor footwear: All hiking boots, runners, and outdoor gear must be scrubbed completely free of visible mud, soil, grass, and seeds before packing.",
+        "Declare on arrival: Tick 'Yes' on your passenger arrival card for outdoor footwear and food. Undeclared dirty gear or restricted food incurs an immediate $400 NZD instant fine."
+      ],
+      tag: "$400 Instant Fine Alert",
+      alertType: "critical"
+    },
+    {
+      id: "sandflies",
+      category: "Pest Protection",
+      title: "Sandflies & Repellent (West Coast & Fiordland)",
+      icon: "🦟",
+      summary: "Heavy-duty 40% DEET (Bushman aerosol) is required. Keep off watch faces, plastics, and camera lenses!",
+      rules: [
+        "Repellent Type: Standard herbal sprays do NOT work against West Coast and Fiordland sandflies; carry heavy-duty 40% DEET (Bushman aerosol).",
+        "Application: Spray ankles, wrists, and exposed skin directly. Do not spray on sunglasses, watch screens, camera bodies, or technical gear, as DEET melts plastics and synthetics.",
+        "Hotspots: Hokitika Gorge, Haast Pass stops, Blue Pools, and Milford Sound."
+      ],
+      tag: "40% DEET Bushman Spray",
+      alertType: "warning"
+    },
+    {
+      id: "fuel",
+      category: "Fuel Strategy",
+      title: "Fuel Dead Zones (Remote Alpine Corridors)",
+      icon: "⛽",
+      summary: "Top up in Springfield (Day 2), Fox Glacier (Day 5), and Twizel (Days 10–11). Remote passes have zero petrol!",
+      rules: [
+        "Arthur's Pass (Day 2): Fill your tank in Springfield before climbing the pass; fuel stops inside Arthur's Pass are scarce and expensive.",
+        "Haast Pass (Day 5): Top up fully in Fox Glacier village before driving south. There is virtually no cell service and no reliable fuel between Haast and Makarora (~80 km).",
+        "Lindis Pass / Mt Cook (Days 10–11): Top up in Twizel; Mount Cook Village has only an emergency, premium-priced automated pump."
+      ],
+      tag: "Springfield • Fox Glacier • Twizel",
+      alertType: "warning"
+    },
+    {
+      id: "offline_maps",
+      category: "Navigation",
+      title: "Offline Maps (All South Island Regions)",
+      icon: "🗺️",
+      summary: "Download entire South Island Google Maps offline before leaving Christchurch.",
+      rules: [
+        "Download offline Google Maps for the entire South Island onto both travelers' phones before leaving Christchurch.",
+        "Cellular reception cuts out completely through Arthur's Pass (SH73), the Haast Pass corridor (SH6), the Milford Road (SH94), and parts of the Mount Cook Highway (SH80)."
+      ],
+      tag: "Download Offline Maps",
+      alertType: "info"
+    },
+    {
+      id: "mt_john",
+      category: "Operating Hours",
+      title: "Mt John Observatory Summit Road (Lake Tekapo - Day 12)",
+      icon: "🔭",
+      summary: "Private toll road ($8 NZD) closes to tourists at 5:00 PM daily for research telescopes. Visit 10:00 AM – 3:30 PM.",
+      rules: [
+        "The private toll road ($8 NZD per car) up to Mt John and the Astro Café closes to private tourist vehicles around 5:00 PM daily so that astronomical research telescopes can operate without light interference.",
+        "Plan to visit between 10:00 AM and 3:30 PM for coffee, cake, and 360-degree basin views."
+      ],
+      tag: "Closes 5:00 PM Daily ($8 Toll)",
+      alertType: "info"
+    },
+    {
+      id: "clay_cliffs",
+      category: "Cash Requirement",
+      title: "Omarama Clay Cliffs Honesty Box (Day 10)",
+      icon: "💵",
+      summary: "Private farmland gate honesty box requires $5 NZD cash/coins. No EFTPOS or credit cards.",
+      rules: [
+        "The cliffs sit on private sheep-farming land along Henburn Road.",
+        "The access gate has an honesty box that requires $5 NZD cash/coins (EFTPOS/cards are not accepted). Keep small NZD coins/notes in the glove box."
+      ],
+      tag: "$5 NZD Cash Honesty Box",
+      alertType: "warning"
+    },
+    {
+      id: "hooker_valley",
+      category: "Track Access",
+      title: "Hooker Valley Early Start (Mount Cook - Day 11)",
+      icon: "🥾",
+      summary: "White Horse Hill carpark fills completely by 9:00 AM. Arrive by 8:30 AM to guarantee parking!",
+      rules: [
+        "White Horse Hill carpark fills up completely by 9:00 AM – 9:30 AM in spring.",
+        "Arriving around 8:30 AM guarantees parking at the trackhead, avoids walking along the roadside verges, and gets you across the suspension bridges before two-way foot traffic builds up."
+      ],
+      tag: "Arrive 8:30 AM Sharp",
+      alertType: "critical"
+    },
+    {
+      id: "layering",
+      category: "Clothing & Weather",
+      title: "Alpine Layering & Cabin Essentials (Entire Trip)",
+      icon: "🧥",
+      summary: "Spring weather can drop from 16°C to 2°C in minutes. Keep warm jackets & beanies inside the car cabin.",
+      rules: [
+        "Early October is mid-spring. Temperatures can shift from 16°C in sunshine down to 2°C with biting windchill across mountain passes (Arthur's Pass, Crown Range, Lindis Pass, and Mount Cook).",
+        "Always keep a packable windproof/rainproof jacket, beanie, and light gloves inside the passenger cabin of the car rather than packed deep in the trunk."
+      ],
+      tag: "Keep Warm Gear in Car Cabin",
+      alertType: "info"
+    },
+    {
+      id: "live_portals",
+      category: "Live Updates",
+      title: "Road & Trail Status Portals",
+      icon: "🌐",
+      summary: "Daily status checkers for alpine pass road closures and DOC hiking trail conditions.",
+      rules: [
+        "Road Alerts: Check journeys.nzta.govt.nz daily before driving across mountain passes (Arthur's Pass, Crown Range, and Lindis Pass) for snow, black ice, or construction alerts.",
+        "Track Status: Check doc.govt.nz for short-term trail closures, bridge maintenance, or weather slips (especially around Hokitika Gorge, Haast Pass, and Mount Cook tracks)."
+      ],
+      tag: "NZTA & DOC Daily Portals",
+      alertType: "info",
+      links: [
+        { label: "NZTA Road Alerts", url: "https://www.journeys.nzta.govt.nz" },
+        { label: "DOC Trail Status", url: "https://www.doc.govt.nz" }
+      ]
+    },
+    {
+      id: "crown_range_braking",
+      category: "Mountain Driving",
+      title: "Crown Range Steep Descent (Shift to Low Gear / M2)",
+      icon: "🏔️",
+      summary: "NZ's highest highway drops steeply into Queenstown. Downshift Mitsubishi ASX to manual mode / M2 to engine brake and prevent brake failure.",
+      rules: [
+        "When descending from Crown Range summit (1,121m) into Arrowtown/Queenstown, continuous 10% gradients will overheat and glaze disc brakes if you ride the brake pedal.",
+        "Shift the automatic Mitsubishi ASX transmission selector into 'M' (Manual) or 'B' (Brake) mode and hold in 2nd gear (M2) so the engine restrains vehicle momentum.",
+        "Pull over into marked slow-vehicle turnouts if cars gather behind you."
+      ],
+      tag: "Use Low Gear (M2 / B)",
+      alertType: "warning"
+    },
+    {
+      id: "one_lane_bridges",
+      category: "Road Rules",
+      title: "One-Lane Bridges (Arrow Priority Rules)",
+      icon: "🌉",
+      summary: "Dozens of single-lane bridges line SH6 (West Coast & Haast). Large white arrow = you have priority; small red arrow = give way.",
+      rules: [
+        "South Island highways feature historic single-lane bridges without traffic lights.",
+        "Big White Arrow: You have right-of-way, but always slow down and confirm oncoming vehicles are yielding.",
+        "Small Red Arrow inside Red Circle: You MUST yield and come to a complete stop before the bridge if another vehicle is approaching."
+      ],
+      tag: "White Arrow = Priority • Red = Give Way",
+      alertType: "info"
+    },
+    {
+      id: "kea_warning",
+      category: "Wildlife Caution",
+      title: "Kea Alpine Parrots (Otira Viaduct, Arthur's Pass & Kea Point)",
+      icon: "🦜",
+      summary: "The world's only alpine parrot loves dismantling cars. Never leave windows cracked, and never feed them.",
+      rules: [
+        "Kea are hyper-intelligent alpine parrots found at Otira Viaduct, Arthur's Pass, and Mount Cook.",
+        "They actively chew and tear rubber window wipers, door weatherstripping, and roof antenna seals on parked vehicles.",
+        "Keep car windows fully rolled up when parked, never feed them (human food causes fatal dependency), and shoo them gently from your rental car."
+      ],
+      tag: "Do Not Feed • Protect Car Wipers",
+      alertType: "warning"
+    },
+    {
+      id: "night_wildlife",
+      category: "Night Driving",
+      title: "Mackenzie Basin Night Wildlife (Twizel ↔ Tekapo SH8)",
+      icon: "🦘",
+      summary: "High concentration of nocturnal wallabies, hares, and possums on pitch-black SH8. Use high beams and avoid sudden swerves.",
+      rules: [
+        "When returning to Twizel after Lake Tekapo stargazing (Day 12), SH8 has zero streetlights.",
+        "The open tussock plains have high densities of wild Bennett's wallabies, European hares, and possums that dart across headlights.",
+        "Use high beams when there is no oncoming traffic, scan road shoulders, and brake firmly in a straight line rather than swerving into gravel verges."
+      ],
+      tag: "Nocturnal Wallaby Hazard",
+      alertType: "warning"
+    },
+    {
+      id: "airport_refuel",
+      category: "Rental Return",
+      title: "Airport Car Return Refuel Strategy (Russley Road)",
+      icon: "⛽",
+      summary: "APEX charges heavy penalties for non-full tanks. Fill up at NPD or BP on Russley Road, 2 km before the airport terminal.",
+      rules: [
+        "APEX requires the vehicle returned with a 100% full fuel tank before 3:00 PM on Day 13.",
+        "Avoid airport terminal forecourt fuel stations which charge premium tourist markups.",
+        "Top up at NPD Russley Road (self-service discount) or BP Connect Russley Road on SH1 (~5 minutes south of Christchurch Airport terminal)."
+      ],
+      tag: "NPD / BP Russley Road (2 km out)",
+      alertType: "info"
     }
   ],
   days: [
     {
       dayNum: 1,
       date: "Tue, 29-Sep",
-      title: "Arrive in Christchurch & Sunset Port Hills",
-      tagline: "Car pickup, historic tram, riverside dinner & panoramic golden hour",
+      title: "Christchurch Arrival & Port Hills Sunset",
+      tagline: "Car pickup, heritage city walk, Riverside Market dinner & panoramic Port Hills sunset",
       route: "Christchurch Airport → Central City → Port Hills",
       driveTime: "~30 mins local driving",
       baseCity: "Christchurch",
       accommodationId: "acc-1",
+      approxCost: "$0 (Free)",
       highlights: [
-        "Christchurch Tram Loop",
-        "New Regent Street",
-        "Avon River Stroll",
-        "Earthquake Memorial",
-        "Riverside Market Dinner",
-        "Port Hills Sunset Lookout"
+        "APEX Rental Car Pickup",
+        "Avon River Promenade Walk",
+        "Historic New Regent Street",
+        "Canterbury Earthquake Memorial",
+        "Riverside Market Food Hall",
+        "Port Hills / Cashmere Lookouts"
+      ],
+      essentialRules: [
+        {
+          title: "Biosecurity Clean Footwear & Declare ($400 Fine Alert)",
+          desc: "Clean all hiking footwear thoroughly before flying. Declare outdoor shoes and food on arrival card ('Yes'). Undeclared items incur an instant $400 NZD fine."
+        }
       ],
       activities: [
         {
           time: "3:00 PM",
           name: "Pick up Rental Car at APEX Christchurch Airport",
-          desc: "Collect confirmed Mitsubishi ASX SUV (Booking #4174153). Hamish contact. $0 Excess.",
+          desc: "Collect confirmed Mitsubishi ASX SUV (Booking #4174153). Terminal collection, $0 Excess, authorized drivers Simar & Sheen.",
           cost: "Car Booked",
           type: "logistics",
-          locationQuery: "Apex Car Rentals Christchurch Airport"
+          locationQuery: "Apex Car Rentals Christchurch Airport",
+          parking: "Terminal collection at Christchurch Airport. Short walk from baggage claim to APEX rental desk.",
+          parkingQuery: "Apex Car Rentals Christchurch Airport"
         },
         {
-          time: "3:45 PM – 5:30 PM",
-          name: "Park in City Centre & Historic Tram Loop",
-          desc: "Take a scenic loop on the vintage Christchurch Tram (~50 mins) past Spanish-style New Regent Street, followed by an easy flat stroll along the weeping willows of the Avon River to the Canterbury Earthquake National Memorial.",
-          cost: "~$45 NZD (or Avon Punting ~$45-50)",
+          time: "Late Afternoon",
+          name: "Heritage City Walk (Avon River, New Regent St & Earthquake Memorial)",
+          desc: "Stroll the flat Avon River Promenade, walk past charming Spanish Mission-style New Regent Street, and visit the reflective Canterbury Earthquake National Memorial.",
+          cost: "FREE",
           type: "attraction",
-          locationQuery: "Christchurch Tramway New Regent Street"
+          locationQuery: "Canterbury Earthquake National Memorial Christchurch",
+          parking: "Lichfield Street Carpark (33 Lichfield St, multi-level & covered) or West End Carpark (48 Hereford St). Very safe, 2-min walk to Riverside Market & Avon River.",
+          parkingQuery: "Lichfield Street Carpark Christchurch"
         },
         {
           time: "6:00 PM",
           name: "Dinner at Riverside Market",
-          desc: "Vibrant indoor boutique food hall with local artisan eateries, craft beers, and fresh snacks.",
+          desc: "Grab dinner from the vibrant local food stalls, artisan bakeries, and boutique eateries inside Riverside Market (96 Oxford Terrace).",
           cost: "Food & Drinks",
           type: "food",
-          locationQuery: "Riverside Market Christchurch"
+          locationQuery: "Riverside Market Christchurch",
+          parking: "Lichfield Street Carpark (directly behind the market) or on-street meters along Cambridge Terrace.",
+          parkingQuery: "Lichfield Street Carpark Christchurch"
         },
         {
           time: "7:15 PM",
-          name: "Sunset Golden Hour Drive to Port Hills Lookout",
-          desc: "Drive up the Sign of the Takahe / Summit Road for breath-taking panoramic views across the illuminated city and snowcapped Southern Alps.",
+          name: "Sunset Golden Hour at Port Hills Lookouts",
+          desc: "Drive up to the Port Hills lookouts (Sign of the Takahe / Cashmere, Dyers Pass Rd) for spectacular sunset views across the Canterbury Plains and Southern Alps.",
           cost: "FREE",
           type: "viewpoint",
-          locationQuery: "Sign of the Takahe Port Hills Christchurch"
+          locationQuery: "Sign of the Takahe Port Hills Christchurch",
+          parking: "Sign of the Takahe Carpark (Dyers Pass Rd) for stone castle grounds, or continue 3 mins up to Sign of the Kiwi / Summit Road for elevated dual-harbour views.",
+          parkingQuery: "Sign of the Takahe Carpark Christchurch"
         }
       ],
-      tips: "Check into Belmont Motor Inn (172 Bealey Ave) after 2pm. Keep your parking receipt handy in the city."
+      tips: "Check into Belmont Motor Inn (172 Bealey Ave) after 2:00 PM. Enjoy the flat riverside stroll to shake off flight fatigue."
     },
     {
       dayNum: 2,
       date: "Wed, 30-Sep",
-      title: "The Great Alpine Pass: Christchurch to Hokitika",
-      tagline: "Castle Hill limestone boulders, Otira Viaduct, Devils Punchbowl & turquoise gorge",
+      title: "Christchurch to Hokitika (via Arthur's Pass)",
+      tagline: "Castle Hill boulders, Otira Viaduct, Devils Punchbowl & turquoise Hokitika Gorge",
       route: "Christchurch → Castle Hill → Arthur's Pass → Hokitika Gorge → Hokitika",
-      driveTime: "~3.5 – 4 hrs driving across SH 73",
+      driveTime: "~3.5 – 4 hrs driving across SH73",
       baseCity: "Hokitika",
       accommodationId: "acc-2",
+      approxCost: "$0 (Free)",
       highlights: [
-        "Castle Hill (Kura Tāwhiti)",
+        "Springfield Giant Donut & Fuel Stop",
+        "Castle Hill (Kura Tāwhiti) Boulders",
         "Porters Pass Viewpoint",
         "Otira Viaduct Lookout",
-        "Devils Punchbowl Waterfall",
+        "Devils Punchbowl Waterfall (45m)",
         "Hokitika Gorge Swing Bridge",
-        "Hokitika Beach Sunset"
+        "Hokitika Beach Driftwood Sunset"
+      ],
+      essentialRules: [
+        {
+          title: "Fuel Stop: Top up in Springfield",
+          desc: "Fill your petrol tank in Springfield before climbing Arthur's Pass (SH73); fuel inside the pass is scarce and expensive."
+        },
+        {
+          title: "Kea Bird Warning at Otira Viaduct",
+          desc: "Do NOT leave car windows cracked or feed keas. These inquisitive alpine parrots aggressively tear and chew windshield wipers and rubber door seals!"
+        },
+        {
+          title: "Offline Maps & Sandfly Alert",
+          desc: "No cell reception across Arthur's Pass (SH73). Hokitika Gorge is a major sandfly hotspot—apply 40% DEET Bushman repellent to ankles and wrists."
+        }
       ],
       activities: [
         {
-          time: "8:00 AM",
-          name: "Depart Christchurch early on SH 73",
-          desc: "Hit the scenic Great Alpine Highway early to maximize daytime stops.",
-          cost: "FREE",
-          type: "drive"
+          time: "9:15 AM",
+          name: "Springfield Giant Pink Donut & Final Fuel Top-up",
+          desc: "Quick 5-minute photo stop at the famous giant pink Simpson's donut in Springfield. Crucial: Fill your tank fully at Springfield Challenge/GAS station—last reliable petrol before Arthur's Pass!",
+          cost: "FREE (Photo)",
+          type: "viewpoint",
+          isScenicStop: true,
+          locationQuery: "Springfield Donut Canterbury New Zealand",
+          parking: "Free roadside pull-in bay beside the reserve and playground right on SH73.",
+          parkingQuery: "Springfield Donut Canterbury New Zealand"
         },
         {
-          time: "9:30 AM",
-          name: "Castle Hill (Kura Tāwhiti) Boulder Walk",
-          desc: "Easy, flat 15–20 min stroll amidst gigantic weathered limestone boulders where scenes of Narnia were filmed.",
+          time: "10:15 AM",
+          name: "Drive Great Alpine Highway (SH73) & Castle Hill Walk",
+          desc: "Drive the dramatic Great Alpine Highway. Stop for an easy 20-minute walk among the giant weathered limestone boulders at Castle Hill (Kura Tāwhiti Basin).",
           cost: "FREE",
           type: "nature",
-          locationQuery: "Kura Tawhiti Castle Hill Conservation Area"
+          locationQuery: "Kura Tawhiti Castle Hill Conservation Area",
+          parking: "Dedicated official DOC Kura Tāwhiti carpark on the left of SH73 (toilets on site, 5-min flat walking track to limestone formations).",
+          parkingQuery: "Castle Hill Car Park SH73 New Zealand"
         },
         {
-          time: "11:30 AM",
+          time: "11:45 AM",
           name: "Porters Pass & Otira Viaduct Lookout",
-          desc: "Marvel at the engineering feat of the Otira Viaduct perched between sheer cliffs. Stop in Arthur's Pass village for a warm bakery lunch.",
+          desc: "Pull over at Porters Pass and the spectacular Otira Viaduct Lookout perched over mountain gorges; stop in Arthur's Pass village for lunch.",
           cost: "FREE (Lunch ~$20)",
           type: "viewpoint",
-          locationQuery: "Otira Viaduct Lookout Arthurs Pass"
+          locationQuery: "Otira Viaduct Lookout Arthurs Pass",
+          parking: "Wide sealed pull-off at Otira Viaduct Lookout on right side of SH73 heading west. Kea warning: keep car windows shut!",
+          parkingQuery: "Otira Viaduct Lookout"
         },
         {
-          time: "1:30 PM",
-          name: "Devils Punchbowl Waterfall Walk",
-          desc: "Invigorating 45–60 min return walk through lush beech forest to the base of a roaring 131-metre cascading waterfall.",
+          time: "1:15 PM",
+          name: "Devils Punchbowl Waterfall Track",
+          desc: "Walk the 45-minute return track through lush mountain beech forest to the base of the roaring 131-metre cascading waterfall (~240 well-graded wooden steps).",
           cost: "FREE",
           type: "nature",
-          locationQuery: "Devils Punchbowl Walking Track Arthurs Pass"
+          locationQuery: "Devils Punchbowl Walking Track Arthurs Pass",
+          parking: "Dedicated Punchbowl Road Carpark just off SH73 in Arthur's Pass village (do not park on highway shoulder).",
+          parkingQuery: "Devils Punchbowl Car Park Arthurs Pass"
         },
         {
-          time: "3:30 PM",
-          name: "Hokitika Gorge Turquoise River Walk",
-          desc: "Cross the swing bridge overlooking unreal electric-turquoise glacial waters and native podocarp forest loop track.",
+          time: "3:45 PM",
+          name: "Hokitika Gorge Turquoise Swing Bridge Walk",
+          desc: "Continue west to Hokitika Gorge (Kokatahi-Gorge Rd, ~30 km inland) for the flat turquoise swing bridge loop walk over vivid glacial waters.",
           cost: "FREE",
           type: "nature",
-          locationQuery: "Hokitika Gorge Walk"
+          locationQuery: "Hokitika Gorge Walk",
+          parking: "Official DOC sealed carpark at the end of Kokatahi-Gorge Road (modern toilets, picnic shelters, and track entrance).",
+          parkingQuery: "Hokitika Gorge Carpark"
         },
         {
-          time: "6:30 PM",
-          name: "Sunset & Dinner at Hokitika Beach Driftwood Sign",
-          desc: "Grab West Coast fish & chips or pizza and watch the Tasman Sea sunset beside the famous driftwood letters.",
+          time: "6:15 PM",
+          name: "Hokitika Beach Sunset & Driftwood Sign",
+          desc: "Arrive in Hokitika, grab dinner (West Coast fish & chips or pizza), and watch the Tasman Sea sunset beside the famous driftwood letters.",
           cost: "FREE (Dinner)",
           type: "viewpoint",
-          locationQuery: "Hokitika Beach Driftwood Sign"
+          locationQuery: "Hokitika Beach Driftwood Sign",
+          parking: "Beachside parking bays along Beach Street / Stafford Street, steps from the driftwood sign and 2 Weld Street stay.",
+          parkingQuery: "Hokitika Beach Driftwood Sign"
         }
       ],
-      tips: "Check-in at 2 Weld Street is between 2:00 PM – 8:30 PM. Keep your insect repellent handy for West Coast sandflies."
+      tips: "Check-in at 2 Weld Street is between 2:00 PM – 8:30 PM. Keep your 40% DEET handy for Hokitika Gorge!"
     },
     {
       dayNum: 3,
       date: "Thu, 01-Oct",
-      title: "Wild West Coast & Franz Josef Glacier Heli Flight",
-      tagline: "Glacial flight, rainforest drive, and magical nighttime wild glowworms",
+      title: "Hokitika to Franz Josef",
+      tagline: "West Coast rainforest drive, 11:30 AM Glacier Heli Flight & wild glowworms",
       route: "Hokitika → Ross → Franz Josef Glacier",
-      driveTime: "~1.75 hrs south (135 km)",
+      driveTime: "~1 hr 45 min south (135 km) on SH6",
       baseCity: "Franz Josef",
       accommodationId: "acc-3",
+      approxCost: "Pre-booked item (Terrace Walk: $0)",
       highlights: [
-        "Scenic West Coast Highway",
+        "Scenic West Coast Highway (SH6)",
+        "Lake Ianthe Glassy Mirror Lake Stop",
         "11:30 AM Glacier Helicopter Flight",
         "Franz Josef Alpine Village",
-        "Terrace Walk Glowing Glowworms"
+        "Free Terrace Walk Glowing Glowworms"
       ],
       activities: [
         {
           time: "8:30 AM",
-          name: "Coastal Scenic Drive to Franz Josef",
-          desc: "Cruise south with views of native rainforest on one side and the Tasman Sea on the other.",
+          name: "Drive South along West Coast Highway (SH6)",
+          desc: "Cruise south past historic Ross gold country and ancient podocarp rainforest into Glacier Country (~1 hr 45 min drive).",
           cost: "FREE",
           type: "drive"
         },
         {
-          time: "10:30 AM",
-          name: "Arrive in Village & Report to Heli-Base",
-          desc: "Drop bags at 9 Cron Street and report to the helicopter base by 11:00 AM sharp for safety briefing.",
-          cost: "Logistics",
+          time: "9:45 AM",
+          name: "Lake Ianthe Glassy Mirror Lake Stop",
+          desc: "Idyllic 5-minute scenic rest area right off SH6 between Ross and Harihari. On calm mornings, the dark tannin waters create perfect mirror reflections of ancient kahikatea trees.",
+          cost: "FREE",
+          type: "nature",
+          isScenicStop: true,
+          locationQuery: "Lake Ianthe Rest Area SH6",
+          parking: "Spacious sealed rest area bay right off SH6 with picnic tables and lake edge jetty.",
+          parkingQuery: "Lake Ianthe Rest Area SH6"
+        },
+        {
+          time: "10:45 AM",
+          name: "Check in at Helicopter Flight Base",
+          desc: "Arrive in Franz Josef village and check in at the helicopter flight base on the main village strip (SH6). Wear sunglasses (mandatory for snow glare) and flat enclosed shoes. Receive safety briefing.",
+          cost: "Pre-booked",
           type: "logistics",
-          locationQuery: "The Helicopter Line Franz Josef"
+          locationQuery: "The Helicopter Line Franz Josef",
+          parking: "Your accommodation at 9 Cron Street is only 200m from The Helicopter Line base—leave your car at your chalet and walk!",
+          parkingQuery: "9 Cron Street Franz Josef Glacier"
         },
         {
           time: "11:30 AM",
           name: "Franz Josef Glacier Helicopter Flight / Heli-Hike",
-          desc: "Soar over dramatic ice pinnacles, crevasses, and snowfields with a breathtaking glacier snow landing.",
-          cost: "~$300 – $550 NZD pp",
+          desc: "Take to the skies over glacial icefalls, deep blue crevasses, and snow fields beneath Mount Cook & Tasman, complete with an alpine snow landing.",
+          cost: "Pre-booked",
           type: "attraction",
-          locationQuery: "Franz Josef Glacier Heli Base"
+          locationQuery: "Franz Josef Glacier New Zealand"
         },
         {
-          time: "2:30 PM",
-          name: "Village Stroll & Waiho Hot Tubs Soak",
-          desc: "Unwind at local village cafes or book a private wood-fired freshwater tub among lush forest.",
-          cost: "Optional (~$50 NZD)",
-          type: "nature",
-          locationQuery: "Waiho Hot Tubs Franz Josef"
+          time: "Afternoon",
+          name: "Unwind in Franz Josef Alpine Village",
+          desc: "Relax after your exhilarating flight. Browse alpine village craft shops, visit local cafes, or enjoy a warm drink.",
+          cost: "Coffee / Snacks",
+          type: "leisure",
+          locationQuery: "Franz Josef Village New Zealand",
+          parking: "Free street parking along Cron Street or Franz Josef village centre public carpark.",
+          parkingQuery: "Franz Josef Village Public Car Park"
         },
         {
-          time: "8:00 PM",
-          name: "Terrace Walk Wild Glowworm Stroll",
-          desc: "Short, flat 30-min walk directly from the village edge into dense native bush. Switch off torches to see hundreds of fairy glowworms twinkling like constellations.",
+          time: "Night",
+          name: "Free Terrace Walk Wild Glowworms",
+          desc: "Take the magical flat 30-min return walk along the forest track at the village edge (trailhead behind Cowan St) to spot thousands of wild glowworms shining on rainforest moss banks.",
           cost: "FREE",
           type: "nature",
-          locationQuery: "Terrace Walk Franz Josef"
+          locationQuery: "Terrace Walk Franz Josef",
+          parking: "Walk from 9 Cron Street (3-min walk), or park at DOC Glacier Visitor Centre carpark (Cowan Street).",
+          parkingQuery: "Terrace Walk Franz Josef"
         }
       ],
-      tips: "Stay 2 nights at 9 Cron Street. If clouds delay the 11:30 AM heli flight, don't worry—tomorrow is your built-in backup window!"
+      tips: "Check-in at 9 Cron Street is after 2:00 PM. Bring a phone torch for the Terrace Walk path, but turn it off completely to see the glowworms glow!"
     },
     {
       dayNum: 4,
       date: "Fri, 02-Oct",
-      title: "Glacier Valley Wonders & Mirror Lake Reflections",
-      tagline: "Backup flight window, Peter's Pool, Sentinel Rock & Lake Matheson",
-      route: "Franz Josef Glacier Valley & Fox Glacier Loop",
-      driveTime: "~30 mins local",
+      title: "Franz Josef & Fox Glacier",
+      tagline: "Weather backup flight window, Lake Matheson mirror loop & glacial valley walks",
+      route: "Franz Josef Village ↔ Fox Glacier (Lake Matheson) & Glacier Valley",
+      driveTime: "~30 mins local driving",
       baseCity: "Franz Josef",
       accommodationId: "acc-3",
+      approxCost: "$0 (Free)",
       highlights: [
-        "Heli Flight Backup Window",
+        "Heli Flight Backup Weather Window",
+        "Lake Matheson Mirror Reflection Loop",
         "Peter's Pool Glacial Mirror Track",
-        "Sentinel Rock Valley Viewpoint",
-        "Lake Matheson Mirror Reflections",
-        "Waiho River Glacial Plain"
+        "Sentinel Rock Valley Viewpoint"
       ],
       activities: [
         {
-          time: "Morning",
-          name: "Heli Flight Backup Window / Glacier Valley Walks",
-          desc: "If yesterday was weathered out, take your rescheduled flight this morning. If already completed, enjoy a relaxed morning with flat walks to Peter's Pool (kettle lake reflecting the mountains).",
-          cost: "FREE",
-          type: "nature",
-          locationQuery: "Peters Pool Franz Josef Glacier"
+          time: "All Day",
+          name: "Automatic Backup Flight Window",
+          desc: "If yesterday's heli flight was grounded or rescheduled due to alpine cloud cover, today serves as your built-in backup weather window!",
+          cost: "Backup Slot",
+          type: "attraction"
         },
         {
-          time: "11:30 AM",
+          time: "Morning",
+          name: "Lake Matheson Mirror-Reflection Loop (Fox Glacier)",
+          desc: "Drive 25 mins south to Cook Flat Rd for the easy, flat 1.5-hr mirror-reflection rainforest loop track. On calm days, see postcard mirror reflections of Mt Cook and Mt Tasman in dark waters (best at 'View of Views' jetty).",
+          cost: "FREE",
+          type: "nature",
+          locationQuery: "Lake Matheson Fox Glacier",
+          parking: "Spacious sealed visitor carpark at Matheson Cafe, end of Cook Flat Road (Fox Glacier).",
+          parkingQuery: "Lake Matheson Carpark Fox Glacier"
+        },
+        {
+          time: "Afternoon",
+          name: "Peter's Pool Glacial Mirror Track",
+          desc: "Head back to Franz Josef Glacier Access Rd for an easy, flat 25-min loop walk through native rainforest to a tranquil kettle lake reflecting the glacier valley.",
+          cost: "FREE",
+          type: "nature",
+          locationQuery: "Peters Pool Franz Josef",
+          parking: "Glacier Access Road carpark (end of Franz Josef Glacier Access Rd) with wide parking bays and DOC trail signage.",
+          parkingQuery: "Peters Pool Franz Josef"
+        },
+        {
+          time: "Late Afternoon",
           name: "Sentinel Rock Lookout",
-          desc: "Short 15-minute gentle climb for sweeping panoramic views across the Franz Josef glacier retreat valley.",
+          desc: "Take the short 20-min walk onto a glacially carved rock mound for panoramic views across the Franz Josef Glacier valley and Waiho River bed.",
           cost: "FREE",
           type: "viewpoint",
-          locationQuery: "Sentinel Rock Walk Franz Josef"
-        },
-        {
-          time: "1:30 PM",
-          name: "Fox Glacier & Lake Matheson Mirror Walk",
-          desc: "Take a 25-min scenic drive south to Fox Glacier. Walk the famous 1-hour Lake Matheson loop track, celebrated for postcard mirror reflections of Aoraki / Mount Cook & Mount Tasman on calm water.",
-          cost: "FREE (Cafe lunch ~$25)",
-          type: "nature",
-          locationQuery: "Lake Matheson Walk Fox Glacier"
-        },
-        {
-          time: "5:00 PM",
-          name: "Cozy Dinner in Franz Josef Village",
-          desc: "Enjoy hearty pub fare or craft pizza at SnakeBite Brewery or Alice May.",
-          cost: "Dinner",
-          type: "food",
-          locationQuery: "Franz Josef Glacier Village"
+          locationQuery: "Sentinel Rock Franz Josef",
+          parking: "Shares the main Franz Josef Glacier Access Road carpark. Clearly signposted fork off the main valley trail.",
+          parkingQuery: "Sentinel Rock Franz Josef"
         }
       ],
-      tips: "Lake Matheson is calmest early in the morning or late afternoon for the mirror effect. Bring camera!"
+      tips: "Early morning at Lake Matheson offers the calmest water for mirror reflections. Stop at Matheson Café for hot coffee."
     },
     {
       dayNum: 5,
       date: "Sat, 03-Oct",
-      title: "Haast Alpine Pass to Pristine Wānaka",
-      tagline: "Fox Glacier viewpoints, crystal Blue Pools, Lake Hāwea & That Wānaka Tree",
-      route: "Franz Josef → Haast Pass → Blue Pools → Lake Hāwea → Wānaka",
-      driveTime: "~4 hrs scenic drive (285 km)",
+      title: "Franz Josef to Wānaka (via Haast Pass)",
+      tagline: "Fox Glacier roadside views, Haast Pass waterfalls, Makarora Blue Pools & That Wānaka Tree",
+      route: "Franz Josef → Haast Pass → Makarora → Lake Hāwea → Wānaka",
+      driveTime: "~4 hrs scenic drive (285 km) across SH6",
       baseCity: "Albert Town (Wānaka)",
       accommodationId: "acc-4",
+      approxCost: "$0 (Free)",
       highlights: [
         "Fox Glacier Roadside Views",
-        "Haast Pass Mountain Highway",
-        "Blue Pools & Thunder Creek Falls",
-        "Lake Hāwea Roadside Lookouts",
+        "Knights Point Coastal Lookout",
+        "Haast Pass Waterfalls (Thunder Creek & Fantail Falls)",
+        "Blue Pools Beech Forest Walk",
+        "Lake Hāwea Lookouts (The Neck)",
         "That Wānaka Tree at Sunset"
+      ],
+      essentialRules: [
+        {
+          title: "Fuel Dead Zone: Top up in Fox Glacier Village",
+          desc: "Top up your tank fully in Fox Glacier village before driving south. There is NO reliable fuel and no mobile signal between Haast and Makarora (~80 km)."
+        },
+        {
+          title: "Sandfly Hotspots at Haast Pass & Blue Pools",
+          desc: "Apply 40% DEET Bushman repellent before leaving the car. Do not spray on cameras or sunglasses."
+        },
+        {
+          title: "One-Lane Bridges on SH6",
+          desc: "Multiple single-lane bridges along Haast corridor. Big white arrow = you have right-of-way; small red arrow = give way to opposing traffic."
+        }
       ],
       activities: [
         {
-          time: "8:30 AM",
-          name: "Drive South over Haast Pass",
-          desc: "Witness the transition from dense temperate rainforest to rugged river gorges and tussock alpine valleys.",
+          time: "Morning",
+          name: "Drive South on SH6 with Views of Fox Glacier",
+          desc: "Depart Franz Josef driving south along highway SH6 with elevated roadside views over the Fox Glacier valley and lush podocarp rainforest.",
           cost: "FREE",
           type: "drive"
         },
         {
-          time: "11:30 AM",
-          name: "Blue Pools & Thunder Creek Falls Walk",
-          desc: "Easy, flat 30-min walk through ancient beech forest over swing bridges to the crystal-clear, vivid blue glacial pools of the Makarora River.",
+          time: "10:45 AM",
+          name: "Knights Point Coastal Lookout (Roaring Forties & Fur Seals)",
+          desc: "Spectacular elevated 10-minute coastal clifftop lookout over the rugged Tasman Sea coastline and fur seal breeding colonies before turning inland toward Haast.",
+          cost: "FREE",
+          type: "viewpoint",
+          isScenicStop: true,
+          locationQuery: "Knights Point Lookout West Coast",
+          parking: "Large sealed clifftop carpark with modern DOC restrooms right off SH6.",
+          parkingQuery: "Knights Point Lookout West Coast"
+        },
+        {
+          time: "Midday",
+          name: "Haast Pass Waterfalls (Thunder Creek & Fantail Falls)",
+          desc: "Cross the dramatic Haast Pass. Do the quick 5-minute flat walks to Thunder Creek Falls (stunning 28m plunge right off highway) and Fantail Falls (2-min walk across stony river beach).",
           cost: "FREE",
           type: "nature",
-          locationQuery: "Blue Pools Track Makarora Haast Pass"
+          locationQuery: "Thunder Creek Falls Haast Pass",
+          parking: "Dedicated DOC pull-in carparks right along SH6 for both Thunder Creek Falls (2-min walk) and Fantail Falls (2-min walk).",
+          parkingQuery: "Thunder Creek Falls Carpark Haast Pass"
         },
         {
-          time: "2:45 PM",
-          name: "Lake Hāwea Scenic Lookouts",
-          desc: "Drive alongside the massive expanses of Lake Hāwea, pulling into roadside bays for zero-hiking, jaw-dropping panoramic views.",
+          time: "Early Afternoon",
+          name: "Makarora Blue Pools Beech Forest Walk",
+          desc: "Stop at Makarora for the flat 30-minute beech forest walk leading across swing bridges to the crystal-clear turquoise Blue Pools of the Makarora River.",
+          cost: "FREE",
+          type: "nature",
+          locationQuery: "Blue Pools Track Makarora",
+          parking: "Makarora Blue Pools Carpark (large gravel DOC carpark off SH6). Follow the 30-min flat beech forest track across swing bridges.",
+          parkingQuery: "Blue Pools Carpark Makarora"
+        },
+        {
+          time: "Late Afternoon",
+          name: "Lake Hāwea & The Neck Lookouts",
+          desc: "Drive past Lake Hāwea; pull over at The Neck lay-bys on SH6 for stunning zero-hiking vistas of brilliant cobalt waters framed by mountains.",
           cost: "FREE",
           type: "viewpoint",
-          locationQuery: "Lake Hawea Lookout"
+          locationQuery: "Lake Hawea Lookout The Neck",
+          parking: "Elevated gravel lay-bys on the lake-side of SH6 at The Neck (where Lake Hāwea and Lake Wānaka are separated by 1 km of land).",
+          parkingQuery: "The Neck Lake Hawea Lookout"
         },
         {
-          time: "4:15 PM",
-          name: "That Wānaka Tree on Lake Shoreline",
-          desc: "Visit New Zealand's most photographed willow tree growing directly out of the shallows of Lake Wānaka (easy flat 5-min walk along beach).",
+          time: "Sunset",
+          name: "Roys Bay Shoreline Stroll to 'That Wānaka Tree'",
+          desc: "Arrive in Wānaka and stroll along the Roys Bay shore to view and photograph the iconic willow tree growing right in the lake waters.",
           cost: "FREE",
           type: "viewpoint",
-          locationQuery: "That Wanaka Tree"
-        },
-        {
-          time: "6:30 PM",
-          name: "Lakeside Dinner in Wānaka",
-          desc: "Dine along the vibrant lakefront (Big Fig, Francesca's Italian, or Red Star Burger).",
-          cost: "Dinner",
-          type: "food",
-          locationQuery: "Wanaka Lakefront"
+          locationQuery: "That Wanaka Tree Roys Bay",
+          parking: "Wanaka Station Park Carpark (end of Homestead Close) or Roys Bay Carpark on Mt Aspiring Rd. Flat 2-minute stroll along the lakeshore path.",
+          parkingQuery: "Wanaka Station Park Car Park"
         }
       ],
-      tips: "Stay at 67 Frye Crescent in Albert Town (just 7 mins from Wānaka central). Check in after 2pm."
+      tips: "Check-in at Albert Town Sanctuary (67 Frye Crescent) is after 2:00 PM. Enjoy dinner in Wānaka village."
     },
     {
       dayNum: 6,
       date: "Sun, 04-Oct",
-      title: "Crown Range Alpine Road into Queenstown",
-      tagline: "Lavender farm, Cardrona Hotel, Crown Range Saddle & lakeside gardens",
-      route: "Wānaka → Cardrona → Crown Range Road → Lower Shotover / Queenstown",
-      driveTime: "~1.25 hrs drive (70 km)",
+      title: "Wānaka to Queenstown (via Kawarau Gorge)",
+      tagline: "Crown Range alpine drive, Kawarau bungy bridge, Steamer Wharf & Queenstown Gardens",
+      route: "Wānaka → Crown Range Road → Kawarau Gorge → Queenstown",
+      driveTime: "~1.5 hrs scenic drive (85 km)",
       baseCity: "Queenstown",
       accommodationId: "acc-5",
+      approxCost: "$0 (Free) (Optional Lavender Farm: ~$15 NZD)",
       highlights: [
-        "Wānaka Lavender Farm",
-        "Cardrona Bra Fence & Historic 1863 Hotel",
-        "Crown Range Summit Lookout (The Saddle)",
-        "Arrow Junction Lookout",
-        "Queenstown Gardens Lake Wakatipu",
-        "Patagonia Chocolates Churros"
+        "Wānaka Lakefront / Lavender Farm",
+        "Historic Cardrona Hotel & Bra Fence",
+        "Crown Range Alpine Drive & Lookouts",
+        "Kawarau Gorge Suspension Bridge (Bungy Viewing)",
+        "Steamer Wharf Waterfront Late Lunch",
+        "Queenstown Gardens Peninsula Walk"
+      ],
+      essentialRules: [
+        {
+          title: "Crown Range Descent: Shift to Low Gear (M2 / B)",
+          desc: "Crown Range is NZ's highest paved highway (1,121m). Descending into Queenstown has steep 10% grades—shift automatic ASX to 'M' (Manual) or 'B' mode and hold 2nd gear to engine-brake and prevent brake glaze/failure."
+        },
+        {
+          title: "Crown Range Weather Check",
+          desc: "Check journeys.nzta.govt.nz for weather, wind, or chain requirements before departing Wānaka."
+        }
       ],
       activities: [
         {
           time: "9:30 AM",
-          name: "Wānaka Lavender Farm Experience",
-          desc: "Stroll beautiful spring gardens, meet alpaca & Highland cattle, and taste their signature lavender honey ice cream.",
-          cost: "~$10–$15 NZD",
-          type: "attraction",
-          locationQuery: "Wanaka Lavender Farm"
+          name: "Relaxed Wānaka Morning / Lavender Farm",
+          desc: "Spend a relaxed morning along the lakefront, or stop by Wānaka Lavender Farm to wander the gardens and sample lavender ice cream.",
+          cost: "FREE (or ~$15 NZD Farm)",
+          type: "leisure",
+          locationQuery: "Wanaka Lavender Farm",
+          parking: "Free on-site customer carpark at Wanaka Lavender Farm (36 Morris Road, Albert Town).",
+          parkingQuery: "Wanaka Lavender Farm Carpark"
         },
         {
-          time: "11:30 AM",
-          name: "Cardrona Bra Fence & 1863 Historic Hotel",
-          desc: "Quirky photo stop at the world-famous bra fence, then step back in time at NZ's oldest pub, the Cardrona Hotel.",
-          cost: "FREE",
+          time: "11:15 AM",
+          name: "Historic Cardrona Hotel (est. 1863) & Bra Fence",
+          desc: "Iconic historic gold-rush hotel facade in the Cardrona Valley. Snap a photo of the rustic 1863 tavern and the whimsical Bradrona fence raising breast cancer awareness.",
+          cost: "FREE (Photo)",
           type: "attraction",
-          locationQuery: "Cardrona Hotel Otago"
+          isScenicStop: true,
+          locationQuery: "Cardrona Hotel Crown Range Road",
+          parking: "Ample roadside carparking directly in front of and opposite Cardrona Hotel.",
+          parkingQuery: "Cardrona Hotel Crown Range Road"
         },
         {
-          time: "12:15 PM",
-          name: "Crown Range Summit Saddle & Arrow Junction",
-          desc: "Cross New Zealand's highest paved highway (1,076m) with sweeping views over the Queenstown basin and Remarkables range.",
+          time: "12:00 PM",
+          name: "Crown Range Alpine Drive & Summit Lookouts",
+          desc: "Drive over the dramatic Crown Range Road, stopping at the Summit Saddle (1,121m) and Arrow Junction lookouts for sweeping views across the Wakatipu Basin.",
           cost: "FREE",
           type: "viewpoint",
-          locationQuery: "Crown Range Summit Lookout"
+          locationQuery: "Crown Range Summit Viewpoint",
+          parking: "Summit Saddle viewing carparks at 1,121m elevation on both sides of Crown Range Road.",
+          parkingQuery: "Crown Range Summit Viewpoint"
         },
         {
-          time: "1:30 PM",
-          name: "Check into Queenstown Base & Steamer Wharf Lunch",
-          desc: "Check into 6 Nobles Lane (Lower Shotover). Head into town for a relaxed lunch by Steamer Wharf.",
-          cost: "Lunch",
+          time: "1:00 PM",
+          name: "Kawarau Gorge Suspension Bridge Bungy Detour",
+          desc: "Make a 20-minute detour/stop at the Kawarau Gorge Suspension Bridge (SH6 Gibbston) to view historic bungy jumpers leaping over the turquoise river canyon for free from the viewing deck.",
+          cost: "FREE",
+          type: "attraction",
+          locationQuery: "AJ Hackett Bungy Kawarau Suspension Bridge",
+          parking: "Large free customer carpark at the AJ Hackett Bungy Centre (Gibbston Highway SH6). Free viewing deck over the gorge.",
+          parkingQuery: "AJ Hackett Bungy Kawarau Bridge Carpark"
+        },
+        {
+          time: "2:00 PM",
+          name: "Check in & Steamer Wharf Late Lunch",
+          desc: "Check into Lower Shotover accommodation and grab a late lunch by Steamer Wharf along the Queenstown waterfront.",
+          cost: "Lunch ~$25",
           type: "food",
-          locationQuery: "Steamer Wharf Queenstown"
+          locationQuery: "Steamer Wharf Queenstown",
+          parking: "Park along Park Street by Queenstown Gardens (free 2–4 hr parking, flat 7-min walk to Steamer Wharf; avoids CBD parking fees!).",
+          parkingQuery: "Park Street Queenstown Gardens Carpark"
         },
         {
-          time: "4:00 PM",
-          name: "Queenstown Gardens Peninsula Walk",
-          desc: "Tranquil stroll around the forested peninsula jutting into Lake Wakatipu with mountain views across to Walter Peak.",
+          time: "4:30 PM",
+          name: "Leisurely Queenstown Gardens Peninsula Walk",
+          desc: "Take a leisurely, flat walk around Queenstown Gardens peninsula jutting into Lake Wakatipu, surrounded by rose gardens and towering pines.",
           cost: "FREE",
           type: "nature",
-          locationQuery: "Queenstown Gardens"
-        },
-        {
-          time: "7:00 PM",
-          name: "Patagonia Chocolates by the Wharf",
-          desc: "Indulge in artisanal hot chocolate, award-winning gelato, or freshly fried Spanish churros with dulce de leche.",
-          cost: "~$15 NZD",
-          type: "food",
-          locationQuery: "Patagonia Chocolates Queenstown"
+          locationQuery: "Queenstown Gardens",
+          parking: "Park Street perimeter of Queenstown Gardens (free on-street bays).",
+          parkingQuery: "Park Street Queenstown Gardens Carpark"
         }
       ],
-      tips: "Queenstown accommodation starts today (Stay: 4–8 Oct, 4 nights at 6 Nobles Lane). Check-in after 3pm."
+      tips: "Check-in at Lower Shotover (6 Nobles Lane) is after 3:00 PM. Steamer Wharf is great for afternoon drinks."
     },
     {
       dayNum: 7,
       date: "Mon, 05-Oct",
-      title: "Queenstown Thrills: Jetboat, Gondola, Luge & Ice Bar",
-      tagline: "Historic Arrowtown, Shotover Jet, loaded bagels, Bob's Peak Luge & sub-zero drinks",
-      route: "Arrowtown → Queenstown Wharf → Skyline Bob's Peak → Town Center",
-      driveTime: "~20 mins local",
+      title: "Queenstown",
+      tagline: "Historic Arrowtown, high-speed jetboat, Steamer Wharf, Queenstown Ice Bar & Remarkables sunset",
+      route: "Queenstown ↔ Arrowtown & Kelvin Peninsula",
+      driveTime: "~45 mins local driving",
       baseCity: "Queenstown",
       accommodationId: "acc-5",
+      approxCost: "Pre-booked items (Arrowtown & Kelvin Peninsula: $0)",
       highlights: [
         "Historic Arrowtown & Chinese Settlement",
-        "11:00 AM High-Speed Jetboat Ride",
-        "Balls and Bangles Gourmet Bagels",
-        "Skyline Gondola & Alpine Luge Rides",
-        "4:00 PM Below Zero / Queenstown Ice Bar"
+        "11:00 AM High-Speed Jetboat Ride (Booked)",
+        "Queenstown Central Dining & Mall",
+        "4:00 PM Queenstown Ice Bar (Booked)",
+        "Kelvin Heights / Jack's Point Sunset Drive"
       ],
       activities: [
         {
-          time: "9:00 AM",
-          name: "Arrowtown Historic Miners Settlement",
-          desc: "Charming stroll down tree-lined heritage streets and preserved 19th-century Chinese miners' stone huts.",
+          time: "9:00 AM – 10:15 AM",
+          name: "Historic Arrowtown & Chinese Settlement",
+          desc: "Morning stroll around historic Arrowtown down preserved 19th-century tree-lined Buckingham Street and the heritage Chinese Settlement (20 mins east).",
           cost: "FREE",
           type: "attraction",
-          locationQuery: "Arrowtown Chinese Settlement"
+          locationQuery: "Arrowtown Chinese Settlement",
+          parking: "Ramshaw Lane Public Carpark (free, spacious sealed carpark directly behind Buckingham Street along the Arrow River).",
+          parkingQuery: "Ramshaw Lane Carpark Arrowtown"
         },
         {
           time: "11:00 AM",
-          name: "High-Speed Jetboat Experience",
-          desc: "Heart-pounding 360-degree spins skim inches away from rugged canyon rock faces along the Shotover/Kawarau River.",
-          cost: "~$82–$149 NZD pp",
+          name: "High-Speed Jetboat Ride",
+          desc: "Hold on for exhilarating 360-degree spins skimming past canyon rock faces (Shotover Jet at Arthur's Point or KJet at Main Town Pier).",
+          cost: "Pre-booked",
           type: "attraction",
-          locationQuery: "Shotover Jet Queenstown"
+          locationQuery: "Shotover Jet Arthurs Point Queenstown",
+          parking: "Shotover Jet River Base carpark, Gorge Road, Arthur's Point (free on-site parking directly next to check-in terminal).",
+          parkingQuery: "Shotover Jet Arthurs Point Carpark"
         },
         {
-          time: "12:30 PM",
-          name: "Balls and Bangles / Fergburger Lunch",
-          desc: "Gourmet loaded bagels, sweet dough creations, or world-famous Fergburger right in town.",
-          cost: "~$20–$25 NZD",
+          time: "12:30 PM – 2:00 PM",
+          name: "Lunch in Queenstown Central",
+          desc: "Enjoy lunch in Queenstown CBD (e.g. lakeside bakery, loaded bagels, or Fergburger / Fergbaker).",
+          cost: "Lunch ~$25",
           type: "food",
-          locationQuery: "Balls and Bangles Queenstown"
+          locationQuery: "Queenstown Mall",
+          parking: "Man Street Carpark (covered multi-level) or Ballard St / Church St carpark; or rideshare/bus from Lower Shotover stay.",
+          parkingQuery: "Man Street Carpark Queenstown"
         },
         {
-          time: "2:00 PM",
-          name: "Skyline Gondola & 3 Luge Rides",
-          desc: "Ride the cable car 450m up to Bob's Peak, then race down the scenic gravity luge tracks with full Remarkables vistas.",
-          cost: "~$70–$99 NZD pp",
+          time: "2:00 PM – 3:45 PM",
+          name: "Downtime along Queenstown Mall / Steamer Wharf",
+          desc: "Stroll along Queenstown Mall and Steamer Wharf (optional: Queenstown Water Taxi or Skyline Gondola).",
+          cost: "FREE / Optional",
+          type: "leisure",
+          locationQuery: "Steamer Wharf Queenstown",
+          parking: "Church Street or Park Street bays by Queenstown Gardens.",
+          parkingQuery: "Park Street Queenstown Gardens Carpark"
+        },
+        {
+          time: "4:00 PM – 4:45 PM",
+          name: "Queenstown Ice Bar Experience",
+          desc: "Chill out in sub-zero crystalline ice rooms with custom cocktails served in handcrafted ice glasses. Winter coats and gloves provided!",
+          cost: "Pre-booked",
           type: "attraction",
-          locationQuery: "Skyline Queenstown Brecon Street"
+          locationQuery: "Below Zero Ice Bar Queenstown",
+          parking: "Church Street / Ballarat Street parking, or short walk from Queenstown Mall.",
+          parkingQuery: "Church Street Carpark Queenstown"
         },
         {
-          time: "4:00 PM",
-          name: "Queenstown Ice Bar / Below Zero Ice Lounge",
-          desc: "Don polar jackets and gloves in a -10°C lounge made completely of handcrafted ice sculptures with signature drinks.",
-          cost: "~$35–$45 NZD pp",
-          type: "attraction",
-          locationQuery: "Below Zero Ice Bar Queenstown"
-        },
-        {
-          time: "7:00 PM",
-          name: "Waterfront Dinner & Craft Beer",
-          desc: "Relax along the lively Queenstown waterfront promenade.",
-          cost: "Dinner",
-          type: "food",
-          locationQuery: "Queenstown Waterfront"
+          time: "5:00 PM – 6:30 PM",
+          name: "Kelvin Peninsula & Jack's Point Sunset Reflections",
+          desc: "Take a scenic drive around Frankton Arm to Kelvin Peninsula / Jack's Point (Kelvin Peninsula Rd) for stunning sunset reflections of the Remarkables range across Lake Wakatipu.",
+          cost: "FREE",
+          type: "viewpoint",
+          locationQuery: "Kelvin Peninsula Queenstown",
+          parking: "Kelvin Heights Golf Course & Reserve carparks at the end of Peninsula Road for sunset views over Lake Wakatipu.",
+          parkingQuery: "Kelvin Heights Peninsula Carpark Queenstown"
         }
       ],
-      tips: "Book your Gondola + Luge time slot in advance to avoid queues at the Brecon Street terminal."
+      tips: "Dress warmly for the ice bar! Sunset reflections over Kelvin Heights are spectacular around 6:00 PM."
     },
     {
       dayNum: 8,
       date: "Tue, 06-Oct",
-      title: "Scenic Glenorchy, Mrs Woolly's & Paradise Valley",
-      tagline: "Lake Wakatipu shoreline, Bob's Cove, legendary meat pies & LOTR Isengard scenery",
-      route: "Queenstown → Bob's Cove → Glenorchy → Paradise Valley → Queenstown",
-      driveTime: "~45 mins each way (45 km)",
+      title: "Queenstown to Glenorchy & Paradise",
+      tagline: "Hugo Tunnel walk, Bob's Cove, Mrs Woolly's pies, iconic red boat shed & LOTR Paradise Valley",
+      route: "Queenstown → Arthur's Point → Bob's Cove → Glenorchy → Paradise → Queenstown",
+      driveTime: "~45 mins each way (45 km scenic drive)",
       baseCity: "Queenstown",
       accommodationId: "acc-5",
+      approxCost: "$0 (Free)",
       highlights: [
-        "Bob's Cove Turquoise Bay Walk",
-        "Bennett's Bluff Lookout",
-        "Mrs Woolly's Gourmet Pies",
-        "Glenorchy Red Shed & Jetty",
-        "Paradise Valley & LOTR Backdrops"
+        "Arthur's Point Hugo Tunnel Forest Walk",
+        "Bob's Cove Turquoise Bay & Bennett's Bluff",
+        "Mrs Woolly's Gourmet Pie Lunch",
+        "Glenorchy Red Boat Shed & Boardwalk",
+        "Paradise Valley Scenic Alpine Drive"
       ],
       activities: [
         {
-          time: "9:00 AM",
-          name: "Drive to Glenorchy & Bob's Cove Walk",
-          desc: "Drive one of the world's most scenic lakefront roads. Stop at Bob's Cove for an easy 30-min flat bushwalk down to a secluded azure cove.",
+          time: "9:00 AM – 9:45 AM",
+          name: "Arthur's Point Forest Walk & Historic Hugo Tunnel",
+          desc: "Take an easy forest walk down the Lower Shotover Canyon track in Arthur's Point to the historic gold-mining tunnel and roaring riverbank.",
           cost: "FREE",
           type: "nature",
-          locationQuery: "Bobs Cove Track Queenstown"
+          locationQuery: "Arthurs Point Hugo Tunnel Queenstown",
+          parking: "Oxenbridge Mill Carpark at the end of Gorge Road (Arthur's Point) or Edith Cavell Bridge parking area.",
+          parkingQuery: "Oxenbridge Mill Carpark Arthurs Point"
         },
         {
-          time: "11:15 AM",
-          name: "Bennett's Bluff Lookout",
-          desc: "Spectacular elevated viewpoint looking north up the lake toward Mount Alfred and the Humboldt Mountains.",
+          time: "10:00 AM",
+          name: "Scenic Lake Drive, Bob's Cove & Bennett's Bluff",
+          desc: "Drive the world-class lakefront road toward Glenorchy, stopping at Bob's Cove for a 30-min flat bushwalk down to a turquoise cove, followed by Bennett's Bluff Lookout.",
           cost: "FREE",
-          type: "viewpoint",
-          locationQuery: "Bennetts Bluff Lookout Glenorchy Road"
+          type: "nature",
+          locationQuery: "Bobs Cove Track Glenorchy Road",
+          parking: "Bob's Cove trackhead carpark (Glenorchy-Queenstown Rd, 14 km from town). Bennett's Bluff: Newly built elevated carpark platform on the lake side with safe pedestrian underpass.",
+          parkingQuery: "Bennetts Bluff Lookout Carpark Glenorchy Road"
         },
         {
-          time: "12:00 PM",
-          name: "Hot Gourmet Pies at Mrs Woolly's General Store",
-          desc: "Savor award-winning gourmet hot pies and artisan bakery goodies in Glenorchy village.",
-          cost: "~$15–$20 NZD",
+          time: "12:15 PM",
+          name: "Arrive in Glenorchy & Lunch at Mrs Woolly's",
+          desc: "Arrive in Glenorchy and grab famous savory gourmet pies and artisan sweet treats at Mrs Woolly's General Store.",
+          cost: "Lunch ~$20",
           type: "food",
-          locationQuery: "Mrs Woollys General Store Glenorchy"
+          locationQuery: "Mrs Woollys General Store Glenorchy",
+          parking: "Free customer parking directly outside Mrs Woolly's General Store on Oban Street.",
+          parkingQuery: "Mrs Woollys General Store Glenorchy"
         },
         {
-          time: "1:00 PM",
-          name: "Glenorchy Lagoon Walkway & Red Jetty",
-          desc: "Stroll the wooden boardwalk loop through wetlands with mirror reflections and photograph the iconic red heritage shed on the wharf.",
+          time: "1:15 PM",
+          name: "Glenorchy Lagoon Boardwalk & Iconic Red Boat Shed",
+          desc: "Walk the flat Glenorchy Lagoon boardwalk with reflective mountain waters and visit the iconic postcard-red lakefront boat shed on the wharf.",
           cost: "FREE",
           type: "nature",
-          locationQuery: "Glenorchy Red Boat Shed"
+          locationQuery: "Glenorchy Wharf and Boat Shed",
+          parking: "Glenorchy Wharf Carpark at the end of Mull Street (free public parking right in front of the iconic red boat shed and lagoon boardwalk).",
+          parkingQuery: "Glenorchy Wharf Car Park"
         },
         {
-          time: "2:00 PM",
-          name: "Drive into Paradise Valley (Isengard)",
-          desc: "A stunning 20-min scenic drive on unsealed road into ancient beech forests and river plains featured as Isengard and Lothlórien in Lord of the Rings.",
+          time: "2:00 PM – 4:00 PM",
+          name: "Paradise Valley Scenic Alpine Drive",
+          desc: "Drive into Paradise Valley along the border of Mount Aspiring National Park to admire vast river plains and snowcapped alpine backdrops (Isengard in LOTR). Return to Queenstown.",
           cost: "FREE",
           type: "drive",
-          locationQuery: "Paradise Valley Glenorchy"
-        },
-        {
-          time: "5:00 PM",
-          name: "Return to Queenstown for Evening Relaxation",
-          desc: "Take in the afternoon sun along Lake Wakatipu.",
-          cost: "FREE",
-          type: "viewpoint"
+          locationQuery: "Paradise Glenorchy New Zealand",
+          parking: "Roadside pull-ins and Mount Aspiring National Park trailhead parking past Dart River bridge.",
+          parkingQuery: "Paradise Valley Glenorchy"
         }
       ],
-      tips: "Zero hiking required in Paradise Valley for incredible vistas right from the car!"
+      tips: "The road into Paradise Valley is unsealed but smooth and easily handled at moderate speeds in your SUV."
     },
     {
       dayNum: 9,
       date: "Wed, 07-Oct",
-      title: "Milford Sound: The Eighth Wonder of the World",
-      tagline: "Glass-roof coach, thundering waterfalls, Mitre Peak & Fiordland wildlife",
+      title: "Queenstown to Milford Sound",
+      tagline: "Milford Sound glass-roof coach, thundering waterfalls, Mitre Peak & Fiordland cruise",
       route: "Queenstown → Te Anau → Eglinton Valley → Homer Tunnel → Milford Sound",
       driveTime: "Full Day Guided Tour (Relax on coach)",
       baseCity: "Queenstown",
       accommodationId: "acc-5",
+      approxCost: "Pre-booked item",
       isHighlightDay: true,
       alertMessage: "CRITICAL: Glass-roof coach departure is from Frankton Bus Shelter at 6:10 AM sharp!",
       highlights: [
-        "6:10 AM Frankton Bus Shelter Pickup",
-        "Eglinton Valley & Mirror Lakes",
-        "Homer Tunnel Alpine Descent",
+        "6:10 AM Frankton Bus Shelter Coach Pickup",
+        "Eglinton Valley & Mirror Lakes Stops",
+        "Homer Tunnel Alpine Engineering",
         "1:00 PM Milford Sound Nature Cruise",
-        "Mitre Peak & Stirling Falls Spray",
-        "Seals, Dolphins & Fiordland Penguins"
+        "Mitre Peak & Stirling Falls Glacial Water"
+      ],
+      essentialRules: [
+        {
+          title: "Milford Sound Sandflies & DEET Rule",
+          desc: "Milford Sound wharf has ferocious sandflies. Apply 40% DEET Bushman repellent to ankles and wrists before getting off the coach. Do not spray on camera lenses!"
+        },
+        {
+          title: "Zero Cell Service on Milford Road (SH94)",
+          desc: "Cellular reception cuts out completely past Te Anau along SH94. Rely on your driver guide and offline maps."
+        }
       ],
       activities: [
         {
-          time: "6:10 AM SHARP",
-          name: "Board Glass-Roof Coach at Frankton Bus Shelter",
-          desc: "Do not be late! Sit back and marvel as the glass roof gives 360-degree views of vertical granite peaks along the Milford Road.",
-          cost: "Booked ($460 AUD total)",
-          type: "tour",
-          locationQuery: "Frankton Bus Shelter Queenstown"
-        },
-        {
-          time: "9:30 AM",
-          name: "Scenic Stops: Te Anau, Eglinton Valley & Mirror Lakes",
-          desc: "Morning coffee break in Te Anau, followed by photo stops at the vast glacial tussock valley of Eglinton and calm mirror ponds.",
-          cost: "Included",
-          type: "viewpoint",
-          locationQuery: "Mirror Lakes Milford Road"
+          time: "7:00 AM",
+          name: "Milford Sound Glass-Roof Coach Departure",
+          desc: "Depart Queenstown (Frankton Bus Shelter 6:10 AM pickup) on a premium glass-roof coach through Fiordland National Park, Eglinton Valley, Mirror Lakes, and the Homer Tunnel.",
+          cost: "Pre-booked",
+          type: "logistics",
+          locationQuery: "Frankton Bus Shelter Queenstown",
+          parking: "Frankton Bus Shelter: Park in public commuter bays along Hawthorne Drive / Frankton, or arrange a 5-min drop-off from Lower Shotover stay (6:10 AM sharp!).",
+          parkingQuery: "Frankton Bus Shelter Queenstown"
         },
         {
           time: "1:00 PM",
           name: "Milford Sound Nature Cruise",
-          desc: "Cruise directly beneath sheer 1,200m cliffs and feel the mist of Stirling Falls on the front deck. Watch for New Zealand fur seals basking on rocks.",
-          cost: "Included in Tour",
+          desc: "Board your scenic catamaran cruise past soaring glacier-carved cliffs, stand on the bow beneath thundering Stirling Falls, and spot wild seals, penguins, and dolphins.",
+          cost: "Pre-booked",
           type: "attraction",
           locationQuery: "Milford Sound Visitor Terminal"
         },
         {
           time: "8:00 PM",
-          name: "Return to Queenstown & Casual Dinner",
-          desc: "Arrive back in Queenstown refreshed after letting the professional coach driver handle the mountain curves. Enjoy a relaxing hot dinner.",
-          cost: "Dinner",
+          name: "Return to Queenstown by Coach",
+          desc: "Arrive back in Queenstown by coach after an unforgettable journey through Fiordland. Head out for a relaxed, casual dinner.",
+          cost: "Casual Dinner",
           type: "food",
-          locationQuery: "Queenstown Town Centre"
+          locationQuery: "Queenstown CBD"
         }
       ],
-      tips: "Bring your waterproof jacket on the boat for the waterfall spray! Wear layers as Fiordland weather can change quickly."
+      tips: "Bring a waterproof jacket for standing on the cruise bow when the boat noses under waterfalls!"
     },
     {
       dayNum: 10,
       date: "Thu, 08-Oct",
-      title: "Queenstown Heritage Cruise OR Mount Cook Transit",
-      tagline: "TSS Earnslaw steamship & Kelvin Heights OR departure for Mount Cook",
-      route: "Option A: Queenstown local | Option B: Queenstown → Lindis Pass → Twizel",
-      driveTime: "Option A: Local | Option B: ~3 hrs drive (200 km)",
-      baseCity: "Queenstown (or Twizel)",
-      accommodationId: "acc-5",
-      isDiscrepancyDay: true,
-      highlights: [
-        "TSS Earnslaw Vintage Steamship Cruise",
-        "Queenstown Waterfront & Steamer Wharf",
-        "Kelvin Heights & Remarkables Reflections",
-        "Arthur's Point Trail & Hugo Tunnel",
-        "Option: Early Drive to Mount Cook"
-      ],
-      activities: [
-        {
-          time: "10:00 AM",
-          name: "TSS Earnslaw Vintage Steamship Cruise",
-          desc: "Cruise Lake Wakatipu on the 112-year-old 'Lady of the Lake'. Watch coal stokers feed the fiery steam engines in the open engine room.",
-          cost: "~$115–$119 NZD",
-          type: "attraction",
-          locationQuery: "RealNZ TSS Earnslaw Queenstown"
-        },
-        {
-          time: "12:00 PM",
-          name: "Waterfront Lunch & Bakery Stroll",
-          desc: "Casual fish & chips or bakery treats along the beach.",
-          cost: "~$25 NZD",
-          type: "food"
-        },
-        {
-          time: "1:30 PM",
-          name: "Scenic Drive to Kelvin Heights / Jack's Point",
-          desc: "Zero-hiking scenic drive along the quiet side of Lake Wakatipu for dramatic Remarkables reflections in the water.",
-          cost: "FREE",
-          type: "viewpoint",
-          locationQuery: "Kelvin Heights Peninsula Queenstown"
-        },
-        {
-          time: "4:00 PM",
-          name: "Arthur's Point Trail to Historic Hugo Tunnel",
-          desc: "Pleasant trail leading down to the historic gold-mining tunnel by the river.",
-          cost: "FREE",
-          type: "nature",
-          locationQuery: "Arthurs Point Queenstown"
-        }
-      ],
-      options: {
-        current: "A",
-        optionA: {
-          title: "Option A: Full Queenstown Relaxation & Lake Cruise",
-          desc: "Keep 4th night in Queenstown. Ride TSS Earnslaw, explore Kelvin Heights & Hugo Tunnel.",
-          activities: [
-            {
-              time: "10:00 AM",
-              name: "TSS Earnslaw Vintage Steamship Cruise",
-              desc: "Cruise Lake Wakatipu on the 112-year-old 'Lady of the Lake'. Watch coal stokers feed the fiery steam engines in the open engine room.",
-              cost: "~$115–$119 NZD",
-              type: "attraction",
-              locationQuery: "RealNZ TSS Earnslaw Queenstown"
-            },
-            {
-              time: "12:00 PM",
-              name: "Waterfront Lunch & Bakery Stroll",
-              desc: "Casual fish & chips or bakery treats along the beach.",
-              cost: "~$25 NZD",
-              type: "food"
-            },
-            {
-              time: "1:30 PM",
-              name: "Scenic Drive to Kelvin Heights / Jack's Point",
-              desc: "Zero-hiking scenic drive along the quiet side of Lake Wakatipu for dramatic Remarkables reflections in the water.",
-              cost: "FREE",
-              type: "viewpoint",
-              locationQuery: "Kelvin Heights Peninsula Queenstown"
-            },
-            {
-              time: "4:00 PM",
-              name: "Arthur's Point Trail to Historic Hugo Tunnel",
-              desc: "Pleasant trail leading down to the historic gold-mining tunnel by the river.",
-              cost: "FREE",
-              type: "nature",
-              locationQuery: "Arthurs Point Queenstown"
-            }
-          ]
-        },
-        optionB: {
-          title: "Option B: Check Out to Mount Cook / Twizel Today",
-          desc: "If your Airbnb booking at 15 Sealy St Twizel starts today (8-Oct), check out of Queenstown this morning and head over the Lindis Pass.",
-          activities: [
-            {
-              time: "9:00 AM",
-              name: "Check out of Queenstown & Drive Lindis Pass",
-              desc: "Ascend through golden tussock hill country with views over the vast Mackenzie basin.",
-              cost: "FREE",
-              type: "drive",
-              locationQuery: "Lindis Pass Viewpoint"
-            },
-            {
-              time: "12:00 PM",
-              name: "Omarama Clay Cliffs & Lake Pukaki",
-              desc: "Walk inside towering gravel pinnacles ($5 NZD) and taste fresh alpine salmon at Lake Pukaki.",
-              cost: "~$5–$30 NZD",
-              type: "nature",
-              locationQuery: "Clay Cliffs Omarama"
-            },
-            {
-              time: "3:30 PM",
-              name: "Check into 15 Sealy Street, Twizel",
-              desc: "Check into your spacious 3-night stay in Twizel. Relax and prepare for Hooker Valley tomorrow.",
-              cost: "Accommodation",
-              type: "logistics",
-              locationQuery: "15 Sealy Street Twizel"
-            }
-          ]
-        }
-      },
-      tips: "You have an Airbnb booked at 15 Sealy St Twizel for 8-11 Oct (3 nights). Use the toggle above to switch between itineraries based on your preferred check-out day!"
-    },
-    {
-      dayNum: 11,
-      date: "Fri, 09-Oct",
-      title: "Alpine Salmon, Lindis Pass & Tasman Glacier Lake",
-      tagline: "Golden tussocks, razor-sharp pinnacles, fresh lake sashimi & floating icebergs",
-      route: "Queenstown → Lindis Pass → Omarama → Lake Pukaki → Mount Cook Village",
-      driveTime: "~3 hrs scenic drive (210 km)",
-      baseCity: "Twizel / Mount Cook",
+      title: "Queenstown Checkout to Twizel (Mt Cook Afternoon)",
+      tagline: "Lindis Pass, Omarama Clay Cliffs, Twizel check-in, Peter's Lookout salmon & Tasman Glacier",
+      route: "Queenstown → Lindis Pass → Omarama → Twizel → Lake Pukaki → Mount Cook National Park → Twizel",
+      driveTime: "~3 hrs scenic drive to Twizel + ~45 mins up Lake Pukaki",
+      baseCity: "Twizel",
       accommodationId: "acc-6",
+      approxCost: "~$5 NZD (Clay Cliffs cash donation)",
       highlights: [
-        "Lindis Pass Alpine Lookout",
-        "Omarama Clay Cliffs Pinnacles",
-        "Mt Cook Alpine Salmon at Peter's Lookout",
-        "Electric-Blue Lake Pukaki",
+        "Lindis Pass Summit Alpine Saddle",
+        "Omarama Clay Cliffs Pinnacles ($5 cash)",
+        "Twizel Base Check-in & Lunch",
+        "Lake Pukaki & Mt Cook Alpine Salmon (Peter's Lookout)",
         "Tasman Glacier Lake / Jetty Track"
+      ],
+      essentialRules: [
+        {
+          title: "Cash Honesty Box for Omarama Clay Cliffs ($5 NZD)",
+          desc: "The access gate on Henburn Road requires $5 NZD cash/coins (EFTPOS/cards are NOT accepted). Keep small coins/notes in the glove box. Close gate latches behind you!"
+        },
+        {
+          title: "Fuel Stop: Top up in Twizel",
+          desc: "Fill your petrol tank in Twizel. Mount Cook Village has only an emergency, premium-priced automated pump."
+        }
       ],
       activities: [
         {
           time: "8:30 AM",
-          name: "Drive Lindis Pass Alpine Lookout",
-          desc: "Ascend into dramatic tussock-covered alpine peaks with panoramic viewing platforms.",
+          name: "Check out of Queenstown & Drive Lindis Pass",
+          desc: "Check out of Lower Shotover accommodation; drive northeast across the dramatic golden tussock mountain pass of the Lindis Pass summit (SH8).",
           cost: "FREE",
-          type: "viewpoint",
-          locationQuery: "Lindis Pass Viewpoint"
+          type: "drive",
+          locationQuery: "Lindis Pass Viewpoint",
+          parking: "Sealed summit lookout carparks on both north and southbound sides of SH8.",
+          parkingQuery: "Lindis Pass Viewpoint Carpark"
         },
         {
-          time: "11:30 AM",
+          time: "11:00 AM",
           name: "Omarama Clay Cliffs Pinnacles",
-          desc: "Fascinating geological formation of towering, razor-sharp silt and gravel pinnacles and narrow slot ravines.",
-          cost: "$5 NZD donation at gate",
+          desc: "Stop at Omarama Clay Cliffs on Henburn Rd to explore towering gravel pinnacles and sharp slot ravines formed by ancient glacial outwash.",
+          cost: "$5 NZD cash honesty box",
           type: "nature",
-          locationQuery: "Omarama Clay Cliffs"
+          locationQuery: "Omarama Clay Cliffs",
+          parking: "End of unsealed Henburn Road past farm paddocks ($5 cash honesty box; latch gate behind you!). Gravel carpark directly at canyon mouth.",
+          parkingQuery: "Omarama Clay Cliffs Carpark Henburn Road"
         },
         {
-          time: "1:00 PM",
-          name: "Lake Pukaki & Mt Cook Alpine Salmon Feast",
-          desc: "Stop at Peter's Lookout overlooking the neon-blue waters of Lake Pukaki directly toward Mount Cook. Feast on world-famous fresh alpine salmon sashimi.",
+          time: "12:15 PM",
+          name: "Check into Twizel Lodging & Lunch",
+          desc: "Arrive in Twizel, check into your accommodation at 15 Sealy Street, and have lunch in Twizel town centre.",
+          cost: "Lunch ~$20",
+          type: "logistics",
+          locationQuery: "15 Sealy Street Twizel",
+          parking: "Spacious private driveway parking at 15 Sealy Street accommodation.",
+          parkingQuery: "15 Sealy Street Twizel"
+        },
+        {
+          time: "2:00 PM",
+          name: "Peter's Lookout Lake Pukaki & Alpine Salmon",
+          desc: "Drive up SH80 along electric-blue Lake Pukaki to Mount Cook National Park (~45 mins). Stop at Peter's Lookout for panoramic lake views and Mt Cook Alpine Salmon sashimi.",
           cost: "~$30 NZD",
           type: "food",
-          locationQuery: "Mount Cook Alpine Salmon Peters Lookout"
+          locationQuery: "Mount Cook Alpine Salmon Peters Lookout",
+          parking: "Spacious scenic viewing carpark off SH80 overlooking Lake Pukaki; salmon shop food trailer is on site.",
+          parkingQuery: "Peters Lookout Lake Pukaki Carpark"
         },
         {
-          time: "3:30 PM",
+          time: "3:00 PM – 5:00 PM",
           name: "Tasman Glacier Lake / Jetty Track",
-          desc: "Easy, flat 20-min track to the jetty at the terminal lake to watch giant milky-grey and blue icebergs calved from NZ's longest glacier.",
+          desc: "Do the flat Tasman Glacier Lake / Jetty Track (Tasman Valley Rd) to see giant floating icebergs calved into the lake, or visit the Sir Edmund Hillary Alpine Centre museum. Drive back to Twizel for dinner.",
           cost: "FREE",
           type: "nature",
-          locationQuery: "Tasman Glacier Track Mt Cook"
-        },
-        {
-          time: "6:00 PM",
-          name: "Check into Twizel Base (15 Sealy Street)",
-          desc: "Settle into your home for the next few days. Cook a warm dinner or visit Shawty's Cafe in Twizel.",
-          cost: "Airbnb",
-          type: "logistics",
-          locationQuery: "15 Sealy Street Twizel"
+          locationQuery: "Tasman Glacier Track Mt Cook",
+          parking: "Blue Lakes & Tasman Glacier Carpark (end of Tasman Valley Rd). Follow the flat Tasman Lake / Jetty Track (20 mins to water edge) rather than the steep 300-stair view track!",
+          parkingQuery: "Tasman Glacier Carpark Mt Cook"
         }
       ],
       tips: "Peter's Lookout on Lake Pukaki is an unforgettable photo spot with the salmon shop right on site!"
     },
     {
-      dayNum: 12,
-      date: "Sat, 10-Oct",
-      title: "Hooker Valley Epic & Dark Sky Stargazing Reserve",
-      tagline: "3 suspension bridges, Mount Cook foot, Church of Good Shepherd & stargazing",
-      route: "Twizel → Aoraki / Mount Cook Village → Lake Tekapo",
-      driveTime: "~1 hr 15 mins driving (105 km)",
-      baseCity: "Lake Tekapo / Twizel",
+      dayNum: 11,
+      date: "Fri, 09-Oct",
+      title: "Full Day Mount Cook (Base: Twizel)",
+      tagline: "Early Hooker Valley hike, 3 swing bridges, iceberg lake, Kea Point & Hermitage lounge",
+      route: "Twizel ↔ White Horse Hill Carpark / Mount Cook Village (~45 mins each way)",
+      driveTime: "~1.5 hrs return along Lake Pukaki (SH80)",
+      baseCity: "Twizel",
       accommodationId: "acc-6",
+      approxCost: "$0 (Free)",
       isHighlightDay: true,
       highlights: [
-        "Hooker Valley Track (10km return)",
-        "3 Iconic Swing Bridges",
-        "Icebergs at Hooker Glacier Lake",
-        "Church of the Good Shepherd Tekapo",
-        "8:30 PM Dark Sky Telescope Stargazing"
+        "Early 8:30 AM White Horse Hill Arrival",
+        "Hooker Valley Track (10 km flat return)",
+        "3 Iconic Suspension Bridges",
+        "Hooker Glacier Iceberg Lake",
+        "Kea Point Track & Hermitage Hotel Lounge"
+      ],
+      essentialRules: [
+        {
+          title: "Hooker Valley 8:30 AM Carpark Rule",
+          desc: "White Horse Hill carpark fills up completely by 9:00 AM – 9:30 AM. Arriving around 8:30 AM guarantees parking at the trackhead, avoids roadside parking walks, and beats two-way foot traffic."
+        },
+        {
+          title: "Alpine Windproof Layering",
+          desc: "Hooker Valley can have biting valley winds even in bright sunshine. Carry windproof jackets and beanies."
+        }
       ],
       activities: [
         {
-          time: "8:30 AM",
-          name: "Hooker Valley Track (World Famous Walk)",
-          desc: "Mostly flat, highly rewarding 10km return track crossing three massive suspension swing bridges over roaring glacial rivers. Finishes right at Hooker Lake with floating icebergs directly beneath the towering face of Aoraki / Mount Cook (~3 hrs return).",
+          time: "8:00 AM",
+          name: "Depart Twizel Early for White Horse Hill Carpark",
+          desc: "Depart Twizel early (~45 mins) to secure parking at White Horse Hill carpark before peak crowds fill the lot by 9:00 AM.",
+          cost: "FREE",
+          type: "drive",
+          locationQuery: "White Horse Hill Campground Mt Cook",
+          parking: "White Horse Hill Campground & Day-use Carpark (end of Hooker Valley Rd). Arrive by 8:30 AM sharp to avoid parking miles down the road!",
+          parkingQuery: "White Horse Hill Campground Mt Cook"
+        },
+        {
+          time: "8:45 AM – 12:30 PM",
+          name: "Hike the World-Famous Hooker Valley Track",
+          desc: "Hike the world-renowned Hooker Valley Track (10 km flat return, 3 suspension swing bridges, ending at the glacier lake with floating icebergs directly beneath the towering face of Aoraki / Mount Cook).",
           cost: "FREE",
           type: "nature",
-          locationQuery: "Hooker Valley Track Mt Cook"
+          locationQuery: "Hooker Valley Track Mt Cook",
+          parking: "Direct trackhead at White Horse Hill carpark.",
+          parkingQuery: "White Horse Hill Campground Mt Cook"
         },
         {
-          time: "1:30 PM",
-          name: "Drive to Lake Tekapo & Church of the Good Shepherd",
-          desc: "Photograph the iconic stone church built on the turquoise lakefront in 1935, framing mountain views through its altar window.",
+          time: "12:30 PM – 1:30 PM",
+          name: "Picnic Lunch at White Horse Hill Shelter / Village",
+          desc: "Picnic lunch at White Horse Hill shelter or Mount Cook Village cafes.",
+          cost: "Lunch",
+          type: "food",
+          locationQuery: "Mount Cook Village New Zealand",
+          parking: "Mount Cook Village public visitor carparks beside Old Mountaineers Cafe and Hermitage Hotel.",
+          parkingQuery: "Mount Cook Village Public Carpark"
+        },
+        {
+          time: "1:30 PM – 3:30 PM",
+          name: "Kea Point Track or Hermitage Hotel Lounge",
+          desc: "Afternoon easy walk along Kea Point Track (1 hr return) for Mueller Glacier moraine views, or relax with a hot drink at the Hermitage Hotel alpine lounge.",
           cost: "FREE",
-          type: "attraction",
-          locationQuery: "Church of the Good Shepherd Lake Tekapo"
-        },
-        {
-          time: "4:00 PM",
-          name: "Tekapo Springs Hot Pools or Lakefront Stroll",
-          desc: "Soak your legs in tiered thermal pools overlooking the lake, or stroll the shore.",
-          cost: "Optional (~$35 NZD)",
           type: "nature",
-          locationQuery: "Tekapo Springs"
+          locationQuery: "Kea Point Track Mt Cook",
+          parking: "White Horse Hill carpark (trail connects) or Hermitage Hotel public visitor parking.",
+          parkingQuery: "The Hermitage Hotel Mount Cook Carpark"
         },
         {
-          time: "8:30 PM",
-          name: "Dark Sky Project Guided Stargazing",
-          desc: "Inside the UNESCO International Dark Sky Reserve. Gaze through research-grade telescopes at the Southern Cross, Magellanic Clouds, and distant nebulae.",
-          cost: "~$129 NZD pp",
-          type: "attraction",
-          locationQuery: "Dark Sky Project Lake Tekapo"
+          time: "Late Afternoon",
+          name: "Scenic Drive back along Lake Pukaki to Twizel",
+          desc: "Drive back down along Lake Pukaki to Twizel for a relaxing dinner at Shawty's Cafe or Ministry of Works.",
+          cost: "Dinner",
+          type: "food",
+          locationQuery: "Twizel Town Centre",
+          parking: "Twizel Market Place centre (ample free parking in front of shops and cafes).",
+          parkingQuery: "Twizel Market Place"
         }
       ],
-      tips: "Hooker Valley track is well-graded gravel with no steep climbs. Dress in windproof layers as the valley breezes can be brisk."
+      tips: "Hooker Valley track is mostly flat gravel and boardwalks. Dress in windproof layers as the valley breezes can be brisk."
+    },
+    {
+      dayNum: 12,
+      date: "Sat, 10-Oct",
+      title: "Lake Tekapo Day Trip (Base: Twizel)",
+      tagline: "Mt John Summit Road, Astro Café, Church of the Good Shepherd, Lake Alexandrina & Dark Sky stargazing",
+      route: "Twizel ↔ Lake Tekapo day trip (~40 mins each way on SH8, 55 km)",
+      driveTime: "~1 hr 20 mins return scenic drive",
+      baseCity: "Twizel / Lake Tekapo",
+      accommodationId: "acc-6",
+      approxCost: "~$8 NZD (Mt John toll)",
+      highlights: [
+        "Twizel Base (15 Sealy St) Stay",
+        "Mt John Observatory Summit Road & Astro Café",
+        "Church of the Good Shepherd & Sheepdog Statue",
+        "Lake Alexandrina Shoreline Stroll",
+        "Free Dark Sky Reserve Shoreline Stargazing"
+      ],
+      essentialRules: [
+        {
+          title: "Mt John Summit Road Closes at 5:00 PM Daily",
+          desc: "The private toll road ($8 NZD per car) closes to tourist vehicles around 5:00 PM so research telescopes can operate without light interference. Visit between 10:00 AM and 3:30 PM."
+        },
+        {
+          title: "Night Driving Wildlife on SH8 (Twizel Return)",
+          desc: "When returning to Twizel after stargazing, SH8 is pitch black with high densities of nocturnal wallabies and hares. Use high beams and avoid sudden swerving."
+        }
+      ],
+      activities: [
+        {
+          time: "9:30 AM",
+          name: "Scenic Morning Drive from Twizel to Lake Tekapo",
+          desc: "Depart your Twizel accommodation and take the easy 40-minute drive northeast along SH8 into Lake Tekapo.",
+          cost: "FREE",
+          type: "drive"
+        },
+        {
+          time: "10:30 AM",
+          name: "Mt John Observatory Summit Road & Astro Café",
+          desc: "Drive up Mt John Summit Road (Godley Peaks Rd, $8 vehicle toll) for 360-degree panoramic basin views and coffee at the glass-walled Astro Café (Note: road closes at 5:00 PM).",
+          cost: "~$8 NZD vehicle toll",
+          type: "viewpoint",
+          locationQuery: "Astro Cafe Mount John Tekapo",
+          parking: "Summit carpark at Astro Café via Godley Peaks Road ($8 toll; open 9:00 AM – 5:00 PM). Arrive ~10:30 AM before Astro Café queues peak.",
+          parkingQuery: "Mt John Observatory Carpark Tekapo"
+        },
+        {
+          time: "12:30 PM",
+          name: "Lunch in Lake Tekapo Village Centre",
+          desc: "Enjoy a relaxed lunch in the Lake Tekapo village centre cafes or lakeside bakeries.",
+          cost: "Lunch ~$20",
+          type: "food",
+          locationQuery: "Lake Tekapo Village",
+          parking: "Tekapo Village Centre public carparks along State Highway 8.",
+          parkingQuery: "Lake Tekapo Village"
+        },
+        {
+          time: "2:00 PM",
+          name: "Church of the Good Shepherd & Sheepdog Memorial",
+          desc: "Visit the iconic stone Church of the Good Shepherd on Pioneer Drive and the bronze Sheepdog Memorial on the turquoise waterfront.",
+          cost: "FREE",
+          type: "attraction",
+          locationQuery: "Church of the Good Shepherd Lake Tekapo",
+          parking: "Official visitor carpark on Pioneer Drive (2-min walk along footbridge; note: no interior photography inside chapel).",
+          parkingQuery: "Church of the Good Shepherd Carpark Tekapo"
+        },
+        {
+          time: "Late Afternoon",
+          name: "Lake Alexandrina Easy Shoreline Walk",
+          desc: "Drive 10 minutes west to quiet Lake Alexandrina (10 km from Tekapo) for an easy, peaceful shoreline walk away from the crowds.",
+          cost: "FREE",
+          type: "nature",
+          locationQuery: "Lake Alexandrina New Zealand",
+          parking: "Peaceful gravel parking bays at the Lake Alexandrina South Outlet reserve (no motorized boats, serene waters).",
+          parkingQuery: "Lake Alexandrina South Outlet Carpark"
+        },
+        {
+          time: "Night",
+          name: "Free Stargazing on Dark Lake Tekapo Shore",
+          desc: "Enjoy free stargazing along the dark Lake Tekapo shore or Cowans Hill reserve inside the world-renowned UNESCO International Dark Sky Reserve.",
+          cost: "FREE",
+          type: "nature",
+          locationQuery: "Lake Tekapo Shoreline Stargazing",
+          parking: "Cowans Hill reserve carpark or Tekapo lakefront parking off Pioneer Drive (dim headlights to preserve night vision).",
+          parkingQuery: "Cowans Hill Carpark Lake Tekapo"
+        },
+        {
+          time: "Late Night",
+          name: "Scenic Return Drive to Twizel Base (15 Sealy Street)",
+          desc: "Take the quiet, easy 40-minute drive back down along SH8 to your Twizel Airbnb (15 Sealy Street) to sleep.",
+          cost: "FREE",
+          type: "drive",
+          locationQuery: "15 Sealy Street Twizel",
+          parking: "Private driveway parking at 15 Sealy Street.",
+          parkingQuery: "15 Sealy Street Twizel"
+        }
+      ],
+      tips: "Tonight you sleep at your Twizel Airbnb (15 Sealy Street) for your 3rd night. Pack your bags tonight for tomorrow morning's final checkout and drive to Christchurch Airport."
     },
     {
       dayNum: 13,
       date: "Sun, 11-Oct",
-      title: "Lake Alexandrina, Geraldine Artisan Town & CHC Airport",
-      tagline: "Quiet morning lake, cheese tasting, car return and flight home",
-      route: "Lake Tekapo → Fairlie → Geraldine → Christchurch Airport",
-      driveTime: "~3 hrs drive (225 km)",
+      title: "Twizel Checkout to Christchurch Airport (via Fairlie & Geraldine)",
+      tagline: "Fairlie Bakehouse pies, Geraldine artisan cheeses, Canterbury Plains & Christchurch flight",
+      route: "Twizel (SH8) → Fairlie → Geraldine (SH79) → Christchurch Airport (CHC)",
+      driveTime: "~3.5 hrs drive across Canterbury Plains (285 km)",
       baseCity: "Departure (Christchurch Airport)",
       accommodationId: null,
+      approxCost: "$0 (Free)",
       highlights: [
-        "Lake Alexandrina Morning Stroll",
-        "Fairlie Bakehouse Gourmet Pies",
+        "Twizel 15 Sealy Street Checkout",
+        "Fairlie Bakehouse Gourmet Savory Pies",
         "Artisan Country Village of Geraldine",
-        "The Geraldine Cheese Company",
-        "3:00 PM Car Return at APEX CHC Airport"
+        "The Geraldine Cheese Company Tasting",
+        "3:00 PM Rental Car Return at APEX CHC"
+      ],
+      essentialRules: [
+        {
+          title: "Car Return Cutoff: 3:00 PM at APEX CHC",
+          desc: "Allow 3.5 hours driving time from Twizel to Christchurch Airport plus stops and 30 minutes for refuel, vehicle inspection, and flight check-in."
+        },
+        {
+          title: "Refuel at NPD / BP Russley Road (2 km Out)",
+          desc: "APEX charges steep fees for non-full tanks. Top up at NPD or BP on Russley Road 2 km before the airport terminal rather than expensive airport forecourt stations."
+        }
       ],
       activities: [
         {
           time: "9:00 AM",
-          name: "Quiet Morning Stroll at Lake Alexandrina",
-          desc: "A hidden gem just 10 mins from Tekapo. Tranquil non-motorized lake with abundant birdlife and reflections.",
+          name: "Check out of Twizel Base (15 Sealy Street)",
+          desc: "Check out of 15 Sealy Street, Twizel and head northeast past Lake Tekapo toward Christchurch via scenic highways SH8 and SH79.",
           cost: "FREE",
-          type: "nature",
-          locationQuery: "Lake Alexandrina New Zealand"
+          type: "drive",
+          locationQuery: "15 Sealy Street Twizel"
         },
         {
           time: "10:30 AM",
-          name: "Fairlie Bakehouse Quick Pie Stop",
-          desc: "Pick up famous pork belly or venison pies on the drive through Fairlie.",
+          name: "Stop at Fairlie Bakehouse for Famous Savory Pies",
+          desc: "Stop at the legendary Fairlie Bakehouse (74 Main St, Fairlie) for famous slow-cooked pork belly with crackling or venison pies.",
           cost: "~$10 NZD",
           type: "food",
-          locationQuery: "Fairlie Bakehouse"
+          locationQuery: "Fairlie Bakehouse",
+          parking: "Main Street parking bays in Fairlie right outside the bakery (74 Main St) or along Regent Street.",
+          parkingQuery: "Fairlie Bakehouse 74 Main St Fairlie"
         },
         {
-          time: "12:00 PM",
-          name: "Artisan Village of Geraldine & Cheese Tasting",
-          desc: "Stroll through leafy Geraldine. Sample award-winning sheep, goat, and cow cheeses at The Geraldine Cheese Company and browse Barker's Foodstore.",
-          cost: "FREE (Samples & Lunch)",
+          time: "11:30 AM – 1:00 PM",
+          name: "Geraldine Artisan Village & Free Food Tastings",
+          desc: "Stop in the artisan country village of Geraldine to browse The Geraldine Cheese Company and Barker's Foodstore for free tastings and lunch.",
+          cost: "FREE Tastings & Lunch",
           type: "attraction",
-          locationQuery: "The Geraldine Cheese Company"
+          locationQuery: "The Geraldine Cheese Company Geraldine",
+          parking: "Geraldine Domain Carpark on Cox Street or Talbot Street public carpark (both free, right beside Barker's & Cheese Co).",
+          parkingQuery: "Talbot Street Carpark Geraldine"
         },
         {
-          time: "2:30 PM – 3:00 PM",
-          name: "Return Mitsubishi ASX to APEX Christchurch Airport",
-          desc: "Refuel tank, return vehicle before 3:00 PM cutoff (Booking #4174153). Head into the terminal for your flight home!",
+          time: "1:00 PM – 3:00 PM",
+          name: "Drive across the Canterbury Plains to Christchurch",
+          desc: "Drive across the wide Canterbury Plains into Christchurch with scenic pastoral views.",
+          cost: "FREE",
+          type: "drive"
+        },
+        {
+          time: "3:00 PM",
+          name: "Arrive at Christchurch Airport (CHC) & Return Rental Car",
+          desc: "Arrive at Christchurch Airport (CHC), refuel tank, return rental car to APEX terminal before 3:00 PM (Booking #4174153), and check in for your flight home!",
           cost: "Rental Return",
           type: "logistics",
-          locationQuery: "Apex Car Rentals Christchurch Airport"
+          locationQuery: "Apex Car Rentals Christchurch Airport",
+          parking: "Drop vehicle at APEX Terminal Depot, Christchurch Airport. Crucial: Refuel at NPD Russley Rd or BP Connect Russley Rd (2 km before airport) for local rates before returning.",
+          parkingQuery: "NPD Russley Road Christchurch"
         }
       ],
-      tips: "Allow 3 hours drive from Tekapo to Christchurch Airport plus 30 mins for car return and luggage check-in."
+      tips: "Check out of 15 Sealy Street Twizel by 9:00 AM. Total drive to Christchurch Airport is ~3.5 hrs plus stops. Refuel before car return."
     }
   ],
   packingChecklist: [
-    { id: "p1", category: "Apparel & Gear", item: "Raincoats x 2 (Waterproof / Windproof)", checked: false, note: "Crucial for West Coast & Milford Sound" },
-    { id: "p2", category: "Apparel & Gear", item: "Good Sturdy Shoes for Hikes", checked: false, note: "Hooker Valley, Devils Punchbowl, Hokitika Gorge" },
-    { id: "p3", category: "Apparel & Gear", item: "Thermal Base Layers & Warm Fleece", checked: false, note: "Alpine mornings & Dark Sky stargazing" },
-    { id: "p4", category: "Apparel & Gear", item: "Warm Beanies, Gloves & Sunglasses", checked: false, note: "Glacier heli ride & snow glare" },
-    { id: "p5", category: "Documents & Auto", item: "Driver's Licenses (Simar & Sheen)", checked: false, note: "Required by APEX Car Rentals" },
-    { id: "p6", category: "Documents & Auto", item: "Passports & NZeTA / Visas", checked: false, note: "International travel essentials" },
-    { id: "p7", category: "Documents & Auto", item: "Car Phone Mount & USB-C / Lightning Cables", checked: false, note: "For in-car GPS navigation" },
-    { id: "p8", category: "Health & Care", item: "Insect Repellent (DEET) for Sandflies", checked: false, note: "Essential for Hokitika, Haast & Milford" },
-    { id: "p9", category: "Health & Care", item: "Sunscreen & Lip Balm", checked: false, note: "NZ UV index is high even when cool" },
-    { id: "p10", category: "Electronics", item: "Camera / Drone & Extra Memory Cards", checked: false, note: "Epic South Island landscapes" },
-    { id: "p11", category: "Electronics", item: "Power Bank Portable Battery", checked: false, note: "For long scenic day drives" },
-    { id: "p12", category: "Apparel & Gear", item: "Swimwear for Hot Pools / Tekapo Springs", checked: false, note: "Waiho or Tekapo springs" }
+    { id: "p1", category: "Apparel & Gear", item: "Raincoats x 2 (Waterproof / Windproof)", checked: false, note: "Crucial for West Coast & Milford Sound waterfalls" },
+    { id: "p2", category: "Apparel & Gear", item: "Scrubbed Clean Hiking Shoes / Runners", checked: false, note: "Biosecurity rule: Must be scrubbed 100% free of mud, soil & seeds to avoid $400 NZD instant fine at CHC Airport!" },
+    { id: "p3", category: "Apparel & Gear", item: "Cabin Packable Jackets, Beanies & Light Gloves", checked: false, note: "Keep in passenger cabin (not trunk) for sudden mountain pass temperature drops (16°C down to 2°C)" },
+    { id: "p4", category: "Apparel & Gear", item: "Thermal Base Layers & Warm Fleece", checked: false, note: "Alpine mornings & Dark Sky stargazing" },
+    { id: "p5", category: "Apparel & Gear", item: "Sunglasses & UV Sunscreen", checked: false, note: "Glacier heli ride & high spring UV index" },
+    { id: "p6", category: "Health & Pest", item: "Heavy-Duty 40% DEET (Bushman Aerosol)", checked: false, note: "Herbal sprays do NOT work against sandflies. Hokitika, Haast, Blue Pools, Milford. Keep off camera lenses, watch screens, & plastics!" },
+    { id: "p7", category: "Documents & Cash", item: "Driver's Licenses (Simar & Sheen)", checked: false, note: "Required by APEX Car Rentals (both registered drivers)" },
+    { id: "p8", category: "Documents & Cash", item: "Passports & NZeTA / Visas", checked: false, note: "International travel essentials" },
+    { id: "p9", category: "Documents & Cash", item: "$5 NZD Cash / Coins in Glove Box", checked: false, note: "Required for Omarama Clay Cliffs honesty box (private farmland, no cards/EFTPOS)" },
+    { id: "p10", category: "Electronics & Nav", item: "Offline Google Maps Downloaded on Both Phones", checked: false, note: "Full South Island offline maps before leaving CHC (zero cell signal on SH73, SH6, SH94, SH80)" },
+    { id: "p11", category: "Electronics & Nav", item: "Car Phone Mount & USB-C / Lightning Cables", checked: false, note: "For in-car GPS navigation in Mitsubishi ASX" },
+    { id: "p12", category: "Electronics & Nav", item: "Camera / Drone & Extra Memory Cards", checked: false, note: "Epic South Island landscapes" },
+    { id: "p13", category: "Electronics & Nav", item: "Power Bank Portable Battery", checked: false, note: "For long scenic day drives" },
+    { id: "p14", category: "Apparel & Gear", item: "Swimwear for Hot Pools / Tekapo Springs", checked: false, note: "Tekapo springs or relaxation" }
   ]
 };
 
@@ -1241,13 +1636,7 @@ class NZTripApp {
     const stay = day.accommodationId ? TRIP_DATA.accommodations.find(a => a.id === day.accommodationId) : null;
 
     let activitiesHtml = '';
-
-    // Handle Day 10 options
-    let displayActivities = day.activities;
-    if (day.dayNum === 10 && day.options) {
-      const activeOption = day.options[this.day10Option === 'A' ? 'optionA' : 'optionB'];
-      displayActivities = activeOption.activities;
-    }
+    const displayActivities = day.activities || [];
 
     displayActivities.forEach((act, idx) => {
       const actKey = `d${day.dayNum}_a${idx}`;
@@ -1262,17 +1651,33 @@ class NZTripApp {
               <span class="checkmark"></span>
             </label>
             <div class="activity-time-badge">${act.time}</div>
+            ${act.isScenicStop ? `<div class="scenic-stop-badge">📸 5-Min Scenic Stop</div>` : ''}
             <div class="activity-cost-badge ${act.cost.includes('FREE') ? 'cost-free' : 'cost-paid'}">${act.cost}</div>
           </div>
           <div class="activity-body">
             <h4 class="activity-name">${act.name}</h4>
             <p class="activity-desc">${act.desc}</p>
+            ${act.parking ? `
+              <div class="activity-parking-box">
+                <div class="parking-header">
+                  <span class="parking-icon">🅿️</span>
+                  <strong>Parking & Access:</strong>
+                </div>
+                <div class="parking-desc">${act.parking}</div>
+                ${act.parkingQuery ? `
+                  <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(act.parkingQuery)}" target="_blank" rel="noopener" class="btn-parking-map">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+                    Navigate to Carpark
+                  </a>
+                ` : ''}
+              </div>
+            ` : ''}
           </div>
           ${mapsUrl ? `
             <div class="activity-actions">
               <a href="${mapsUrl}" target="_blank" rel="noopener" class="btn-maps-link">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
-                Navigate (Google Maps)
+                Navigate Destination
               </a>
             </div>
           ` : ''}
@@ -1280,24 +1685,24 @@ class NZTripApp {
       `;
     });
 
-    let day10ToggleHtml = '';
-    if (day.dayNum === 10) {
-      day10ToggleHtml = `
-        <div class="day10-toggle-box">
-          <div class="toggle-header">
-            <span class="badge-alert">⚠️ Schedule Decision</span>
-            <h4>Queenstown vs Mount Cook Itinerary Toggle</h4>
+    let essentialRulesHtml = '';
+    if (day.essentialRules && day.essentialRules.length > 0) {
+      essentialRulesHtml = `
+        <div class="day-essential-rules-box">
+          <div class="essential-header">
+            <span class="badge-alert">⚡ Essential Field Alert</span>
+            <h4>Critical Rules for Today</h4>
           </div>
-          <p class="toggle-expl">
-            Your documents have two variants for Day 10 (8-Oct): Spend the day relaxing in Queenstown (TSS Earnslaw steamship & Lake Wakatipu) OR depart for Twizel / Mount Cook if your 3-night Airbnb starts on the 8th.
-          </p>
-          <div class="toggle-buttons">
-            <button class="toggle-btn ${this.day10Option === 'A' ? 'active' : ''}" onclick="window.nzApp.setDay10Option('A')">
-              <strong>Option A</strong>: Queenstown Cruise & Chill
-            </button>
-            <button class="toggle-btn ${this.day10Option === 'B' ? 'active' : ''}" onclick="window.nzApp.setDay10Option('B')">
-              <strong>Option B</strong>: Depart for Mount Cook Today
-            </button>
+          <div class="essential-rules-list">
+            ${day.essentialRules.map(r => `
+              <div class="essential-rule-item">
+                <div class="rule-bullet">⚠️</div>
+                <div>
+                  <strong>${r.title}</strong>
+                  <p>${r.desc}</p>
+                </div>
+              </div>
+            `).join('')}
           </div>
         </div>
       `;
@@ -1336,12 +1741,12 @@ class NZTripApp {
           </div>
         ` : ''}
 
+        ${essentialRulesHtml}
+
         <div class="highlights-pill-wrap">
           ${(day.highlights || []).map(h => `<span class="highlight-chip">✨ ${h}</span>`).join('')}
         </div>
       </div>
-
-      ${day10ToggleHtml}
 
       <div class="timeline-section">
         <div class="section-title-row">
@@ -1397,8 +1802,6 @@ class NZTripApp {
   }
 
   setDay10Option(option) {
-    this.day10Option = option;
-    localStorage.setItem('nz_day10_option', option);
     this.renderTimelineView();
   }
 
@@ -1523,10 +1926,14 @@ class NZTripApp {
       });
       localStorage.setItem('nz_copilot_chat', JSON.stringify(this.chatHistory));
     } catch (err) {
-      console.error(err);
+      console.error("Gemini Co-Pilot error:", err);
+      let errorDisplay = `⚠️ ${err.message}`;
+      if (err.message.includes('Invalid API key') || err.message.includes('key not valid')) {
+        errorDisplay += `\n\nPlease check or update your API key in the settings below or at https://aistudio.google.com/app/apikey.`;
+      }
       this.chatHistory.push({
         role: 'model',
-        text: `⚠️ Error calling Gemini API: ${err.message}\n\nPlease check that your API key is valid at https://aistudio.google.com/app/apikey.`,
+        text: errorDisplay,
         time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
         isError: true
       });
@@ -1541,7 +1948,7 @@ class NZTripApp {
   }
 
   async getAvailableModels() {
-    if (this.cachedModel) return [this.cachedModel];
+    let candidateList = [];
 
     try {
       const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models?key=${encodeURIComponent(this.geminiApiKey)}`);
@@ -1553,38 +1960,43 @@ class NZTripApp {
 
         if (available.length > 0) {
           const preferences = [
-            'gemini-2.5-flash',
-            'gemini-3.8-flash',
             'gemini-2.0-flash',
-            'gemini-2.0-flash-exp',
-            'gemini-1.5-flash-latest',
             'gemini-1.5-flash',
-            'gemini-1.5-pro-latest',
+            'gemini-2.0-flash-lite',
+            'gemini-1.5-flash-8b',
             'gemini-1.5-pro',
+            'gemini-2.0-flash-exp',
             'gemini-pro'
           ];
-          const sorted = [];
           for (const pref of preferences) {
-            if (available.includes(pref)) sorted.push(pref);
+            if (available.includes(pref) && !candidateList.includes(pref)) candidateList.push(pref);
           }
           for (const m of available) {
-            if (!sorted.includes(m)) sorted.push(m);
+            if (!candidateList.includes(m)) candidateList.push(m);
           }
-          return sorted;
         }
       }
     } catch (e) {
-      console.warn("Could not list models:", e);
+      console.warn("Could not query model list, using standard fallbacks:", e);
     }
 
-    // Default fallback order if listModels is unavailable
-    return [
-      'gemini-2.5-flash',
-      'gemini-2.0-flash',
-      'gemini-1.5-flash-latest',
-      'gemini-1.5-pro-latest',
-      'gemini-pro'
-    ];
+    if (candidateList.length === 0) {
+      // Standard robust fallback hierarchy
+      candidateList = [
+        'gemini-2.0-flash',
+        'gemini-1.5-flash',
+        'gemini-2.0-flash-lite',
+        'gemini-1.5-flash-8b',
+        'gemini-1.5-pro',
+        'gemini-pro'
+      ];
+    }
+
+    // If a cached model is present, place it first, but keep all other models as live fallbacks
+    if (this.cachedModel) {
+      return [this.cachedModel, ...candidateList.filter(m => m !== this.cachedModel)];
+    }
+    return candidateList;
   }
 
   async callGeminiAPI(userQuery) {
@@ -1602,6 +2014,7 @@ ${stay ? `- Tonight's stay: ${stay.name} in ${stay.city} (${stay.address}). Chec
 
 Your Mission:
 Give concise, highly practical, actionable advice tailored for on-the-road travelers.
+Keep in mind essential trip rules: Biosecurity footwear clean on arrival, 40% DEET Bushman repellent for sandflies (Hokitika/Haast/Milford), Springfield/Fox Glacier/Twizel fuel stops, offline Google Maps everywhere, Omarama Clay Cliffs $5 cash honesty box, Hooker Valley 8:30 AM early arrival rule, Mt John 5 PM toll road closing, and alpine layering.
 - State specific distances, approximate drive times, exact names for Google Maps search, reputable bakeries/cafes, scenic roadside viewpoints, petrol stops, or bad-weather alternatives.
 - Use clean formatting with **bold** for place names, section titles (###), and bullet points.
 - Provide thorough, complete answers without cutting off. Conclude with a helpful travel tip.`;
@@ -1624,8 +2037,11 @@ Give concise, highly practical, actionable advice tailored for on-the-road trave
 
     const candidateModels = await this.getAvailableModels();
     let lastError = null;
+    let attemptedModels = [];
 
     for (const model of candidateModels) {
+      attemptedModels.push(model);
+
       // Try v1beta then v1
       const endpoints = [
         `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${encodeURIComponent(this.geminiApiKey)}`,
@@ -1655,23 +2071,44 @@ Give concise, highly practical, actionable advice tailored for on-the-road trave
             }
           } else {
             const errData = await res.json().catch(() => ({}));
-            lastError = (errData && errData.error && errData.error.message) ? errData.error.message : `HTTP ${res.status}`;
-            // If it is 404 (model not found), continue loop to try next model
-            if (res.status !== 404) {
-              // Authentication or permission errors
-              throw new Error(lastError);
+            const errMsg = (errData && errData.error && errData.error.message) ? errData.error.message : `HTTP ${res.status}`;
+            lastError = errMsg;
+
+            // If invalid key or permission error, don't keep trying models with invalid credentials
+            if (res.status === 400 && (errMsg.includes('API_KEY_INVALID') || errMsg.includes('key not valid'))) {
+              throw new Error("Invalid API key. Please check your Gemini API key.");
             }
+            if (res.status === 403) {
+              throw new Error(errMsg);
+            }
+
+            // If 503 (high demand / capacity exceeded), 429 (rate-limit for this model), 500, or 404:
+            console.warn(`Gemini model '${model}' returned ${res.status} (${errMsg}). Trying alternate model...`);
+            if (this.cachedModel === model) {
+              this.cachedModel = null;
+            }
+            // Break from endpoint loop (v1beta/v1) for this model and fall back to next model
+            break;
           }
         } catch (err) {
-          if (err.message && !err.message.includes('404') && !err.message.includes('not found')) {
+          if (err.message && (err.message.includes('Invalid API key') || err.message.includes('API_KEY_INVALID'))) {
             throw err;
           }
+          console.warn(`Error connecting to model '${model}':`, err.message);
           lastError = err.message;
+          if (this.cachedModel === model) {
+            this.cachedModel = null;
+          }
+          break;
         }
       }
     }
 
-    throw new Error(lastError || "Could not find a supported Gemini model for this API key.");
+    if (lastError && (lastError.includes('high demand') || lastError.includes('demand') || lastError.includes('Resource has been exhausted') || lastError.includes('quota') || lastError.includes('503'))) {
+      throw new Error(`Google's Gemini servers are experiencing temporary high traffic across models (${attemptedModels.slice(0, 3).join(', ')}). Please wait a few seconds and try again.`);
+    }
+
+    throw new Error(lastError || "Could not reach Gemini models. Please check your internet connection.");
   }
 
   renderCopilotView() {
@@ -1931,7 +2368,7 @@ Give concise, highly practical, actionable advice tailored for on-the-road trave
     container.innerHTML = `
       <div class="view-header-box">
         <h2 class="view-title">Accommodations Vault</h2>
-        <p class="view-subtitle">All 6 pre-booked accommodations across Christchurch, Hokitika, Franz Josef, Wānaka, Queenstown & Twizel.</p>
+        <p class="view-subtitle">All accommodations across Christchurch, Hokitika, Franz Josef, Wānaka, Queenstown, Twizel & Lake Tekapo.</p>
       </div>
       <div class="stays-grid">
         ${cardsHtml}
@@ -1947,7 +2384,7 @@ Give concise, highly practical, actionable advice tailored for on-the-road trave
     container.innerHTML = `
       <div class="view-header-box">
         <h2 class="view-title">Transport & Road Trip Logistics</h2>
-        <p class="view-subtitle">Vehicle rental confirmations, driver details, and key coach transfers.</p>
+        <p class="view-subtitle">Vehicle rental confirmations, driver details, coach tour, and essential field rules.</p>
       </div>
 
       <div class="car-highlight-card">
@@ -1982,12 +2419,15 @@ Give concise, highly practical, actionable advice tailored for on-the-road trave
         </div>
 
         <div class="car-tip-box">
-          <strong>🚗 Essential NZ Driving Rules:</strong>
+          <strong>🚗 Essential NZ Mountain Driving & Road Logistics:</strong>
           <ul>
             <li>Drive on the <strong>LEFT</strong> side of the road at all times.</li>
-            <li>Use designated slow vehicle bays on alpine passes (Arthur's Pass, Crown Range) to let faster traffic overtake.</li>
-            <li>Take extra caution with one-lane wooden bridges (check the priority arrow signs).</li>
-            <li>Keep a full tank of fuel before leaving Franz Josef or Haast (limited service stations).</li>
+            <li><strong>Crown Range Descent:</strong> Shift Mitsubishi ASX into manual mode / low gear (<strong>M2 / B</strong>) to engine brake down steep switchbacks—riding foot brakes will cause brake glazing and brake failure!</li>
+            <li><strong>One-Lane Wooden Bridges:</strong> Big white arrow = you have right-of-way; small red arrow = you MUST yield and give way to oncoming traffic.</li>
+            <li><strong>Kea Parrot Warning:</strong> Do NOT feed keas at Otira Viaduct, Arthur's Pass or Mt Cook. Keep car windows shut when parked; keas aggressively strip rubber wiper blades and door weatherstripping.</li>
+            <li><strong>Night Wildlife (SH8):</strong> Watch for nocturnal wallabies and hares crossing dark highways between Twizel and Lake Tekapo.</li>
+            <li><strong>Airport Refuel Strategy:</strong> APEX requires a 100% full tank. Refuel at NPD or BP on Russley Road (2 km before terminal) to avoid expensive airport forecourt surcharges.</li>
+            <li>Use designated slow-vehicle turnouts on alpine passes to let faster traffic overtake courteously.</li>
           </ul>
         </div>
 
@@ -2008,6 +2448,42 @@ Give concise, highly practical, actionable advice tailored for on-the-road trave
           <a href="https://www.google.com/maps/search/?api=1&query=Frankton+Bus+Shelter+Queenstown" target="_blank" rel="noopener" class="btn-maps-link">
             Map to Frankton Bus Shelter
           </a>
+        </div>
+      </div>
+
+      <!-- Essential Operational & Field Details Section -->
+      <div class="essential-section-wrap">
+        <div class="view-header-box" style="margin-top: 2rem; margin-bottom: 1.25rem;">
+          <h2 class="view-title">⚡ Essential Travel, Operational & Logistical Details</h2>
+          <p class="view-subtitle">Official biosecurity rules, 40% DEET repellent protocols, remote fuel dead zones, and road access times.</p>
+        </div>
+
+        <div class="essential-details-grid">
+          ${(TRIP_DATA.essentialDetails || []).map(item => `
+            <div class="essential-detail-card ${item.alertType || ''}">
+              <div class="essential-card-header">
+                <span class="essential-card-icon">${item.icon}</span>
+                <div>
+                  <div class="essential-category-tag">${item.category}</div>
+                  <h4 class="essential-card-title">${item.title}</h4>
+                </div>
+              </div>
+              <p class="essential-card-summary">${item.summary}</p>
+              <div class="essential-rules-box">
+                <ul class="essential-rules-bullets">
+                  ${item.rules.map(r => `<li>${r}</li>`).join('')}
+                </ul>
+              </div>
+              <div class="essential-card-footer">
+                <span class="essential-card-tag-pill">${item.tag}</span>
+                ${item.links ? `
+                  <div class="essential-portal-links">
+                    ${item.links.map(l => `<a href="${l.url}" target="_blank" rel="noopener" class="btn-portal-link">${l.label} ↗</a>`).join('')}
+                  </div>
+                ` : ''}
+              </div>
+            </div>
+          `).join('')}
         </div>
       </div>
     `;
@@ -2119,7 +2595,7 @@ Give concise, highly practical, actionable advice tailored for on-the-road trave
         </div>
         <div class="stat-card">
           <span class="stat-num">6</span>
-          <span class="stat-lbl">Towns & Stays</span>
+          <span class="stat-lbl">Confirmed Stays</span>
         </div>
         <div class="stat-card">
           <span class="stat-num">~$1,850</span>
@@ -2143,42 +2619,42 @@ Give concise, highly practical, actionable advice tailored for on-the-road trave
           </thead>
           <tbody>
             <tr>
-              <td>Milford Sound Glass-Roof Day Tour</td>
-              <td><span class="pill-booked">Confirmed</span></td>
+              <td>Milford Sound Glass-Roof Coach & Nature Cruise</td>
+              <td><span class="pill-booked">Confirmed (Day 9)</span></td>
               <td>460 AUD</td>
             </tr>
             <tr>
-              <td>Franz Josef Glacier Helicopter Flight</td>
-              <td><span class="pill-planned">Planned Day 3</span></td>
-              <td>~$300–$550 NZD pp</td>
+              <td>Franz Josef Glacier Helicopter Flight / Heli-Hike</td>
+              <td><span class="pill-booked">Confirmed (Day 3)</span></td>
+              <td>Pre-booked</td>
             </tr>
             <tr>
-              <td>Queenstown Jetboat (Shotover/KJet)</td>
-              <td><span class="pill-planned">Planned Day 7</span></td>
-              <td>~$82–$149 NZD pp</td>
+              <td>Queenstown High-Speed Jetboat Ride</td>
+              <td><span class="pill-booked">Confirmed (Day 7)</span></td>
+              <td>Pre-booked</td>
             </tr>
             <tr>
-              <td>Skyline Gondola & Alpine Luge</td>
-              <td><span class="pill-planned">Planned Day 7</span></td>
-              <td>~$70–$99 NZD pp</td>
+              <td>Queenstown Ice Bar Experience</td>
+              <td><span class="pill-booked">Confirmed (Day 7)</span></td>
+              <td>Pre-booked</td>
             </tr>
             <tr>
-              <td>Below Zero Ice Bar Lounge</td>
-              <td><span class="pill-planned">Planned Day 7</span></td>
-              <td>~$35–$45 NZD pp</td>
+              <td>Omarama Clay Cliffs Access Gate</td>
+              <td><span class="pill-planned">Day 10</span></td>
+              <td>$5 NZD Cash (Honesty Box)</td>
             </tr>
             <tr>
-              <td>TSS Earnslaw Lake Wakatipu Cruise</td>
-              <td><span class="pill-planned">Planned Day 10</span></td>
-              <td>~$115–$119 NZD pp</td>
+              <td>Mt John Observatory Summit Toll Road</td>
+              <td><span class="pill-planned">Day 12</span></td>
+              <td>$8 NZD per car (closes 5 PM)</td>
             </tr>
             <tr>
-              <td>Dark Sky Project Stargazing (Tekapo)</td>
-              <td><span class="pill-planned">Planned Day 12</span></td>
-              <td>~$129 NZD pp</td>
+              <td>Hooker Valley, Blue Pools, Hokitika Gorge, Lake Matheson</td>
+              <td><span class="pill-free">Always Free</span></td>
+              <td>$0 NZD</td>
             </tr>
             <tr>
-              <td>Hooker Valley & Blue Pools & Hokitika Gorge</td>
+              <td>Castle Hill, Devils Punchbowl, Lake Alexandrina, Port Hills</td>
               <td><span class="pill-free">Always Free</span></td>
               <td>$0 NZD</td>
             </tr>
@@ -2223,11 +2699,12 @@ Give concise, highly practical, actionable advice tailored for on-the-road trave
     const matchedActivities = [];
 
     TRIP_DATA.days.forEach(day => {
-      const acts = (day.options && this.day10Option === 'B') ? day.options.optionB.activities : (day.activities || []);
+      const acts = day.activities || [];
       acts.forEach((act, idx) => {
         if (
           act.name.toLowerCase().includes(term) ||
           act.desc.toLowerCase().includes(term) ||
+          (act.parking && act.parking.toLowerCase().includes(term)) ||
           act.cost.toLowerCase().includes(term) ||
           day.title.toLowerCase().includes(term) ||
           day.baseCity.toLowerCase().includes(term)
@@ -2241,7 +2718,7 @@ Give concise, highly practical, actionable advice tailored for on-the-road trave
       container.innerHTML = `
         <div class="search-empty-state">
           <h3>No results found for "${term}"</h3>
-          <p>Try searching for words like "Salmon", "Hooker", "Gondola", "Heli", "Pies", or "Lake".</p>
+          <p>Try searching for words like "Parking", "Salmon", "Hooker", "Gondola", "Heli", "Pies", or "Lake".</p>
         </div>
       `;
       return;
@@ -2265,16 +2742,33 @@ Give concise, highly practical, actionable advice tailored for on-the-road trave
                 <span class="checkmark"></span>
               </label>
               <div class="activity-time-badge">${act.time}</div>
+              ${act.isScenicStop ? `<div class="scenic-stop-badge">📸 5-Min Scenic Stop</div>` : ''}
               <div class="activity-cost-badge ${act.cost.includes('FREE') ? 'cost-free' : 'cost-paid'}">${act.cost}</div>
             </div>
             <div class="activity-body">
               <h4 class="activity-name">${act.name}</h4>
               <p class="activity-desc">${act.desc}</p>
+              ${act.parking ? `
+                <div class="activity-parking-box">
+                  <div class="parking-header">
+                    <span class="parking-icon">🅿️</span>
+                    <strong>Parking & Access:</strong>
+                  </div>
+                  <div class="parking-desc">${act.parking}</div>
+                  ${act.parkingQuery ? `
+                    <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(act.parkingQuery)}" target="_blank" rel="noopener" class="btn-parking-map">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+                      Navigate to Carpark
+                    </a>
+                  ` : ''}
+                </div>
+              ` : ''}
             </div>
             ${mapsUrl ? `
               <div class="activity-actions">
                 <a href="${mapsUrl}" target="_blank" rel="noopener" class="btn-maps-link">
-                  Open in Google Maps
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+                  Navigate Destination
                 </a>
               </div>
             ` : ''}
@@ -2296,7 +2790,7 @@ Give concise, highly practical, actionable advice tailored for on-the-road trave
   updateStatsBar() {
     let totalActs = 0;
     TRIP_DATA.days.forEach(d => {
-      const acts = (d.options && this.day10Option === 'B') ? d.options.optionB.activities : (d.activities || []);
+      const acts = d.activities || [];
       totalActs += acts.length;
     });
     const checkedCount = Object.values(this.checkedActivities).filter(Boolean).length;
