@@ -347,41 +347,58 @@ const TRIP_DATA = {
           time: "3:00 PM",
           name: "Pick up Rental Car at APEX Christchurch Airport",
           desc: "Collect confirmed Mitsubishi ASX SUV (Booking #4174153). Terminal collection, $0 Excess, authorized drivers Simar & Sheen.",
-          cost: "Car Booked",
+          cost: "Car Booked ($0 Excess)",
           type: "logistics",
           locationQuery: "Apex Car Rentals Christchurch Airport",
-          parking: "Terminal collection at Christchurch Airport. Short walk from baggage claim to APEX rental desk.",
-          parkingQuery: "Apex Car Rentals Christchurch Airport"
+          freeParking: "APEX Rental Car customer depot at Christchurch Airport (100% Free reserved parking for rental car pickup & return).",
+                    freeParkingQuery: "Apex Car Rentals Christchurch Airport",
+          paidParking: "Christchurch Airport Short Stay Express Carpark (directly opposite terminal doors) if waiting or meeting passengers before collecting car.",
+                    paidParkingCost: "~$8 for 30–60 mins ($35/day)",
+                    paidParkingQuery: "Christchurch Airport Short Stay Express",
+          parking: "FREE: APEX Airport Depot customer bays (free collection). PAID BACKUP: Airport Short Stay Express (~$8/hr).",
+                    parkingQuery: "Apex Car Rentals Christchurch Airport"
         },
         {
           time: "Late Afternoon",
           name: "Heritage City Walk (Avon River, New Regent St & Earthquake Memorial)",
-          desc: "Stroll the flat Avon River Promenade, walk past charming Spanish Mission-style New Regent Street, and visit the reflective Canterbury Earthquake National Memorial.",
-          cost: "FREE",
+          desc: "Stroll the flat Avon River Promenade, walk past charming Spanish Mission-style New Regent Street, and visit the reflective Canterbury Earthquake National Memorial (100% Free open public sites).",
+          cost: "100% FREE (Public City Walk)",
           type: "attraction",
           locationQuery: "Canterbury Earthquake National Memorial Christchurch",
-          parking: "Lichfield Street Carpark (33 Lichfield St, multi-level & covered) or West End Carpark (48 Hereford St). Very safe, 2-min walk to Riverside Market & Avon River.",
-          parkingQuery: "Lichfield Street Carpark Christchurch"
+          freeParking: "Christchurch Botanic Gardens Armagh St Carpark (Riccarton Ave / Armagh St bridge) — 100% FREE for up to 180 mins (3 hours)! Enjoy a scenic 7-minute flat stroll along the Avon River straight to the Earthquake Memorial & New Regent St. In addition, all Christchurch central council metered on-street bays become completely FREE after 5:00 PM.",
+                    freeParkingQuery: "Christchurch Botanic Gardens Armagh St Carpark",
+          paidParking: "Lichfield Street Carpark (33 Lichfield St, multi-level & covered) or West End Carpark (48 Hereford St) for central covered parking.",
+                    paidParkingCost: "~$3.30/hr ($15 daily max; $5 flat rate after 5:00 PM)",
+                    paidParkingQuery: "Lichfield Street Carpark Christchurch",
+          parking: "FREE: Botanic Gardens Armagh St Carpark (180 mins free, 7-min river walk) or on-street after 5 PM. PAID: Lichfield St Carpark (~$3.30/hr, $15 max).",
+                    parkingQuery: "Christchurch Botanic Gardens Armagh St Carpark"
         },
         {
           time: "6:00 PM",
           name: "Dinner at Riverside Market",
-          desc: "Grab dinner from the vibrant local food stalls, artisan bakeries, and boutique eateries inside Riverside Market (96 Oxford Terrace).",
-          cost: "Food & Drinks",
+          desc: "Grab dinner from the vibrant local food stalls, artisan bakeries, and boutique eateries inside Riverside Market (96 Oxford Terrace). Free to enter and browse; pay per meal/drink.",
+          cost: "Food & Drinks (~$20-$30)",
           type: "food",
           locationQuery: "Riverside Market Christchurch",
-          parking: "Lichfield Street Carpark (directly behind the market) or on-street meters along Cambridge Terrace.",
-          parkingQuery: "Lichfield Street Carpark Christchurch"
+          freeParking: "Free on-street parking after 5:00 PM along Cambridge Terrace, Oxford Terrace, Montreal Street, and Tuam Street. Free 60–120 min bays are also available south of Tuam Street (4-min walk).",
+                    freeParkingQuery: "Cambridge Terrace Christchurch",
+          paidParking: "Lichfield Street Carpark (33 Lichfield St, multi-level & covered, directly behind Riverside Market with direct sheltered access).",
+                    paidParkingCost: "~$3.30/hr ($5 flat evening rate after 5:00 PM)",
+                    paidParkingQuery: "Lichfield Street Carpark Christchurch",
+          parking: "FREE: On-street parking along Cambridge/Oxford Terrace (free after 5 PM) or south of Tuam St. PAID: Lichfield Street Carpark (~$3.30/hr, $5 night rate).",
+                    parkingQuery: "Cambridge Terrace Christchurch"
         },
         {
           time: "7:15 PM",
           name: "Sunset Golden Hour at Port Hills Lookouts",
-          desc: "Drive up to the Port Hills lookouts (Sign of the Takahe / Cashmere, Dyers Pass Rd) for spectacular sunset views across the Canterbury Plains and Southern Alps.",
-          cost: "FREE",
+          desc: "Drive up to the Port Hills lookouts (Sign of the Takahe / Cashmere, Dyers Pass Rd) for spectacular sunset views across the Canterbury Plains and Southern Alps (100% Free public lookout reserve).",
+          cost: "100% FREE (Public Viewpoint)",
           type: "viewpoint",
           locationQuery: "Sign of the Takahe Port Hills Christchurch",
-          parking: "Sign of the Takahe Carpark (Dyers Pass Rd) for stone castle grounds, or continue 3 mins up to Sign of the Kiwi / Summit Road for elevated dual-harbour views.",
-          parkingQuery: "Sign of the Takahe Carpark Christchurch"
+          freeParking: "Sign of the Takahe Carpark (Dyers Pass Rd) for stone castle grounds, or continue 3 mins up to Sign of the Kiwi / Summit Road for elevated dual-harbour views (100% Free scenic public reserves).",
+                    freeParkingQuery: "Sign of the Takahe Carpark Christchurch",
+          parking: "FREE: Sign of the Takahe Carpark (Dyers Pass Rd) or Sign of the Kiwi / Summit Road scenic pull-ins (100% Free).",
+                    parkingQuery: "Sign of the Takahe Carpark Christchurch"
         }
       ],
       tips: "Check into Belmont Motor Inn (172 Bealey Ave) after 2:00 PM. Enjoy the flat riverside stroll to shake off flight fatigue."
@@ -423,63 +440,75 @@ const TRIP_DATA = {
         {
           time: "9:15 AM",
           name: "Springfield Giant Pink Donut & Final Fuel Top-up",
-          desc: "Quick 5-minute photo stop at the famous giant pink Simpson's donut in Springfield. Crucial: Fill your tank fully at Springfield Challenge/GAS station—last reliable petrol before Arthur's Pass!",
-          cost: "FREE (Photo)",
+          desc: "Quick roadside photo stop at the quirky oversized Springfield Donut in the reserve playground. Top up petrol here before climbing Arthur's Pass (SH73).",
+          cost: "FREE Photo / Fuel Top-up",
           type: "viewpoint",
           isScenicStop: true,
           locationQuery: "Springfield Donut Canterbury New Zealand",
-          parking: "Free roadside pull-in bay beside the reserve and playground right on SH73.",
-          parkingQuery: "Springfield Donut Canterbury New Zealand"
+          freeParking: "Free roadside pull-in bay beside the Springfield reserve and children's playground right on SH73.",
+                    freeParkingQuery: "Springfield Donut Canterbury New Zealand",
+          parking: "FREE: Roadside pull-in bay beside Springfield reserve playground right on SH73.",
+                    parkingQuery: "Springfield Donut Canterbury New Zealand"
         },
         {
           time: "10:15 AM",
           name: "Drive Great Alpine Highway (SH73) & Castle Hill Walk",
-          desc: "Drive the dramatic Great Alpine Highway. Stop for an easy 20-minute walk among the giant weathered limestone boulders at Castle Hill (Kura Tāwhiti Basin).",
-          cost: "FREE",
+          desc: "Wander the prehistoric limestone rock labyrinth of Kura Tāwhiti / Castle Hill (100% Free public DOC conservation reserve, no tickets or park permits required).",
+          cost: "100% FREE (DOC Reserve)",
           type: "nature",
           locationQuery: "Kura Tawhiti Castle Hill Conservation Area",
-          parking: "Dedicated official DOC Kura Tāwhiti carpark on the left of SH73 (toilets on site, 5-min flat walking track to limestone formations).",
-          parkingQuery: "Castle Hill Car Park SH73 New Zealand"
+          freeParking: "Dedicated official DOC Kura Tāwhiti carpark on the left of SH73 (100% Free, modern toilets on site, 5-min flat walking track to limestone formations).",
+                    freeParkingQuery: "Castle Hill Car Park SH73 New Zealand",
+          parking: "FREE: Official DOC Kura Tāwhiti carpark on SH73 (100% Free, toilets, trackhead).",
+                    parkingQuery: "Castle Hill Car Park SH73 New Zealand"
         },
         {
           time: "11:45 AM",
           name: "Porters Pass & Otira Viaduct Lookout",
-          desc: "Pull over at Porters Pass and the spectacular Otira Viaduct Lookout perched over mountain gorges; stop in Arthur's Pass village for lunch.",
-          cost: "FREE (Lunch ~$20)",
+          desc: "Stop at the dramatic Otira Viaduct cantilever lookout over the gorge (100% Free roadside lookout). Watch out for wild kea alpine parrots—keep car windows shut!",
+          cost: "100% FREE (Highway Lookout)",
           type: "viewpoint",
           locationQuery: "Otira Viaduct Lookout Arthurs Pass",
-          parking: "Wide sealed pull-off at Otira Viaduct Lookout on right side of SH73 heading west. Kea warning: keep car windows shut!",
-          parkingQuery: "Otira Viaduct Lookout"
+          freeParking: "Wide sealed pull-off at Otira Viaduct Lookout on right side of SH73 heading west (100% Free). Kea warning: keep all car windows shut!",
+                    freeParkingQuery: "Otira Viaduct Lookout",
+          parking: "FREE: Wide sealed pull-off at Otira Viaduct Lookout on right side of SH73 (100% Free).",
+                    parkingQuery: "Otira Viaduct Lookout"
         },
         {
           time: "1:15 PM",
           name: "Devils Punchbowl Waterfall Track",
-          desc: "Walk the 45-minute return track through lush mountain beech forest to the base of the roaring 131-metre cascading waterfall (~240 well-graded wooden steps).",
-          cost: "FREE",
+          desc: "Walk the 1-hour return beech forest track and footbridges to the base of the roaring 131m Devils Punchbowl waterfall (100% Free official DOC track in Arthur's Pass National Park).",
+          cost: "100% FREE (DOC Track)",
           type: "nature",
           locationQuery: "Devils Punchbowl Walking Track Arthurs Pass",
-          parking: "Dedicated Punchbowl Road Carpark just off SH73 in Arthur's Pass village (do not park on highway shoulder).",
-          parkingQuery: "Devils Punchbowl Car Park Arthurs Pass"
+          freeParking: "Dedicated Punchbowl Road Carpark just off SH73 in Arthur's Pass village (100% Free DOC carpark with toilets and footbridge track entrance; do not park on highway shoulder).",
+                    freeParkingQuery: "Devils Punchbowl Car Park Arthurs Pass",
+          parking: "FREE: Dedicated Punchbowl Road Carpark off SH73 in Arthur's Pass village (100% Free).",
+                    parkingQuery: "Devils Punchbowl Car Park Arthurs Pass"
         },
         {
           time: "3:45 PM",
           name: "Hokitika Gorge Turquoise Swing Bridge Walk",
-          desc: "Continue west to Hokitika Gorge (Kokatahi-Gorge Rd, ~30 km inland) for the flat turquoise swing bridge loop walk over vivid glacial waters.",
-          cost: "FREE",
+          desc: "Cross curved suspension bridges over intensely milky-turquoise glacier-fed waters (100% Free DOC track). Apply 40% DEET Bushman repellent for sandflies.",
+          cost: "100% FREE (DOC Track)",
           type: "nature",
           locationQuery: "Hokitika Gorge Walk",
-          parking: "Official DOC sealed carpark at the end of Kokatahi-Gorge Road (modern toilets, picnic shelters, and track entrance).",
-          parkingQuery: "Hokitika Gorge Carpark"
+          freeParking: "Official DOC sealed carpark at the end of Kokatahi-Gorge Road (100% Free, modern flush toilets, picnic shelters, and trackhead).",
+                    freeParkingQuery: "Hokitika Gorge Carpark",
+          parking: "FREE: Official DOC sealed carpark at end of Kokatahi-Gorge Road (100% Free).",
+                    parkingQuery: "Hokitika Gorge Carpark"
         },
         {
           time: "6:15 PM",
           name: "Hokitika Beach Sunset & Driftwood Sign",
-          desc: "Arrive in Hokitika, grab dinner (West Coast fish & chips or pizza), and watch the Tasman Sea sunset beside the famous driftwood letters.",
-          cost: "FREE (Dinner)",
+          desc: "Step right onto Hokitika Beach to photograph the famous driftwood sign and enjoy a fiery Tasman Sea sunset (100% Free open public beach).",
+          cost: "100% FREE (Public Beach)",
           type: "viewpoint",
           locationQuery: "Hokitika Beach Driftwood Sign",
-          parking: "Beachside parking bays along Beach Street / Stafford Street, steps from the driftwood sign and 2 Weld Street stay.",
-          parkingQuery: "Hokitika Beach Driftwood Sign"
+          freeParking: "Beachside parking bays along Beach Street / Stafford Street, steps from the driftwood sign and 2 Weld Street stay (100% Free, no time restrictions).",
+                    freeParkingQuery: "Hokitika Beach Driftwood Sign",
+          parking: "FREE: Beachside parking bays along Beach Street / Stafford Street (100% Free).",
+                    parkingQuery: "Hokitika Beach Driftwood Sign"
         }
       ],
       tips: "Check-in at 2 Weld Street is between 2:00 PM – 8:30 PM. Keep your 40% DEET handy for Hokitika Gorge!"
@@ -512,51 +541,59 @@ const TRIP_DATA = {
         {
           time: "9:45 AM",
           name: "Lake Ianthe Glassy Mirror Lake Stop",
-          desc: "Idyllic 5-minute scenic rest area right off SH6 between Ross and Harihari. On calm mornings, the dark tannin waters create perfect mirror reflections of ancient kahikatea trees.",
-          cost: "FREE",
+          desc: "Stretch your legs at Lake Ianthe's tranquil picnic reserve and wooden jetty, famous for glassy surface reflections (100% Free roadside reserve).",
+          cost: "100% FREE (Lake Stop)",
           type: "nature",
           isScenicStop: true,
           locationQuery: "Lake Ianthe Rest Area SH6",
-          parking: "Spacious sealed rest area bay right off SH6 with picnic tables and lake edge jetty.",
-          parkingQuery: "Lake Ianthe Rest Area SH6"
+          freeParking: "Spacious sealed rest area bay right off SH6 with picnic tables and lake edge jetty (100% Free).",
+                    freeParkingQuery: "Lake Ianthe Rest Area SH6",
+          parking: "FREE: Spacious sealed rest area bay right off SH6 (100% Free).",
+                    parkingQuery: "Lake Ianthe Rest Area SH6"
         },
         {
           time: "10:45 AM",
           name: "Check in at Helicopter Flight Base",
-          desc: "Arrive in Franz Josef village and check in at the helicopter flight base on the main village strip (SH6). Wear sunglasses (mandatory for snow glare) and flat enclosed shoes. Receive safety briefing.",
-          cost: "Pre-booked",
+          desc: "Check in at The Helicopter Line base (Main Road SH6) for weight checks and alpine safety briefing. Pre-booked commercial glacier experience.",
+          cost: "Pre-booked Ticket",
           type: "logistics",
           locationQuery: "The Helicopter Line Franz Josef",
-          parking: "Your accommodation at 9 Cron Street is only 200m from The Helicopter Line base—leave your car at your chalet and walk!",
-          parkingQuery: "9 Cron Street Franz Josef Glacier"
+          freeParking: "Your accommodation at 9 Cron Street is only 200m / 3-min flat walk from The Helicopter Line base—leave your car at your chalet for free! Alternatively, free customer parking directly outside The Helicopter Line base.",
+                    freeParkingQuery: "9 Cron Street Franz Josef Glacier",
+          parking: "FREE: Free guest parking at 9 Cron Street chalet (200m walk) or free customer parking at Heli-base.",
+                    parkingQuery: "9 Cron Street Franz Josef Glacier"
         },
         {
           time: "11:30 AM",
           name: "Franz Josef Glacier Helicopter Flight / Heli-Hike",
-          desc: "Take to the skies over glacial icefalls, deep blue crevasses, and snow fields beneath Mount Cook & Tasman, complete with an alpine snow landing.",
-          cost: "Pre-booked",
+          desc: "Soar over ice pinnacles and deep blue crevasses with a spectacular alpine snow landing high on Franz Josef Glacier. Pre-booked commercial flight.",
+          cost: "Pre-booked (~$300-$600)",
           type: "attraction",
           locationQuery: "Franz Josef Glacier New Zealand"
         },
         {
           time: "Afternoon",
           name: "Unwind in Franz Josef Alpine Village",
-          desc: "Relax after your exhilarating flight. Browse alpine village craft shops, visit local cafes, or enjoy a warm drink.",
-          cost: "Coffee / Snacks",
+          desc: "Explore the relaxed alpine village, browse local galleries, or relax at a cafe (SnakeBite Brewery or Landing Bar). 100% Free to explore.",
+          cost: "Coffee / Snacks Optional",
           type: "leisure",
           locationQuery: "Franz Josef Village New Zealand",
-          parking: "Free street parking along Cron Street or Franz Josef village centre public carpark.",
-          parkingQuery: "Franz Josef Village Public Car Park"
+          freeParking: "Free street parking along Cron Street or Franz Josef village centre public carpark on Cowan St / Main Road (100% Free, no meters or fees anywhere in the village).",
+                    freeParkingQuery: "Franz Josef Village Public Car Park",
+          parking: "FREE: Street parking along Cron Street or village centre public carpark (100% Free).",
+                    parkingQuery: "Franz Josef Village Public Car Park"
         },
         {
           time: "Night",
           name: "Free Terrace Walk Wild Glowworms",
-          desc: "Take the magical flat 30-min return walk along the forest track at the village edge (trailhead behind Cowan St) to spot thousands of wild glowworms shining on rainforest moss banks.",
-          cost: "FREE",
+          desc: "Walk the short 30-min flat rainforest Terrace Walk starting right behind the village. Wild glowworms illuminate mossy tree trunks and ferns along the stream banks naturally in the dark—100% free with no commercial tour needed (saves $60–$100+ vs commercial caves)!",
+          cost: "100% FREE (Wild Glowworms)",
           type: "nature",
           locationQuery: "Terrace Walk Franz Josef",
-          parking: "Walk from 9 Cron Street (3-min walk), or park at DOC Glacier Visitor Centre carpark (Cowan Street).",
-          parkingQuery: "Terrace Walk Franz Josef"
+          freeParking: "Walk from 9 Cron Street stay (3-min flat walk), or park at DOC Glacier Visitor Centre carpark on Cowan Street (100% Free).",
+                    freeParkingQuery: "Terrace Walk Franz Josef",
+          parking: "FREE: Walk from 9 Cron Street (3 mins) or DOC Glacier Visitor Centre carpark on Cowan St (100% Free).",
+                    parkingQuery: "Terrace Walk Franz Josef"
         }
       ],
       tips: "Check-in at 9 Cron Street is after 2:00 PM. Bring a phone torch for the Terrace Walk path, but turn it off completely to see the glowworms glow!"
@@ -581,39 +618,45 @@ const TRIP_DATA = {
         {
           time: "All Day",
           name: "Automatic Backup Flight Window",
-          desc: "If yesterday's heli flight was grounded or rescheduled due to alpine cloud cover, today serves as your built-in backup weather window!",
-          cost: "Backup Slot",
+          desc: "Weather backup window reserved in case Day 3 helicopter flight was delayed or rescheduled due to alpine cloud cover.",
+          cost: "Weather Contingency",
           type: "attraction"
         },
         {
           time: "Morning",
           name: "Lake Matheson Mirror-Reflection Loop (Fox Glacier)",
-          desc: "Drive 25 mins south to Cook Flat Rd for the easy, flat 1.5-hr mirror-reflection rainforest loop track. On calm days, see postcard mirror reflections of Mt Cook and Mt Tasman in dark waters (best at 'View of Views' jetty).",
-          cost: "FREE",
+          desc: "Walk the easy 1.5-hr flat circuit around Lake Matheson (100% Free DOC track) for the world-famous mirror reflection of Aoraki / Mount Cook and Mount Tasman across the dark peat waters.",
+          cost: "100% FREE (DOC Track)",
           type: "nature",
           locationQuery: "Lake Matheson Fox Glacier",
-          parking: "Spacious sealed visitor carpark at Matheson Cafe, end of Cook Flat Road (Fox Glacier).",
-          parkingQuery: "Lake Matheson Carpark Fox Glacier"
+          freeParking: "Spacious sealed visitor carpark at Matheson Cafe, end of Cook Flat Road (Fox Glacier) — 100% Free, modern DOC restrooms, gift shop, and cafe trackhead.",
+                    freeParkingQuery: "Lake Matheson Carpark Fox Glacier",
+          parking: "FREE: Spacious sealed visitor carpark at Matheson Cafe, end of Cook Flat Road (100% Free).",
+                    parkingQuery: "Lake Matheson Carpark Fox Glacier"
         },
         {
           time: "Afternoon",
           name: "Peter's Pool Glacial Mirror Track",
-          desc: "Head back to Franz Josef Glacier Access Rd for an easy, flat 25-min loop walk through native rainforest to a tranquil kettle lake reflecting the glacier valley.",
-          cost: "FREE",
+          desc: "Easy 25-minute flat stroller-friendly walk through regenerating podocarp rainforest to a kettle lake reflecting the glacier valley (100% Free DOC track).",
+          cost: "100% FREE (DOC Track)",
           type: "nature",
           locationQuery: "Peters Pool Franz Josef",
-          parking: "Glacier Access Road carpark (end of Franz Josef Glacier Access Rd) with wide parking bays and DOC trail signage.",
-          parkingQuery: "Peters Pool Franz Josef"
+          freeParking: "Glacier Access Road carpark (end of Franz Josef Glacier Access Rd) with wide parking bays and DOC trail signage (100% Free).",
+                    freeParkingQuery: "Peters Pool Franz Josef",
+          parking: "FREE: Glacier Access Road carpark at end of Franz Josef Glacier Access Rd (100% Free).",
+                    parkingQuery: "Peters Pool Franz Josef"
         },
         {
           time: "Late Afternoon",
           name: "Sentinel Rock Lookout",
-          desc: "Take the short 20-min walk onto a glacially carved rock mound for panoramic views across the Franz Josef Glacier valley and Waiho River bed.",
-          cost: "FREE",
+          desc: "Short 20-min climb up a glacial moraine ridge for elevated views of Franz Josef Glacier's terminal ice face and retreat markers (100% Free DOC track).",
+          cost: "100% FREE (DOC Lookout)",
           type: "viewpoint",
           locationQuery: "Sentinel Rock Franz Josef",
-          parking: "Shares the main Franz Josef Glacier Access Road carpark. Clearly signposted fork off the main valley trail.",
-          parkingQuery: "Sentinel Rock Franz Josef"
+          freeParking: "Shares the main Franz Josef Glacier Access Road carpark (100% Free). Clearly signposted fork off the main valley trail.",
+                    freeParkingQuery: "Sentinel Rock Franz Josef",
+          parking: "FREE: Shares the main Franz Josef Glacier Access Road carpark (100% Free).",
+                    parkingQuery: "Sentinel Rock Franz Josef"
         }
       ],
       tips: "Early morning at Lake Matheson offers the calmest water for mirror reflections. Stop at Matheson Café for hot coffee."
@@ -661,53 +704,63 @@ const TRIP_DATA = {
         {
           time: "10:45 AM",
           name: "Knights Point Coastal Lookout (Roaring Forties & Fur Seals)",
-          desc: "Spectacular elevated 10-minute coastal clifftop lookout over the rugged Tasman Sea coastline and fur seal breeding colonies before turning inland toward Haast.",
-          cost: "FREE",
+          desc: "Stop at this panoramic cliff lookout over the crashing Roaring Forties ocean swells; look for fur seals on the rocks below (100% Free public lookout).",
+          cost: "100% FREE (Coastal Lookout)",
           type: "viewpoint",
           isScenicStop: true,
           locationQuery: "Knights Point Lookout West Coast",
-          parking: "Large sealed clifftop carpark with modern DOC restrooms right off SH6.",
-          parkingQuery: "Knights Point Lookout West Coast"
+          freeParking: "Large sealed clifftop carpark right off SH6 with modern DOC restrooms and elevated ocean viewing platforms (100% Free).",
+                    freeParkingQuery: "Knights Point Lookout West Coast",
+          parking: "FREE: Large sealed clifftop carpark with modern DOC restrooms right off SH6 (100% Free).",
+                    parkingQuery: "Knights Point Lookout West Coast"
         },
         {
           time: "Midday",
           name: "Haast Pass Waterfalls (Thunder Creek & Fantail Falls)",
-          desc: "Cross the dramatic Haast Pass. Do the quick 5-minute flat walks to Thunder Creek Falls (stunning 28m plunge right off highway) and Fantail Falls (2-min walk across stony river beach).",
-          cost: "FREE",
+          desc: "Two quick 2-minute flat walks off SH6: Thunder Creek Falls (28m sheer plunge) and Fantail Falls (graceful braided veil over beech forest riverbed). Both 100% Free DOC walks.",
+          cost: "100% FREE (DOC Walks)",
           type: "nature",
           locationQuery: "Thunder Creek Falls Haast Pass",
-          parking: "Dedicated DOC pull-in carparks right along SH6 for both Thunder Creek Falls (2-min walk) and Fantail Falls (2-min walk).",
-          parkingQuery: "Thunder Creek Falls Carpark Haast Pass"
+          freeParking: "Dedicated DOC pull-in carparks right along SH6 for both Thunder Creek Falls (2-min walk) and Fantail Falls (2-min walk) (100% Free).",
+                    freeParkingQuery: "Thunder Creek Falls Carpark Haast Pass",
+          parking: "FREE: Dedicated DOC pull-in carparks right along SH6 for both waterfalls (100% Free).",
+                    parkingQuery: "Thunder Creek Falls Carpark Haast Pass"
         },
         {
           time: "Early Afternoon",
           name: "Makarora Blue Pools Beech Forest Walk",
-          desc: "Stop at Makarora for the flat 30-minute beech forest walk leading across swing bridges to the crystal-clear turquoise Blue Pools of the Makarora River.",
-          cost: "FREE",
+          desc: "Walk through lush silver beech forest to swing bridges over crystal-clear glacial pools where giant brown trout swim (100% Free official DOC track).",
+          cost: "100% FREE (DOC Track)",
           type: "nature",
           locationQuery: "Blue Pools Track Makarora",
-          parking: "Makarora Blue Pools Carpark (large gravel DOC carpark off SH6). Follow the 30-min flat beech forest track across swing bridges.",
-          parkingQuery: "Blue Pools Carpark Makarora"
+          freeParking: "Makarora Blue Pools Carpark (large gravel DOC carpark off SH6, 100% Free. Follow the 30-min flat beech forest track across swing bridges).",
+                    freeParkingQuery: "Blue Pools Carpark Makarora",
+          parking: "FREE: Makarora Blue Pools Carpark off SH6 (100% Free).",
+                    parkingQuery: "Blue Pools Carpark Makarora"
         },
         {
           time: "Late Afternoon",
           name: "Lake Hāwea & The Neck Lookouts",
-          desc: "Drive past Lake Hāwea; pull over at The Neck lay-bys on SH6 for stunning zero-hiking vistas of brilliant cobalt waters framed by mountains.",
-          cost: "FREE",
+          desc: "Admire the brilliant cobalt waters of Lake Hāwea and stop at The Neck, a dramatic 1,000-meter-wide ridge separating Lake Hāwea and Lake Wānaka (100% Free roadside stops).",
+          cost: "100% FREE (Scenic Lookouts)",
           type: "viewpoint",
           locationQuery: "Lake Hawea Lookout The Neck",
-          parking: "Elevated gravel lay-bys on the lake-side of SH6 at The Neck (where Lake Hāwea and Lake Wānaka are separated by 1 km of land).",
-          parkingQuery: "The Neck Lake Hawea Lookout"
+          freeParking: "Elevated gravel lay-bys on the lake-side of SH6 at The Neck (where Lake Hāwea and Lake Wānaka are separated by 1 km of land) — 100% Free.",
+                    freeParkingQuery: "The Neck Lake Hawea Lookout",
+          parking: "FREE: Elevated gravel lay-bys on lake-side of SH6 at The Neck (100% Free).",
+                    parkingQuery: "The Neck Lake Hawea Lookout"
         },
         {
           time: "Sunset",
           name: "Roys Bay Shoreline Stroll to 'That Wānaka Tree'",
-          desc: "Arrive in Wānaka and stroll along the Roys Bay shore to view and photograph the iconic willow tree growing right in the lake waters.",
-          cost: "FREE",
+          desc: "Stroll the flat lakeside path along Roys Bay to photograph 'That Wānaka Tree' growing solitary out of the lakebed against mountain backdrops (100% Free public lakefront).",
+          cost: "100% FREE (Public Lakefront)",
           type: "viewpoint",
           locationQuery: "That Wanaka Tree Roys Bay",
-          parking: "Wanaka Station Park Carpark (end of Homestead Close) or Roys Bay Carpark on Mt Aspiring Rd. Flat 2-minute stroll along the lakeshore path.",
-          parkingQuery: "Wanaka Station Park Car Park"
+          freeParking: "Wanaka Station Park Carpark (end of Homestead Close) or Roys Bay Carpark on Mt Aspiring Rd (100% Free public lakeside carparks, flat 2-minute stroll along the shoreline path).",
+                    freeParkingQuery: "Wanaka Station Park Car Park",
+          parking: "FREE: Wanaka Station Park Carpark or Roys Bay Carpark on Mt Aspiring Rd (100% Free, 2-min stroll).",
+                    parkingQuery: "Wanaka Station Park Car Park"
         }
       ],
       tips: "Check-in at Albert Town Sanctuary (67 Frye Crescent) is after 2:00 PM. Enjoy dinner in Wānaka village."
@@ -744,63 +797,81 @@ const TRIP_DATA = {
         {
           time: "9:30 AM",
           name: "Relaxed Wānaka Morning / Lavender Farm",
-          desc: "Spend a relaxed morning along the lakefront, or stop by Wānaka Lavender Farm to wander the gardens and sample lavender ice cream.",
-          cost: "FREE (or ~$15 NZD Farm)",
+          desc: "Visit the fragrant Wānaka Lavender Farm (36 Morris Rd). The tearoom and lavender retail shop are 100% free to browse; walking into the flowering lavender fields and animal petting enclosures costs ~$12–$15 NZD per adult.",
+          cost: "~$15 NZD (Shop Free)",
           type: "leisure",
           locationQuery: "Wanaka Lavender Farm",
-          parking: "Free on-site customer carpark at Wanaka Lavender Farm (36 Morris Road, Albert Town).",
-          parkingQuery: "Wanaka Lavender Farm Carpark"
+          freeParking: "Free on-site customer carpark at Wanaka Lavender Farm (36 Morris Road, Albert Town) — 100% Free for farm visitors.",
+                    freeParkingQuery: "Wanaka Lavender Farm Carpark",
+          parking: "FREE: Free on-site customer carpark at Wanaka Lavender Farm (100% Free).",
+                    parkingQuery: "Wanaka Lavender Farm Carpark"
         },
         {
           time: "11:15 AM",
           name: "Historic Cardrona Hotel (est. 1863) & Bra Fence",
-          desc: "Iconic historic gold-rush hotel facade in the Cardrona Valley. Snap a photo of the rustic 1863 tavern and the whimsical Bradrona fence raising breast cancer awareness.",
-          cost: "FREE (Photo)",
+          desc: "Photograph New Zealand's most iconic historic gold-rush hotel and the quirky Cardrona Bra Fence (100% Free photo stops). Grab a warm coffee or local craft beer by the courtyard fireplace if desired.",
+          cost: "FREE Photo (Drinks Optional)",
           type: "attraction",
           isScenicStop: true,
           locationQuery: "Cardrona Hotel Crown Range Road",
-          parking: "Ample roadside carparking directly in front of and opposite Cardrona Hotel.",
-          parkingQuery: "Cardrona Hotel Crown Range Road"
+          freeParking: "Ample roadside carparking directly in front of and opposite Cardrona Hotel on Crown Range Road (100% Free).",
+                    freeParkingQuery: "Cardrona Hotel Crown Range Road",
+          parking: "FREE: Roadside carparking directly in front of and opposite Cardrona Hotel (100% Free).",
+                    parkingQuery: "Cardrona Hotel Crown Range Road"
         },
         {
           time: "12:00 PM",
           name: "Crown Range Alpine Drive & Summit Lookouts",
-          desc: "Drive over the dramatic Crown Range Road, stopping at the Summit Saddle (1,121m) and Arrow Junction lookouts for sweeping views across the Wakatipu Basin.",
-          cost: "FREE",
+          desc: "Drive New Zealand's highest paved highway (1,121m summit saddle). Stop at multiple viewing bays for panoramic sweeps across Arrowtown and the Frankton Basin (100% Free public highway).",
+          cost: "100% FREE (Alpine Pass)",
           type: "viewpoint",
           locationQuery: "Crown Range Summit Viewpoint",
-          parking: "Summit Saddle viewing carparks at 1,121m elevation on both sides of Crown Range Road.",
-          parkingQuery: "Crown Range Summit Viewpoint"
+          freeParking: "Summit Saddle viewing carparks at 1,121m elevation on both sides of Crown Range Road (100% Free panoramic alpine pull-ins).",
+                    freeParkingQuery: "Crown Range Summit Viewpoint",
+          parking: "FREE: Summit Saddle viewing carparks at 1,121m elevation on Crown Range Road (100% Free).",
+                    parkingQuery: "Crown Range Summit Viewpoint"
         },
         {
           time: "1:00 PM",
           name: "Kawarau Gorge Suspension Bridge Bungy Detour",
-          desc: "Make a 20-minute detour/stop at the Kawarau Gorge Suspension Bridge (SH6 Gibbston) to view historic bungy jumpers leaping over the turquoise river canyon for free from the viewing deck.",
-          cost: "FREE",
+          desc: "Visit the historic Kawarau Suspension Bridge, the birthplace of commercial bungy jumping. Walking into the AJ Hackett centre and out onto the viewing deck to watch jumpers is 100% free! (Actual bungy jump or zipride is optional paid activity).",
+          cost: "100% FREE Viewing (Jumps Paid)",
           type: "attraction",
           locationQuery: "AJ Hackett Bungy Kawarau Suspension Bridge",
-          parking: "Large free customer carpark at the AJ Hackett Bungy Centre (Gibbston Highway SH6). Free viewing deck over the gorge.",
-          parkingQuery: "AJ Hackett Bungy Kawarau Bridge Carpark"
+          freeParking: "Large free customer carpark at the AJ Hackett Bungy Centre (Gibbston Highway SH6, 100% Free access to viewing deck and historic suspension bridge).",
+                    freeParkingQuery: "AJ Hackett Bungy Kawarau Bridge Carpark",
+          parking: "FREE: Large customer carpark at AJ Hackett Bungy Centre (100% Free).",
+                    parkingQuery: "AJ Hackett Bungy Kawarau Bridge Carpark"
         },
         {
           time: "2:00 PM",
           name: "Check in & Steamer Wharf Late Lunch",
-          desc: "Check into Lower Shotover accommodation and grab a late lunch by Steamer Wharf along the Queenstown waterfront.",
-          cost: "Lunch ~$25",
+          desc: "Check into your Queenstown base (Lower Shotover) and head into Steamer Wharf for a relaxed late lunch overlooking Lake Wakatipu.",
+          cost: "Lunch (~$20-$30)",
           type: "food",
           locationQuery: "Steamer Wharf Queenstown",
-          parking: "Park along Park Street by Queenstown Gardens (free 2–4 hr parking, flat 7-min walk to Steamer Wharf; avoids CBD parking fees!).",
-          parkingQuery: "Park Street Queenstown Gardens Carpark"
+          freeParking: "Park along Park Street by Queenstown Gardens perimeter (100% Free 2–4 hr parking bays, flat 7-min scenic stroll along the lake to Steamer Wharf; avoids Queenstown CBD parking fees!). Also: One Mile Carpark on Lake Esplanade (100% Free all day, 10-12 min walk).",
+                    freeParkingQuery: "Park Street Queenstown Gardens Carpark",
+          paidParking: "Man Street Carpark (22 Man St, multi-level covered carpark, 4-min walk to wharf) or Church Street Carpark.",
+                    paidParkingCost: "~$4.50 – $5.00/hr ($30 daily max)",
+                    paidParkingQuery: "Man Street Carpark Queenstown",
+          parking: "FREE: Park Street by Queenstown Gardens (free 2–4 hrs, 7-min flat walk) or One Mile Carpark (free all-day). PAID: Man Street Carpark (~$4.50–$5/hr).",
+                    parkingQuery: "Park Street Queenstown Gardens Carpark"
         },
         {
           time: "4:30 PM",
           name: "Leisurely Queenstown Gardens Peninsula Walk",
-          desc: "Take a leisurely, flat walk around Queenstown Gardens peninsula jutting into Lake Wakatipu, surrounded by rose gardens and towering pines.",
-          cost: "FREE",
+          desc: "Take a leisurely flat walk around Queenstown Gardens peninsula jutting into Lake Wakatipu, surrounded by rose gardens and towering Douglas fir pines (100% Free public council park).",
+          cost: "100% FREE (Public Park)",
           type: "nature",
           locationQuery: "Queenstown Gardens",
-          parking: "Park Street perimeter of Queenstown Gardens (free on-street bays).",
-          parkingQuery: "Park Street Queenstown Gardens Carpark"
+          freeParking: "Park Street perimeter of Queenstown Gardens (100% Free on-street parking bays right at park entrance, 2–4 hr limit).",
+                    freeParkingQuery: "Park Street Queenstown Gardens Carpark",
+          paidParking: "Church Street Carpark or Ballarat Street Carpark (~4-min walk) if Park Street is full during busy weekend afternoons.",
+                    paidParkingCost: "~$4.50/hr",
+                    paidParkingQuery: "Church Street Carpark Queenstown",
+          parking: "FREE: Park Street perimeter of Queenstown Gardens (100% Free, 2–4 hr bays). PAID BACKUP: Church St Carpark (~$4.50/hr).",
+                    parkingQuery: "Park Street Queenstown Gardens Carpark"
         }
       ],
       tips: "Check-in at Lower Shotover (6 Nobles Lane) is after 3:00 PM. Steamer Wharf is great for afternoon drinks."
@@ -826,62 +897,83 @@ const TRIP_DATA = {
         {
           time: "9:00 AM – 10:15 AM",
           name: "Historic Arrowtown & Chinese Settlement",
-          desc: "Morning stroll around historic Arrowtown down preserved 19th-century tree-lined Buckingham Street and the heritage Chinese Settlement (20 mins east).",
-          cost: "FREE",
+          desc: "Morning stroll around historic Arrowtown down preserved 19th-century tree-lined Buckingham Street and the heritage restored Chinese Settlement (100% Free public historic reserve).",
+          cost: "100% FREE (Heritage Reserve)",
           type: "attraction",
           locationQuery: "Arrowtown Chinese Settlement",
-          parking: "Ramshaw Lane Public Carpark (free, spacious sealed carpark directly behind Buckingham Street along the Arrow River).",
-          parkingQuery: "Ramshaw Lane Carpark Arrowtown"
+          freeParking: "Ramshaw Lane Public Carpark (large free sealed carpark directly behind Buckingham Street along the Arrow River) or Roman Catholic Church / Merioneth St free overflow carpark (100% Free public council parking).",
+                    freeParkingQuery: "Ramshaw Lane Carpark Arrowtown",
+          parking: "FREE: Ramshaw Lane Public Carpark directly behind Buckingham Street (100% Free, no meters).",
+                    parkingQuery: "Ramshaw Lane Carpark Arrowtown"
         },
         {
           time: "11:00 AM",
           name: "High-Speed Jetboat Ride",
-          desc: "Hold on for exhilarating 360-degree spins skimming past canyon rock faces (Shotover Jet at Arthur's Point or KJet at Main Town Pier).",
-          cost: "Pre-booked",
+          desc: "Hold on for exhilarating 360-degree spins skimming past canyon rock faces at Shotover Jet in Arthur's Point. Pre-booked commercial jetboat experience.",
+          cost: "Pre-booked (~$150/pp)",
           type: "attraction",
           locationQuery: "Shotover Jet Arthurs Point Queenstown",
-          parking: "Shotover Jet River Base carpark, Gorge Road, Arthur's Point (free on-site parking directly next to check-in terminal).",
-          parkingQuery: "Shotover Jet Arthurs Point Carpark"
+          freeParking: "Shotover Jet River Base carpark, Gorge Road, Arthur's Point (100% Free dedicated customer parking directly next to check-in terminal).",
+                    freeParkingQuery: "Shotover Jet Arthurs Point Carpark",
+          parking: "FREE: Shotover Jet River Base carpark, Gorge Road, Arthur's Point (100% Free on-site).",
+                    parkingQuery: "Shotover Jet Arthurs Point Carpark"
         },
         {
           time: "12:30 PM – 2:00 PM",
           name: "Lunch in Queenstown Central",
-          desc: "Enjoy lunch in Queenstown CBD (e.g. lakeside bakery, loaded bagels, or Fergburger / Fergbaker).",
-          cost: "Lunch ~$25",
+          desc: "Enjoy lunch in Queenstown CBD (e.g. lakeside bakery, loaded bagels, or Fergburger / Fergbaker). Pay per meal.",
+          cost: "Lunch (~$20-$30)",
           type: "food",
           locationQuery: "Queenstown Mall",
-          parking: "Man Street Carpark (covered multi-level) or Ballard St / Church St carpark; or rideshare/bus from Lower Shotover stay.",
-          parkingQuery: "Man Street Carpark Queenstown"
+          freeParking: "Park along Park Street by Queenstown Gardens (100% Free 2–4 hr bays, flat 6-min lakeside stroll into Queenstown Mall / central restaurants).",
+                    freeParkingQuery: "Park Street Queenstown Gardens Carpark",
+          paidParking: "Man Street Carpark (22 Man St) or Church Street Carpark right in the downtown core.",
+                    paidParkingCost: "~$4.50 – $5.00/hr",
+                    paidParkingQuery: "Man Street Carpark Queenstown",
+          parking: "FREE: Park Street by Queenstown Gardens (free 2–4 hrs, 6-min walk). PAID: Man St or Church St Carpark (~$4.50–$5/hr).",
+                    parkingQuery: "Park Street Queenstown Gardens Carpark"
         },
         {
           time: "2:00 PM – 3:45 PM",
           name: "Downtime along Queenstown Mall / Steamer Wharf",
-          desc: "Stroll along Queenstown Mall and Steamer Wharf (optional: Queenstown Water Taxi or Skyline Gondola).",
-          cost: "FREE / Optional",
+          desc: "Stroll along Queenstown Mall and Steamer Wharf to watch the historic TSS Earnslaw steamship dock. Free public stroll; optional shopping/drinks.",
+          cost: "100% FREE (Leisure Stroll)",
           type: "leisure",
           locationQuery: "Steamer Wharf Queenstown",
-          parking: "Church Street or Park Street bays by Queenstown Gardens.",
-          parkingQuery: "Park Street Queenstown Gardens Carpark"
+          freeParking: "Free on-street parking bays along Park Street / Queenstown Gardens perimeter (free 2–4 hr bays, flat 5-min stroll).",
+                    freeParkingQuery: "Park Street Queenstown Gardens Carpark",
+          paidParking: "Church Street Carpark or Athol Street Carpark in the central business district.",
+                    paidParkingCost: "~$4.50/hr (metered 8:00 AM – 6:00 PM)",
+                    paidParkingQuery: "Church Street Carpark Queenstown",
+          parking: "FREE: Park Street bays by Queenstown Gardens (free 2–4 hrs, 5-min walk). PAID: Church St / Athol St Carpark (~$4.50/hr).",
+                    parkingQuery: "Park Street Queenstown Gardens Carpark"
         },
         {
           time: "4:00 PM – 4:45 PM",
           name: "Queenstown Ice Bar Experience",
-          desc: "Chill out in sub-zero crystalline ice rooms with custom cocktails served in handcrafted ice glasses. Winter coats and gloves provided!",
-          cost: "Pre-booked",
+          desc: "Chill out in sub-zero crystalline ice rooms with custom cocktails served in handcrafted ice glasses. Pre-booked commercial experience (winter coats and gloves included).",
+          cost: "Pre-booked (~$40/pp)",
           type: "attraction",
           locationQuery: "Below Zero Ice Bar Queenstown",
-          parking: "Church Street / Ballarat Street parking, or short walk from Queenstown Mall.",
-          parkingQuery: "Church Street Carpark Queenstown"
+          freeParking: "Park along Park Street by Queenstown Gardens (free 2–4 hrs, 6-min walk) or on-street metered bays which turn 100% FREE after 6:00 PM.",
+                    freeParkingQuery: "Park Street Queenstown Gardens Carpark",
+          paidParking: "Church Street Carpark (10 Church St, 1-min walk from Ice Bar) or Ballarat Street Carpark.",
+                    paidParkingCost: "~$4.50/hr (metered until 6:00 PM)",
+                    paidParkingQuery: "Church Street Carpark Queenstown",
+          parking: "FREE: Park Street bays (free 2–4 hrs, 6-min walk) or street bays after 6 PM. PAID: Church Street Carpark (~$4.50/hr).",
+                    parkingQuery: "Park Street Queenstown Gardens Carpark"
         },
         {
           time: "5:00 PM – 6:30 PM",
           name: "Kelvin Peninsula & Jack's Point Sunset Reflections",
-          desc: "Take a scenic drive around Frankton Arm to Kelvin Peninsula / Jack's Point (Kelvin Peninsula Rd) for stunning sunset reflections of the Remarkables range across Lake Wakatipu.",
-          cost: "FREE",
+          desc: "Take a scenic drive around Frankton Arm to Kelvin Peninsula / Jack's Point for stunning sunset reflections of the Remarkables mountain range across Lake Wakatipu (100% Free public reserve).",
+          cost: "100% FREE (Scenic Drive & Walk)",
           type: "viewpoint",
           locationQuery: "Kelvin Peninsula Queenstown",
-          parking: "Kelvin Heights Golf Course & Reserve carparks at the end of Peninsula Road for sunset views over Lake Wakatipu.",
-          parkingQuery: "Kelvin Heights Peninsula Carpark Queenstown"
+          freeParking: "Kelvin Heights Golf Course & Reserve carparks at the end of Peninsula Road for sunset views over Lake Wakatipu (100% Free public carparks).",
+                    freeParkingQuery: "Kelvin Heights Peninsula Carpark Queenstown",
+          parking: "FREE: Kelvin Heights Golf Course & Reserve carparks at end of Peninsula Road (100% Free).",
+                    parkingQuery: "Kelvin Heights Peninsula Carpark Queenstown"
         }
       ],
       tips: "Dress warmly for the ice bar! Sunset reflections over Kelvin Heights are spectacular around 6:00 PM."
@@ -907,52 +999,62 @@ const TRIP_DATA = {
         {
           time: "9:00 AM – 9:45 AM",
           name: "Arthur's Point Forest Walk & Historic Hugo Tunnel",
-          desc: "Take an easy forest walk down the Lower Shotover Canyon track in Arthur's Point to the historic gold-mining tunnel and roaring riverbank.",
-          cost: "FREE",
+          desc: "Take an easy forest walk down the Lower Shotover Canyon track in Arthur's Point to the historic gold-mining tunnel and roaring riverbank (100% Free public reserve).",
+          cost: "100% FREE (Historic Reserve)",
           type: "nature",
           locationQuery: "Arthurs Point Hugo Tunnel Queenstown",
-          parking: "Oxenbridge Mill Carpark at the end of Gorge Road (Arthur's Point) or Edith Cavell Bridge parking area.",
-          parkingQuery: "Oxenbridge Mill Carpark Arthurs Point"
+          freeParking: "Oxenbridge Mill Carpark at the end of Gorge Road (Arthur's Point) or Edith Cavell Bridge parking area (100% Free DOC reserves).",
+                    freeParkingQuery: "Oxenbridge Mill Carpark Arthurs Point",
+          parking: "FREE: Oxenbridge Mill Carpark at end of Gorge Road or Edith Cavell Bridge area (100% Free).",
+                    parkingQuery: "Oxenbridge Mill Carpark Arthurs Point"
         },
         {
           time: "10:00 AM",
           name: "Scenic Lake Drive, Bob's Cove & Bennett's Bluff",
-          desc: "Drive the world-class lakefront road toward Glenorchy, stopping at Bob's Cove for a 30-min flat bushwalk down to a turquoise cove, followed by Bennett's Bluff Lookout.",
-          cost: "FREE",
+          desc: "Drive the world-class lakefront road toward Glenorchy, stopping at Bob's Cove for a 30-min flat bushwalk down to a turquoise cove, followed by Bennett's Bluff elevated viewing platform (100% Free DOC trails).",
+          cost: "100% FREE (DOC Track & Lookout)",
           type: "nature",
           locationQuery: "Bobs Cove Track Glenorchy Road",
-          parking: "Bob's Cove trackhead carpark (Glenorchy-Queenstown Rd, 14 km from town). Bennett's Bluff: Newly built elevated carpark platform on the lake side with safe pedestrian underpass.",
-          parkingQuery: "Bennetts Bluff Lookout Carpark Glenorchy Road"
+          freeParking: "Bob's Cove trackhead carpark (Glenorchy-Queenstown Rd, 14 km from town) and Bennett's Bluff elevated carpark platform (lake side with safe pedestrian underpass) — 100% Free.",
+                    freeParkingQuery: "Bennetts Bluff Lookout Carpark Glenorchy Road",
+          parking: "FREE: Bob's Cove trackhead carpark and Bennett's Bluff elevated platform carpark (100% Free).",
+                    parkingQuery: "Bennetts Bluff Lookout Carpark Glenorchy Road"
         },
         {
           time: "12:15 PM",
           name: "Arrive in Glenorchy & Lunch at Mrs Woolly's",
-          desc: "Arrive in Glenorchy and grab famous savory gourmet pies and artisan sweet treats at Mrs Woolly's General Store.",
-          cost: "Lunch ~$20",
+          desc: "Arrive in Glenorchy and grab famous savory gourmet pies, artisan sweet treats, and barista coffee at Mrs Woolly's General Store. Free to browse; pay per meal.",
+          cost: "Lunch (~$15-$25)",
           type: "food",
           locationQuery: "Mrs Woollys General Store Glenorchy",
-          parking: "Free customer parking directly outside Mrs Woolly's General Store on Oban Street.",
-          parkingQuery: "Mrs Woollys General Store Glenorchy"
+          freeParking: "Free customer parking directly outside Mrs Woolly's General Store on Oban Street, plus free unmetered angle street parking in town (100% Free).",
+                    freeParkingQuery: "Mrs Woollys General Store Glenorchy",
+          parking: "FREE: Customer parking directly outside Mrs Woolly's on Oban Street (100% Free).",
+                    parkingQuery: "Mrs Woollys General Store Glenorchy"
         },
         {
           time: "1:15 PM",
           name: "Glenorchy Lagoon Boardwalk & Iconic Red Boat Shed",
-          desc: "Walk the flat Glenorchy Lagoon boardwalk with reflective mountain waters and visit the iconic postcard-red lakefront boat shed on the wharf.",
-          cost: "FREE",
+          desc: "Walk the flat Glenorchy Lagoon boardwalk with reflective mountain waters and visit the iconic postcard-red lakefront boat shed on the wharf (100% Free public site).",
+          cost: "100% FREE (Public Boardwalk)",
           type: "nature",
           locationQuery: "Glenorchy Wharf and Boat Shed",
-          parking: "Glenorchy Wharf Carpark at the end of Mull Street (free public parking right in front of the iconic red boat shed and lagoon boardwalk).",
-          parkingQuery: "Glenorchy Wharf Car Park"
+          freeParking: "Glenorchy Wharf Carpark at the end of Mull Street (100% Free public parking right in front of the iconic red boat shed and lagoon boardwalk).",
+                    freeParkingQuery: "Glenorchy Wharf Car Park",
+          parking: "FREE: Glenorchy Wharf Carpark at end of Mull Street (100% Free public parking).",
+                    parkingQuery: "Glenorchy Wharf Car Park"
         },
         {
           time: "2:00 PM – 4:00 PM",
           name: "Paradise Valley Scenic Alpine Drive",
-          desc: "Drive into Paradise Valley along the border of Mount Aspiring National Park to admire vast river plains and snowcapped alpine backdrops (Isengard in LOTR). Return to Queenstown.",
-          cost: "FREE",
+          desc: "Drive into Paradise Valley along the border of Mount Aspiring National Park to admire vast river plains and snowcapped alpine backdrops (Isengard filming site; 100% Free public road).",
+          cost: "100% FREE (Scenic Drive)",
           type: "drive",
           locationQuery: "Paradise Glenorchy New Zealand",
-          parking: "Roadside pull-ins and Mount Aspiring National Park trailhead parking past Dart River bridge.",
-          parkingQuery: "Paradise Valley Glenorchy"
+          freeParking: "Roadside gravel pull-in bays along Paradise Road and Mount Aspiring National Park trailhead parking past Dart River bridge (100% Free).",
+                    freeParkingQuery: "Paradise Valley Glenorchy",
+          parking: "FREE: Roadside pull-in bays along Paradise Road and Mount Aspiring trailhead (100% Free).",
+                    parkingQuery: "Paradise Valley Glenorchy"
         }
       ],
       tips: "The road into Paradise Valley is unsealed but smooth and easily handled at moderate speeds in your SUV."
@@ -990,18 +1092,23 @@ const TRIP_DATA = {
         {
           time: "7:00 AM",
           name: "Milford Sound Glass-Roof Coach Departure",
-          desc: "Depart Queenstown (Frankton Bus Shelter 6:10 AM pickup) on a premium glass-roof coach through Fiordland National Park, Eglinton Valley, Mirror Lakes, and the Homer Tunnel.",
-          cost: "Pre-booked",
+          desc: "Depart Queenstown (Frankton Bus Shelter 6:10 AM pickup) on a premium glass-roof coach through Fiordland National Park, Eglinton Valley, Mirror Lakes, and the Homer Tunnel. Pre-booked commercial tour.",
+          cost: "Pre-booked Tour",
           type: "logistics",
           locationQuery: "Frankton Bus Shelter Queenstown",
-          parking: "Frankton Bus Shelter: Park in public commuter bays along Hawthorne Drive / Frankton, or arrange a 5-min drop-off from Lower Shotover stay (6:10 AM sharp!).",
-          parkingQuery: "Frankton Bus Shelter Queenstown"
+          freeParking: "Public commuter parking bays along Hawthorne Drive / Frankton (100% Free all-day parking near Frankton Bus Shelter) or arrange a quick 5-min drop-off from Lower Shotover accommodation (6:10 AM sharp!).",
+                    freeParkingQuery: "Frankton Bus Shelter Queenstown",
+          paidParking: "Queenstown Airport Park & Ride / Long Term Carpark (Brookes Road, Frankton) if commuter street spaces are filled.",
+                    paidParkingCost: "~$25 – $30 per day",
+                    paidParkingQuery: "Queenstown Airport Park and Ride",
+          parking: "FREE: Hawthorne Drive commuter parking bays near Frankton Bus Shelter (free all day). PAID: Airport Park & Ride (~$25–$30/day).",
+                    parkingQuery: "Frankton Bus Shelter Queenstown"
         },
         {
           time: "1:00 PM",
           name: "Milford Sound Nature Cruise",
-          desc: "Board your scenic catamaran cruise past soaring glacier-carved cliffs, stand on the bow beneath thundering Stirling Falls, and spot wild seals, penguins, and dolphins.",
-          cost: "Pre-booked",
+          desc: "Board your scenic catamaran cruise past soaring glacier-carved cliffs (Mitre Peak), stand on the bow beneath thundering Stirling Falls, and spot wild fur seals and dolphins. Pre-booked commercial cruise.",
+          cost: "Pre-booked Cruise",
           type: "attraction",
           locationQuery: "Milford Sound Visitor Terminal"
         },
@@ -1009,7 +1116,7 @@ const TRIP_DATA = {
           time: "8:00 PM",
           name: "Return to Queenstown by Coach",
           desc: "Arrive back in Queenstown by coach after an unforgettable journey through Fiordland. Head out for a relaxed, casual dinner.",
-          cost: "Casual Dinner",
+          cost: "Dinner (~$25-$35)",
           type: "food",
           locationQuery: "Queenstown CBD"
         }
@@ -1047,52 +1154,64 @@ const TRIP_DATA = {
         {
           time: "8:30 AM",
           name: "Check out of Queenstown & Drive Lindis Pass",
-          desc: "Check out of Lower Shotover accommodation; drive northeast across the dramatic golden tussock mountain pass of the Lindis Pass summit (SH8).",
-          cost: "FREE",
+          desc: "Check out of Lower Shotover accommodation; drive northeast across the dramatic golden tussock mountain pass of the Lindis Pass summit (SH8, 100% Free public highway & lookout).",
+          cost: "100% FREE (Alpine Pass)",
           type: "drive",
           locationQuery: "Lindis Pass Viewpoint",
-          parking: "Sealed summit lookout carparks on both north and southbound sides of SH8.",
-          parkingQuery: "Lindis Pass Viewpoint Carpark"
+          freeParking: "Sealed summit lookout carparks on both north and southbound sides of SH8 (100% Free scenic viewing pull-offs).",
+                    freeParkingQuery: "Lindis Pass Viewpoint Carpark",
+          parking: "FREE: Sealed summit lookout carparks on both sides of SH8 (100% Free).",
+                    parkingQuery: "Lindis Pass Viewpoint Carpark"
         },
         {
           time: "11:00 AM",
           name: "Omarama Clay Cliffs Pinnacles",
-          desc: "Stop at Omarama Clay Cliffs on Henburn Rd to explore towering gravel pinnacles and sharp slot ravines formed by ancient glacial outwash.",
-          cost: "$5 NZD cash honesty box",
+          desc: "Stop at Omarama Clay Cliffs on Henburn Rd to explore towering pinnacles and sharp slot ravines. Note: Located on private sheep station land; requires a $5 NZD cash honesty box donation per vehicle at the farm gate (bring exact NZD cash/coins; latch gate closed behind you).",
+          cost: "$5 NZD Cash (Private Land)",
           type: "nature",
           locationQuery: "Omarama Clay Cliffs",
-          parking: "End of unsealed Henburn Road past farm paddocks ($5 cash honesty box; latch gate behind you!). Gravel carpark directly at canyon mouth.",
-          parkingQuery: "Omarama Clay Cliffs Carpark Henburn Road"
+          paidParking: "No free parking alternative available directly at site. The Clay Cliffs are located on private sheep station land accessed via unsealed Henburn Road. You must pay at the farm gate before proceeding to the gravel carpark at the canyon mouth.",
+                    paidParkingCost: "$5 NZD cash honesty box per vehicle",
+                    paidParkingQuery: "Omarama Clay Cliffs Carpark Henburn Road",
+          noFreeParking: true,
+          parking: "PAID ACCESS ONLY: No free parking available (private station land). Cost: $5 cash honesty box per vehicle at Henburn Rd access gate.",
+                    parkingQuery: "Omarama Clay Cliffs Carpark Henburn Road"
         },
         {
           time: "12:15 PM",
           name: "Check into Twizel Lodging & Lunch",
           desc: "Arrive in Twizel, check into your accommodation at 15 Sealy Street, and have lunch in Twizel town centre.",
-          cost: "Lunch ~$20",
+          cost: "Lunch (~$20)",
           type: "logistics",
           locationQuery: "15 Sealy Street Twizel",
-          parking: "Spacious private driveway parking at 15 Sealy Street accommodation.",
-          parkingQuery: "15 Sealy Street Twizel"
+          freeParking: "Spacious private driveway parking at 15 Sealy Street accommodation (100% Free, secure on-site parking).",
+                    freeParkingQuery: "15 Sealy Street Twizel",
+          parking: "FREE: Private driveway parking at 15 Sealy Street accommodation (100% Free).",
+                    parkingQuery: "15 Sealy Street Twizel"
         },
         {
           time: "2:00 PM",
           name: "Peter's Lookout Lake Pukaki & Alpine Salmon",
-          desc: "Drive up SH80 along electric-blue Lake Pukaki to Mount Cook National Park (~45 mins). Stop at Peter's Lookout for panoramic lake views and Mt Cook Alpine Salmon sashimi.",
-          cost: "~$30 NZD",
+          desc: "Stop at Peter's Lookout for 100% free panoramic views over turquoise Lake Pukaki and Mount Cook. Fresh King Salmon sashimi packs from the on-site Mount Cook Alpine Salmon trailer are available for purchase (~$25–$35 NZD).",
+          cost: "FREE View / Salmon ~$30 NZD",
           type: "food",
           locationQuery: "Mount Cook Alpine Salmon Peters Lookout",
-          parking: "Spacious scenic viewing carpark off SH80 overlooking Lake Pukaki; salmon shop food trailer is on site.",
-          parkingQuery: "Peters Lookout Lake Pukaki Carpark"
+          freeParking: "Spacious scenic viewing carpark off SH80 overlooking Lake Pukaki; Mount Cook Alpine Salmon shop trailer on site (100% Free).",
+                    freeParkingQuery: "Peters Lookout Lake Pukaki Carpark",
+          parking: "FREE: Spacious scenic viewing carpark off SH80 overlooking Lake Pukaki (100% Free).",
+                    parkingQuery: "Peters Lookout Lake Pukaki Carpark"
         },
         {
           time: "3:00 PM – 5:00 PM",
           name: "Tasman Glacier Lake / Jetty Track",
-          desc: "Do the flat Tasman Glacier Lake / Jetty Track (Tasman Valley Rd) to see giant floating icebergs calved into the lake, or visit the Sir Edmund Hillary Alpine Centre museum. Drive back to Twizel for dinner.",
-          cost: "FREE",
+          desc: "Do the flat Tasman Glacier Lake / Jetty Track (Tasman Valley Rd, 100% Free DOC track) to see giant floating icebergs calved into the lake, or visit the Sir Edmund Hillary Alpine Centre. Drive back to Twizel for dinner.",
+          cost: "100% FREE (DOC Track)",
           type: "nature",
           locationQuery: "Tasman Glacier Track Mt Cook",
-          parking: "Blue Lakes & Tasman Glacier Carpark (end of Tasman Valley Rd). Follow the flat Tasman Lake / Jetty Track (20 mins to water edge) rather than the steep 300-stair view track!",
-          parkingQuery: "Tasman Glacier Carpark Mt Cook"
+          freeParking: "Blue Lakes & Tasman Glacier Carpark (end of Tasman Valley Rd) — 100% Free DOC trackhead with modern flush toilets and trail map boards. Follow the flat Tasman Lake / Jetty Track (20 mins to iceberg lake shore) rather than the steep 300-stair view track!",
+                    freeParkingQuery: "Tasman Glacier Carpark Mt Cook",
+          parking: "FREE: Blue Lakes & Tasman Glacier Carpark at end of Tasman Valley Rd (100% Free DOC trackhead).",
+                    parkingQuery: "Tasman Glacier Carpark Mt Cook"
         }
       ],
       tips: "Peter's Lookout on Lake Pukaki is an unforgettable photo spot with the salmon shop right on site!"
@@ -1129,52 +1248,62 @@ const TRIP_DATA = {
         {
           time: "8:00 AM",
           name: "Depart Twizel Early for White Horse Hill Carpark",
-          desc: "Depart Twizel early (~45 mins) to secure parking at White Horse Hill carpark before peak crowds fill the lot by 9:00 AM.",
-          cost: "FREE",
+          desc: "Depart Twizel early (~45 mins) to secure free parking at White Horse Hill carpark before peak crowds fill the lot by 9:00 AM.",
+          cost: "100% FREE (DOC Trackhead)",
           type: "drive",
           locationQuery: "White Horse Hill Campground Mt Cook",
-          parking: "White Horse Hill Campground & Day-use Carpark (end of Hooker Valley Rd). Arrive by 8:30 AM sharp to avoid parking miles down the road!",
-          parkingQuery: "White Horse Hill Campground Mt Cook"
+          freeParking: "White Horse Hill Campground & Day-use Carpark (end of Hooker Valley Rd). 100% Free DOC public carpark. Arrive by 8:30 AM sharp to guarantee a spot at the trackhead; avoids having to park miles down the road verges!",
+                    freeParkingQuery: "White Horse Hill Campground Mt Cook",
+          parking: "FREE: White Horse Hill Campground & Day-use Carpark (100% Free DOC parking). Arrive by 8:30 AM!",
+                    parkingQuery: "White Horse Hill Campground Mt Cook"
         },
         {
           time: "8:45 AM – 12:30 PM",
           name: "Hike the World-Famous Hooker Valley Track",
-          desc: "Hike the world-renowned Hooker Valley Track (10 km flat return, 3 suspension swing bridges, ending at the glacier lake with floating icebergs directly beneath the towering face of Aoraki / Mount Cook).",
-          cost: "FREE",
+          desc: "Hike the world-renowned Hooker Valley Track (10 km flat return, 3 suspension swing bridges, ending at the glacier lake with floating icebergs directly beneath the towering face of Aoraki / Mount Cook). 100% Free official DOC track in Mount Cook National Park with zero entrance fees.",
+          cost: "100% FREE (DOC Track)",
           type: "nature",
           locationQuery: "Hooker Valley Track Mt Cook",
-          parking: "Direct trackhead at White Horse Hill carpark.",
-          parkingQuery: "White Horse Hill Campground Mt Cook"
+          freeParking: "Direct trackhead at White Horse Hill Carpark (100% Free DOC parking with toilets, picnic shelter, and potable water).",
+                    freeParkingQuery: "White Horse Hill Campground Mt Cook",
+          parking: "FREE: Direct trackhead at White Horse Hill carpark (100% Free DOC parking).",
+                    parkingQuery: "White Horse Hill Campground Mt Cook"
         },
         {
           time: "12:30 PM – 1:30 PM",
           name: "Picnic Lunch at White Horse Hill Shelter / Village",
           desc: "Picnic lunch at White Horse Hill shelter or Mount Cook Village cafes.",
-          cost: "Lunch",
+          cost: "Picnic / Cafe",
           type: "food",
           locationQuery: "Mount Cook Village New Zealand",
-          parking: "Mount Cook Village public visitor carparks beside Old Mountaineers Cafe and Hermitage Hotel.",
-          parkingQuery: "Mount Cook Village Public Carpark"
+          freeParking: "Mount Cook Village public visitor carparks beside Old Mountaineers Cafe, Sir Edmund Hillary Alpine Centre, and Hermitage Hotel (100% Free public visitor bays).",
+                    freeParkingQuery: "Mount Cook Village Public Carpark",
+          parking: "FREE: Mount Cook Village public visitor carparks beside Old Mountaineers Cafe & Hermitage Hotel (100% Free).",
+                    parkingQuery: "Mount Cook Village Public Carpark"
         },
         {
           time: "1:30 PM – 3:30 PM",
           name: "Kea Point Track or Hermitage Hotel Lounge",
-          desc: "Afternoon easy walk along Kea Point Track (1 hr return) for Mueller Glacier moraine views, or relax with a hot drink at the Hermitage Hotel alpine lounge.",
-          cost: "FREE",
+          desc: "Afternoon easy walk along Kea Point Track (1 hr return, 100% Free DOC track) for Mueller Glacier moraine views, or relax with a hot drink at the Hermitage Hotel alpine lounge.",
+          cost: "100% FREE (DOC Track)",
           type: "nature",
           locationQuery: "Kea Point Track Mt Cook",
-          parking: "White Horse Hill carpark (trail connects) or Hermitage Hotel public visitor parking.",
-          parkingQuery: "The Hermitage Hotel Mount Cook Carpark"
+          freeParking: "White Horse Hill carpark (direct trail link to Kea Point) or Hermitage Hotel public visitor parking bays in Mount Cook Village (100% Free).",
+                    freeParkingQuery: "The Hermitage Hotel Mount Cook Carpark",
+          parking: "FREE: White Horse Hill carpark (trail connects) or Hermitage Hotel public visitor parking (100% Free).",
+                    parkingQuery: "The Hermitage Hotel Mount Cook Carpark"
         },
         {
           time: "Late Afternoon",
           name: "Scenic Drive back along Lake Pukaki to Twizel",
           desc: "Drive back down along Lake Pukaki to Twizel for a relaxing dinner at Shawty's Cafe or Ministry of Works.",
-          cost: "Dinner",
+          cost: "Dinner (~$25-$35)",
           type: "food",
           locationQuery: "Twizel Town Centre",
-          parking: "Twizel Market Place centre (ample free parking in front of shops and cafes).",
-          parkingQuery: "Twizel Market Place"
+          freeParking: "Twizel Market Place centre (ample free parking in front of shops, four square supermarket, and cafes; 100% Free, no time restrictions).",
+                    freeParkingQuery: "Twizel Market Place",
+          parking: "FREE: Twizel Market Place centre (ample free parking, 100% Free).",
+                    parkingQuery: "Twizel Market Place"
         }
       ],
       tips: "Hooker Valley track is mostly flat gravel and boardwalks. Dress in windproof layers as the valley breezes can be brisk."
@@ -1217,52 +1346,65 @@ const TRIP_DATA = {
         {
           time: "10:30 AM",
           name: "Mt John Observatory Summit Road & Astro Café",
-          desc: "Drive up Mt John Summit Road (Godley Peaks Rd, $8 vehicle toll) for 360-degree panoramic basin views and coffee at the glass-walled Astro Café (Note: road closes at 5:00 PM).",
-          cost: "~$8 NZD vehicle toll",
+          desc: "Head up to the summit of Mt John for 360-degree panoramic basin views and coffee at the glass Astro Café. Driving up Godley Peaks Road costs an $8 NZD vehicle toll at the barrier gate; hiking up via the Tekapo Springs trackhead is 100% free.",
+          cost: "$8 Vehicle Toll (or Free Hike)",
           type: "viewpoint",
           locationQuery: "Astro Cafe Mount John Tekapo",
-          parking: "Summit carpark at Astro Café via Godley Peaks Road ($8 toll; open 9:00 AM – 5:00 PM). Arrive ~10:30 AM before Astro Café queues peak.",
-          parkingQuery: "Mt John Observatory Carpark Tekapo"
+          freeParking: "Tekapo Springs / Mt John Trackhead Carpark (end of Lakeside Drive). 100% Free public carpark; hike up the scenic Mt John Summit Track (45–60 min moderate walk with panoramic lake views straight to Astro Café).",
+                    freeParkingQuery: "Mt John Summit Trackhead Tekapo Springs",
+          paidParking: "Drive directly to the summit Astro Café carpark via Godley Peaks Road private access road.",
+                    paidParkingCost: "$8 NZD vehicle toll (payable at the automated barrier gate by card/cash; open 9:00 AM – 5:00 PM)",
+                    paidParkingQuery: "Mt John Observatory Carpark Tekapo",
+          parking: "FREE: Tekapo Springs trackhead carpark (free parking, 45-min scenic hike). PAID DRIVE: Godley Peaks Rd summit road ($8 vehicle toll at gate).",
+                    parkingQuery: "Mt John Summit Trackhead Tekapo Springs"
         },
         {
           time: "12:30 PM",
           name: "Lunch in Lake Tekapo Village Centre",
           desc: "Enjoy a relaxed lunch in the Lake Tekapo village centre cafes or lakeside bakeries.",
-          cost: "Lunch ~$20",
+          cost: "Lunch (~$20)",
           type: "food",
           locationQuery: "Lake Tekapo Village",
-          parking: "Tekapo Village Centre public carparks along State Highway 8.",
-          parkingQuery: "Lake Tekapo Village"
+          freeParking: "Tekapo Village Centre public carparks along State Highway 8 / Hamilton Drive (100% Free public council parking, ample space, no meters).",
+                    freeParkingQuery: "Lake Tekapo Village",
+          parking: "FREE: Tekapo Village Centre public carparks along SH8 / Hamilton Drive (100% Free).",
+                    parkingQuery: "Lake Tekapo Village"
         },
         {
           time: "2:00 PM",
           name: "Church of the Good Shepherd & Sheepdog Memorial",
-          desc: "Visit the iconic stone Church of the Good Shepherd on Pioneer Drive and the bronze Sheepdog Memorial on the turquoise waterfront.",
-          cost: "FREE",
+          desc: "Visit the iconic stone Church of the Good Shepherd on Pioneer Drive and the bronze Sheepdog Memorial on the turquoise waterfront (100% Free open public site).",
+          cost: "100% FREE (Lakeside Grounds)",
           type: "attraction",
           locationQuery: "Church of the Good Shepherd Lake Tekapo",
-          parking: "Official visitor carpark on Pioneer Drive (2-min walk along footbridge; note: no interior photography inside chapel).",
-          parkingQuery: "Church of the Good Shepherd Carpark Tekapo"
+          freeParking: "Official visitor carpark on Pioneer Drive (100% Free public council parking, 2-min walk along footbridge; overflow free parking across footbridge at Village Centre).",
+                    freeParkingQuery: "Church of the Good Shepherd Carpark Tekapo",
+          parking: "FREE: Official visitor carpark on Pioneer Drive (100% Free, 2-min walk across footbridge).",
+                    parkingQuery: "Church of the Good Shepherd Carpark Tekapo"
         },
         {
           time: "Late Afternoon",
           name: "Lake Alexandrina Easy Shoreline Walk",
-          desc: "Drive 10 minutes west to quiet Lake Alexandrina (10 km from Tekapo) for an easy, peaceful shoreline walk away from the crowds.",
-          cost: "FREE",
+          desc: "Drive 10 minutes west to quiet Lake Alexandrina (10 km from Tekapo) for an easy, peaceful shoreline walk away from the crowds (100% Free public wildlife reserve).",
+          cost: "100% FREE (Public Reserve)",
           type: "nature",
           locationQuery: "Lake Alexandrina New Zealand",
-          parking: "Peaceful gravel parking bays at the Lake Alexandrina South Outlet reserve (no motorized boats, serene waters).",
-          parkingQuery: "Lake Alexandrina South Outlet Carpark"
+          freeParking: "Peaceful gravel parking bays at the Lake Alexandrina South Outlet reserve (100% Free public conservation reserve, tranquil non-motorized waters).",
+                    freeParkingQuery: "Lake Alexandrina South Outlet Carpark",
+          parking: "FREE: Peaceful gravel parking bays at Lake Alexandrina South Outlet reserve (100% Free).",
+                    parkingQuery: "Lake Alexandrina South Outlet Carpark"
         },
         {
           time: "Night",
           name: "Free Stargazing on Dark Lake Tekapo Shore",
-          desc: "Enjoy free stargazing along the dark Lake Tekapo shore or Cowans Hill reserve inside the world-renowned UNESCO International Dark Sky Reserve.",
-          cost: "FREE",
+          desc: "Enjoy world-class stargazing along the dark Lake Tekapo shoreline or Cowans Hill reserve inside the UNESCO International Dark Sky Reserve—completely free without needing an expensive commercial tour (~$150+).",
+          cost: "100% FREE Stargazing",
           type: "nature",
           locationQuery: "Lake Tekapo Shoreline Stargazing",
-          parking: "Cowans Hill reserve carpark or Tekapo lakefront parking off Pioneer Drive (dim headlights to preserve night vision).",
-          parkingQuery: "Cowans Hill Carpark Lake Tekapo"
+          freeParking: "Cowans Hill reserve carpark or Tekapo lakefront parking off Pioneer Drive (100% Free public parking. Remember: dim headlights upon approach to preserve night vision).",
+                    freeParkingQuery: "Cowans Hill Carpark Lake Tekapo",
+          parking: "FREE: Cowans Hill reserve carpark or Tekapo lakefront parking off Pioneer Drive (100% Free).",
+                    parkingQuery: "Cowans Hill Carpark Lake Tekapo"
         },
         {
           time: "Late Night",
@@ -1271,8 +1413,10 @@ const TRIP_DATA = {
           cost: "FREE",
           type: "drive",
           locationQuery: "15 Sealy Street Twizel",
-          parking: "Private driveway parking at 15 Sealy Street.",
-          parkingQuery: "15 Sealy Street Twizel"
+          freeParking: "Private driveway parking at 15 Sealy Street accommodation in Twizel (100% Free).",
+                    freeParkingQuery: "15 Sealy Street Twizel",
+          parking: "FREE: Private driveway parking at 15 Sealy Street accommodation (100% Free).",
+                    parkingQuery: "15 Sealy Street Twizel"
         }
       ],
       tips: "Tonight you sleep at your Twizel Airbnb (15 Sealy Street) for your 3rd night. Pack your bags tonight for tomorrow morning's final checkout and drive to Christchurch Airport."
@@ -1317,21 +1461,25 @@ const TRIP_DATA = {
           time: "10:30 AM",
           name: "Stop at Fairlie Bakehouse for Famous Savory Pies",
           desc: "Stop at the legendary Fairlie Bakehouse (74 Main St, Fairlie) for famous slow-cooked pork belly with crackling or venison pies.",
-          cost: "~$10 NZD",
+          cost: "Pies ~$10-$12 NZD",
           type: "food",
           locationQuery: "Fairlie Bakehouse",
-          parking: "Main Street parking bays in Fairlie right outside the bakery (74 Main St) or along Regent Street.",
-          parkingQuery: "Fairlie Bakehouse 74 Main St Fairlie"
+          freeParking: "Main Street parking bays in Fairlie right outside the bakery (74 Main St) or along Regent Street (100% Free angle & parallel street parking).",
+                    freeParkingQuery: "Fairlie Bakehouse 74 Main St Fairlie",
+          parking: "FREE: Main Street parking bays in Fairlie right outside bakery or along Regent St (100% Free).",
+                    parkingQuery: "Fairlie Bakehouse 74 Main St Fairlie"
         },
         {
           time: "11:30 AM – 1:00 PM",
           name: "Geraldine Artisan Village & Free Food Tastings",
-          desc: "Stop in the artisan country village of Geraldine to browse The Geraldine Cheese Company and Barker's Foodstore for free tastings and lunch.",
-          cost: "FREE Tastings & Lunch",
+          desc: "Stop in the artisan country village of Geraldine to browse The Geraldine Cheese Company and Barker's Foodstore. Free tasting bars offer complimentary samples of gourmet cheeses, chutneys, and syrups; pay only if you choose to buy lunch or retail goodies.",
+          cost: "FREE Tastings (Lunch Optional)",
           type: "attraction",
           locationQuery: "The Geraldine Cheese Company Geraldine",
-          parking: "Geraldine Domain Carpark on Cox Street or Talbot Street public carpark (both free, right beside Barker's & Cheese Co).",
-          parkingQuery: "Talbot Street Carpark Geraldine"
+          freeParking: "Geraldine Domain Carpark on Cox Street or Talbot Street public carpark (both 100% Free public council carparks, right beside Barker's & Cheese Co).",
+                    freeParkingQuery: "Talbot Street Carpark Geraldine",
+          parking: "FREE: Geraldine Domain Carpark on Cox Street or Talbot Street public carpark (100% Free).",
+                    parkingQuery: "Talbot Street Carpark Geraldine"
         },
         {
           time: "1:00 PM – 3:00 PM",
@@ -1343,12 +1491,17 @@ const TRIP_DATA = {
         {
           time: "3:00 PM",
           name: "Arrive at Christchurch Airport (CHC) & Return Rental Car",
-          desc: "Arrive at Christchurch Airport (CHC), refuel tank, return rental car to APEX terminal before 3:00 PM (Booking #4174153), and check in for your flight home!",
+          desc: "Arrive at Christchurch Airport (CHC), refuel tank at NPD Russley Rd, return rental car to APEX terminal depot before 3:00 PM (Booking #4174153), and check in for your flight home!",
           cost: "Rental Return",
           type: "logistics",
           locationQuery: "Apex Car Rentals Christchurch Airport",
-          parking: "Drop vehicle at APEX Terminal Depot, Christchurch Airport. Crucial: Refuel at NPD Russley Rd or BP Connect Russley Rd (2 km before airport) for local rates before returning.",
-          parkingQuery: "NPD Russley Road Christchurch"
+          freeParking: "APEX Car Rentals Christchurch Airport Depot (free customer return bays inside depot grounds). Refuel at NPD Russley Rd or BP Connect Russley Rd (2 km before airport) for local rates before returning.",
+                    freeParkingQuery: "Apex Car Rentals Christchurch Airport",
+          paidParking: "Christchurch Airport Short Stay Express (~$8 for 30–60 mins, $35/day) if stopping directly at passenger curbside terminal drop-off before returning vehicle.",
+                    paidParkingCost: "~$8 (30–60m) / $35 daily",
+                    paidParkingQuery: "Christchurch Airport Short Stay Express",
+          parking: "FREE: APEX Depot return bays (free return). PAID OPTION: Airport Short Stay Express (~$8/hr) if curbside drop-off is needed.",
+                    parkingQuery: "Apex Car Rentals Christchurch Airport"
         }
       ],
       tips: "Check out of 15 Sealy Street Twizel by 9:00 AM. Total drive to Christchurch Airport is ~3.5 hrs plus stops. Refuel before car return."
@@ -1652,27 +1805,13 @@ class NZTripApp {
             </label>
             <div class="activity-time-badge">${act.time}</div>
             ${act.isScenicStop ? `<div class="scenic-stop-badge">📸 5-Min Scenic Stop</div>` : ''}
-            <div class="activity-cost-badge ${act.cost.includes('FREE') ? 'cost-free' : 'cost-paid'}">${act.cost}</div>
+            <div class="activity-cost-badge ${this.getCostBadgeClass(act.cost)}">${act.cost}</div>
           </div>
-          <div class="activity-body">
-            <h4 class="activity-name">${act.name}</h4>
-            <p class="activity-desc">${act.desc}</p>
-            ${act.parking ? `
-              <div class="activity-parking-box">
-                <div class="parking-header">
-                  <span class="parking-icon">🅿️</span>
-                  <strong>Parking & Access:</strong>
-                </div>
-                <div class="parking-desc">${act.parking}</div>
-                ${act.parkingQuery ? `
-                  <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(act.parkingQuery)}" target="_blank" rel="noopener" class="btn-parking-map">
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
-                    Navigate to Carpark
-                  </a>
-                ` : ''}
-              </div>
-            ` : ''}
-          </div>
+            <div class="activity-body">
+              <h4 class="activity-name">${act.name}</h4>
+              <p class="activity-desc">${act.desc}</p>
+              ${this.renderParkingBox(act)}
+            </div>
           ${mapsUrl ? `
             <div class="activity-actions">
               <a href="${mapsUrl}" target="_blank" rel="noopener" class="btn-maps-link">
@@ -1797,6 +1936,106 @@ class NZTripApp {
             Day ${day.dayNum + 1} →
           </button>
         ` : `<div></div>`}
+      </div>
+    `;
+  }
+
+
+
+  getCostBadgeClass(costStr) {
+    if (!costStr) return 'cost-paid';
+    const c = costStr.toUpperCase();
+    if (c.includes('PRE-BOOKED') || c.includes('BOOKED')) return 'cost-booked';
+    if (c.includes('100% FREE') || c === 'FREE') return 'cost-free';
+    if (c.includes('TOLL') || c.includes('HONESTY') || c.includes('CASH') || c.includes('~$15') || c.includes('~$5') || c.includes('~$8') || c.includes('FREE VIEW') || c.includes('FREE PHOTO') || c.includes('FREE TASTINGS') || c.includes('FREE VIEWING')) return 'cost-nominal';
+    return 'cost-paid';
+  }
+
+  renderParkingBox(act) {
+    if (!act.parking && !act.freeParking && !act.paidParking) return '';
+
+    const freeDesc = act.freeParking;
+    const freeQuery = act.freeParkingQuery || (act.freeParking ? act.parkingQuery : null);
+    const paidDesc = act.paidParking;
+    const paidCost = act.paidParkingCost;
+    const paidQuery = act.paidParkingQuery;
+    const noFree = act.noFreeParking;
+
+    if (freeDesc || paidDesc || noFree) {
+      return `
+        <div class="activity-parking-box">
+          <div class="parking-header">
+            <span class="parking-icon">🅿️</span>
+            <strong>Parking & Access Guide</strong>
+          </div>
+
+          ${noFree ? `
+            <div class="parking-tier parking-tier-paid-only">
+              <div class="parking-tier-header">
+                <span class="parking-tier-badge badge-paid-only">⚠️ Paid Option Only (No Free Parking)</span>
+                ${paidCost ? `<span class="parking-cost-pill pill-paid-only">${paidCost}</span>` : ''}
+              </div>
+              <div class="parking-desc">${paidDesc || act.parking}</div>
+              ${paidQuery ? `
+                <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(paidQuery)}" target="_blank" rel="noopener" class="btn-parking-map btn-paid-map">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+                  Navigate to Carpark (${paidCost ? paidCost.split(' ')[0] : 'Paid'})
+                </a>
+              ` : ''}
+            </div>
+          ` : `
+            ${freeDesc ? `
+              <div class="parking-tier parking-tier-free">
+                <div class="parking-tier-header">
+                  <span class="parking-tier-badge badge-free">🟢 Free Parking (Suggested First)</span>
+                </div>
+                <div class="parking-desc">${freeDesc}</div>
+                ${freeQuery ? `
+                  <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(freeQuery)}" target="_blank" rel="noopener" class="btn-parking-map btn-free-map">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+                    Navigate to Free Parking
+                  </a>
+                ` : ''}
+              </div>
+            ` : ''}
+
+            ${paidDesc ? `
+              <div class="parking-tier parking-tier-paid">
+                <div class="parking-tier-header">
+                  <span class="parking-tier-badge badge-paid">🟡 Paid Option (Backup / Closer)</span>
+                  ${paidCost ? `<span class="parking-cost-pill">${paidCost}</span>` : ''}
+                </div>
+                <div class="parking-desc">${paidDesc}</div>
+                ${paidQuery ? `
+                  <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(paidQuery)}" target="_blank" rel="noopener" class="btn-parking-map btn-paid-map">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+                    Navigate to Paid Carpark
+                  </a>
+                ` : ''}
+              </div>
+            ` : (freeDesc && !paidDesc ? `
+              <div class="parking-no-paid-note">
+                <span>✓ 100% Free public access — no paid parking required in this area.</span>
+              </div>
+            ` : '')}
+          `}
+        </div>
+      `;
+    }
+
+    return `
+      <div class="activity-parking-box">
+        <div class="parking-header">
+          <span class="parking-icon">🅿️</span>
+          <strong>Parking & Access:</strong>
+        </div>
+        <div class="parking-desc">${act.parking}</div>
+        ${act.parkingQuery ? `
+          <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(act.parkingQuery)}" target="_blank" rel="noopener" class="btn-parking-map">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+            Navigate to Carpark
+          </a>
+        ` : ''}
       </div>
     `;
   }
@@ -2705,6 +2944,8 @@ Keep in mind essential trip rules: Biosecurity footwear clean on arrival, 40% DE
           act.name.toLowerCase().includes(term) ||
           act.desc.toLowerCase().includes(term) ||
           (act.parking && act.parking.toLowerCase().includes(term)) ||
+          (act.freeParking && act.freeParking.toLowerCase().includes(term)) ||
+          (act.paidParking && act.paidParking.toLowerCase().includes(term)) ||
           act.cost.toLowerCase().includes(term) ||
           day.title.toLowerCase().includes(term) ||
           day.baseCity.toLowerCase().includes(term)
@@ -2743,26 +2984,12 @@ Keep in mind essential trip rules: Biosecurity footwear clean on arrival, 40% DE
               </label>
               <div class="activity-time-badge">${act.time}</div>
               ${act.isScenicStop ? `<div class="scenic-stop-badge">📸 5-Min Scenic Stop</div>` : ''}
-              <div class="activity-cost-badge ${act.cost.includes('FREE') ? 'cost-free' : 'cost-paid'}">${act.cost}</div>
+              <div class="activity-cost-badge ${this.getCostBadgeClass(act.cost)}">${act.cost}</div>
             </div>
             <div class="activity-body">
               <h4 class="activity-name">${act.name}</h4>
               <p class="activity-desc">${act.desc}</p>
-              ${act.parking ? `
-                <div class="activity-parking-box">
-                  <div class="parking-header">
-                    <span class="parking-icon">🅿️</span>
-                    <strong>Parking & Access:</strong>
-                  </div>
-                  <div class="parking-desc">${act.parking}</div>
-                  ${act.parkingQuery ? `
-                    <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(act.parkingQuery)}" target="_blank" rel="noopener" class="btn-parking-map">
-                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
-                      Navigate to Carpark
-                    </a>
-                  ` : ''}
-                </div>
-              ` : ''}
+              ${this.renderParkingBox(act)}
             </div>
             ${mapsUrl ? `
               <div class="activity-actions">
