@@ -2005,8 +2005,18 @@ class NZTripApp {
     const paidQuery = act.paidParkingQuery;
     const noFree = act.noFreeParking;
 
+    let quickBadge = '';
+    if (noFree) {
+      quickBadge = `<span class="parking-summary-chip chip-paid-only">⚠️ Paid Only</span>`;
+    } else if (freeDesc) {
+      quickBadge = `<span class="parking-summary-chip chip-free">🟢 Free Carpark</span>`;
+    } else {
+      quickBadge = `<span class="parking-summary-chip chip-info">ℹ️ Carpark Info</span>`;
+    }
+
+    let innerContent = '';
     if (freeDesc || paidDesc || noFree) {
-      return `
+      innerContent = `
         <div class="activity-parking-box">
           <div class="parking-header">
             <span class="parking-icon">🅿️</span>
@@ -2065,22 +2075,46 @@ class NZTripApp {
           `}
         </div>
       `;
+    } else {
+      innerContent = `
+        <div class="activity-parking-box">
+          <div class="parking-header">
+            <span class="parking-icon">🅿️</span>
+            <strong>Parking & Access:</strong>
+          </div>
+          <div class="parking-desc">${act.parking}</div>
+          ${act.parkingQuery ? `
+            <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(act.parkingQuery)}" target="_blank" rel="noopener" class="btn-parking-map">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+              Navigate to Carpark
+            </a>
+          ` : ''}
+        </div>
+      `;
     }
 
     return `
-      <div class="activity-parking-box">
-        <div class="parking-header">
-          <span class="parking-icon">🅿️</span>
-          <strong>Parking & Access:</strong>
+      <details class="parking-accordion">
+        <summary class="parking-summary" title="Click to view/hide parking info">
+          <div class="parking-summary-left">
+            <span class="parking-sign-badge">🅿️</span>
+            <span class="parking-summary-title">Parking Guide</span>
+            ${quickBadge}
+          </div>
+          <div class="parking-summary-right">
+            <span class="parking-action-toggle"></span>
+            <svg class="parking-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </div>
+        </summary>
+        <div class="parking-accordion-content">
+          ${innerContent}
+          <div class="parking-collapse-row">
+            <button type="button" class="btn-parking-close" onclick="this.closest('details').removeAttribute('open')">
+              ▲ Hide Parking Info
+            </button>
+          </div>
         </div>
-        <div class="parking-desc">${act.parking}</div>
-        ${act.parkingQuery ? `
-          <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(act.parkingQuery)}" target="_blank" rel="noopener" class="btn-parking-map">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
-            Navigate to Carpark
-          </a>
-        ` : ''}
-      </div>
+      </details>
     `;
   }
 
