@@ -1538,6 +1538,7 @@ class NZTripApp {
     this.copilotDay = 1;
     this.copilotLoading = false;
     this.chatHistory = this.loadChatHistory();
+    this.themeMode = localStorage.getItem('nz_theme_mode') || 'light';
 
     this.init();
   }
@@ -1551,12 +1552,44 @@ class NZTripApp {
   }
 
   init() {
+    this.initTheme();
     this.registerServiceWorker();
     this.startCountdownTimer();
     this.setupEventListeners();
     this.renderDayPills();
     this.renderCurrentView();
     this.updateStatsBar();
+  }
+
+  initTheme() {
+    this.applyTheme(this.themeMode);
+  }
+
+  applyTheme(theme) {
+    this.themeMode = theme;
+    localStorage.setItem('nz_theme_mode', theme);
+    document.documentElement.setAttribute('data-theme', theme);
+
+    const metaTheme = document.querySelector('meta[name="theme-color"]');
+    if (metaTheme) {
+      metaTheme.setAttribute('content', theme === 'light' ? '#f1f5f9' : '#0b1120');
+    }
+
+    const btn = document.getElementById('themeToggleBtn');
+    if (btn) {
+      if (theme === 'light') {
+        btn.innerHTML = `<span class="theme-icon">☀️</span><span class="theme-label">Daylight</span>`;
+        btn.setAttribute('title', 'Switch to Night Theme (Dark)');
+      } else {
+        btn.innerHTML = `<span class="theme-icon">🌙</span><span class="theme-label">Night</span>`;
+        btn.setAttribute('title', 'Switch to Daylight Outdoor Theme (Light)');
+      }
+    }
+  }
+
+  toggleTheme() {
+    const next = this.themeMode === 'light' ? 'dark' : 'light';
+    this.applyTheme(next);
   }
 
   registerServiceWorker() {
@@ -1719,11 +1752,22 @@ class NZTripApp {
     let html = '';
     TRIP_DATA.days.forEach(day => {
       const isSelected = day.dayNum === this.currentDay;
+      let displayCity = day.baseCity;
+      if (day.dayNum === 5) {
+        displayCity = "Wānaka";
+      } else if (day.dayNum === 13) {
+        displayCity = "Christchurch";
+      } else if (displayCity.includes('(')) {
+        displayCity = displayCity.split('(')[0].trim();
+      } else if (displayCity.includes('/')) {
+        displayCity = displayCity.split('/')[0].trim();
+      }
+
       html += `
         <button class="day-pill ${isSelected ? 'selected' : ''}" onclick="window.nzApp.selectDay(${day.dayNum})">
           <span class="pill-day">Day ${day.dayNum}</span>
           <span class="pill-date">${day.date.split(',')[1] || day.date}</span>
-          <span class="pill-loc">${day.baseCity.split('(')[0]}</span>
+          <span class="pill-loc">${displayCity}</span>
         </button>
       `;
     });
