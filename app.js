@@ -356,7 +356,16 @@ const TRIP_DATA = {
                     paidParkingCost: "~$8 for 30–60 mins ($35/day)",
                     paidParkingQuery: "Christchurch Airport Short Stay Express",
           parking: "FREE: APEX Airport Depot customer bays (free collection). PAID BACKUP: Airport Short Stay Express (~$8/hr).",
-                    parkingQuery: "Apex Car Rentals Christchurch Airport"
+                    parkingQuery: "Apex Car Rentals Christchurch Airport",
+          attire: {
+            dressCode: "Comfortable travel clothing for flight arrival and city driving (t-shirt/layer, comfortable pants/jeans, light cardigan or zip fleece). Keep warm layers in passenger cabin.",
+            footwear: "Clean comfortable walking shoes or sneakers. ⚠️ Mandatory NZ Biosecurity check: All outdoor hiking boots and runners must be completely scrubbed free of soil and seeds before arriving to avoid a $400 fine!",
+            insects: "Negligible / zero bug activity at terminal.",
+            wetRisk: "Dry indoor terminal & covered rental bays.",
+            weather: "Mild spring afternoon in Christchurch (~15°C–17°C).",
+            extraClothes: false,
+            badges: ["✈️ Travel Layers","👟 Scrubbed Clean Shoes"]
+          }
         },
         {
           time: "Late Afternoon",
@@ -371,7 +380,16 @@ const TRIP_DATA = {
                     paidParkingCost: "~$3.30/hr ($15 daily max; $5 flat rate after 5:00 PM)",
                     paidParkingQuery: "Lichfield Street Carpark Christchurch",
           parking: "FREE: Botanic Gardens Armagh St Carpark (180 mins free, 7-min river walk) or on-street after 5 PM. PAID: Lichfield St Carpark (~$3.30/hr, $15 max).",
-                    parkingQuery: "Christchurch Botanic Gardens Armagh St Carpark"
+                    parkingQuery: "Christchurch Botanic Gardens Armagh St Carpark",
+          attire: {
+            dressCode: "Smart-casual layers: breathable t-shirt or long-sleeve top, casual trousers or denim, and a light windbreaker or sweater.",
+            footwear: "Flat, cushioned walking sneakers for ~3–4 km of paved river promenade and historic footpaths.",
+            insects: "Low / minimal insect activity along Avon River.",
+            wetRisk: "Dry paved paths; low risk.",
+            weather: "Pleasant late-afternoon sun (~14°C–16°C), cooling down after 5:00 PM.",
+            extraClothes: false,
+            badges: ["👟 Flat Sneakers","🕶️ Smart-Casual"]
+          }
         },
         {
           time: "6:00 PM",
@@ -386,7 +404,16 @@ const TRIP_DATA = {
                     paidParkingCost: "~$3.30/hr ($5 flat evening rate after 5:00 PM)",
                     paidParkingQuery: "Lichfield Street Carpark Christchurch",
           parking: "FREE: On-street parking along Cambridge/Oxford Terrace (free after 5 PM) or south of Tuam St. PAID: Lichfield Street Carpark (~$3.30/hr, $5 night rate).",
-                    parkingQuery: "Cambridge Terrace Christchurch"
+                    parkingQuery: "Cambridge Terrace Christchurch",
+          attire: {
+            dressCode: "Neat casual dining wear (sweater, button-up or stylish top, casual pants/jeans). Warm indoor market hall.",
+            footwear: "Casual shoes or neat sneakers.",
+            insects: "None (indoor food hall).",
+            wetRisk: "Dry indoor facility.",
+            weather: "Indoor dining is heated; light evening jacket for outdoor transition (~11°C).",
+            extraClothes: false,
+            badges: ["🍽️ Casual Townwear"]
+          }
         },
         {
           time: "7:15 PM",
@@ -398,7 +425,16 @@ const TRIP_DATA = {
           freeParking: "Sign of the Takahe Carpark (Dyers Pass Rd) for stone castle grounds, or continue 3 mins up to Sign of the Kiwi / Summit Road for elevated dual-harbour views (100% Free scenic public reserves).",
                     freeParkingQuery: "Sign of the Takahe Carpark Christchurch",
           parking: "FREE: Sign of the Takahe Carpark (Dyers Pass Rd) or Sign of the Kiwi / Summit Road scenic pull-ins (100% Free).",
-                    parkingQuery: "Sign of the Takahe Carpark Christchurch"
+                    parkingQuery: "Sign of the Takahe Carpark Christchurch",
+          attire: {
+            dressCode: "Warm windproof outer jacket, cozy fleece or wool sweater, long pants, and a warm beanie or scarf. Exposed hilltop lookouts face stiff southerly breezes.",
+            footwear: "Closed walking shoes or sneakers with good tread for gravel lookout paths.",
+            insects: "Low.",
+            wetRisk: "Dry hilltop.",
+            weather: "💨 Cold windchill! Temperatures drop quickly at sunset to 8°C–10°C with sharp hill gusts.",
+            extraClothes: false,
+            badges: ["💨 Windproof Jacket","❄️ Sunset Chill","🧢 Beanie"]
+          }
         }
       ],
       tips: "Check into Belmont Motor Inn (172 Bealey Ave) after 2:00 PM. Enjoy the flat riverside stroll to shake off flight fatigue."
@@ -448,7 +484,16 @@ const TRIP_DATA = {
           freeParking: "Free roadside pull-in bay beside the Springfield reserve and children's playground right on SH73.",
                     freeParkingQuery: "Springfield Donut Canterbury New Zealand",
           parking: "FREE: Roadside pull-in bay beside Springfield reserve playground right on SH73.",
-                    parkingQuery: "Springfield Donut Canterbury New Zealand"
+                    parkingQuery: "Springfield Donut Canterbury New Zealand",
+          attire: {
+            dressCode: "Comfortable road-trip driving clothes with easy layers (t-shirt + hoodie/jacket).",
+            footwear: "Casual walking sneakers.",
+            insects: "Low.",
+            wetRisk: "Dry roadside stop.",
+            weather: "Inland Canterbury plains (~12°C–15°C).",
+            extraClothes: false,
+            badges: ["🚗 Road-Trip Wear"]
+          }
         },
         {
           time: "10:15 AM",
@@ -460,7 +505,16 @@ const TRIP_DATA = {
           freeParking: "Dedicated official DOC Kura Tāwhiti carpark on the left of SH73 (100% Free, modern toilets on site, 5-min flat walking track to limestone formations).",
                     freeParkingQuery: "Castle Hill Car Park SH73 New Zealand",
           parking: "FREE: Official DOC Kura Tāwhiti carpark on SH73 (100% Free, toilets, trackhead).",
-                    parkingQuery: "Castle Hill Car Park SH73 New Zealand"
+                    parkingQuery: "Castle Hill Car Park SH73 New Zealand",
+          attire: {
+            dressCode: "Windproof breathable jacket, lightweight fleece, and flexible hiking pants (avoid stiff tight jeans; tussock grass can scratch bare legs). Sun hat and sunglasses (limestone boulders reflect intense alpine UV).",
+            footwear: "Sturdy hiking boots or trail runners with sticky rubber tread for scrambling on smooth limestone rock surfaces. Smooth-soled sneakers will slip easily!",
+            insects: "Low bug activity in high dry alpine basin.",
+            wetRisk: "Low, but limestone becomes very slick if raining.",
+            weather: "Exposed alpine basin with brisk mountain gusts (10°C–14°C). High UV index.",
+            extraClothes: false,
+            badges: ["🥾 Grippy Trail Shoes","💨 Windproof Shell","🕶️ High UV Sunnies"]
+          }
         },
         {
           time: "11:45 AM",
@@ -472,7 +526,16 @@ const TRIP_DATA = {
           freeParking: "Wide sealed pull-off at Otira Viaduct Lookout on right side of SH73 heading west (100% Free). Kea warning: keep all car windows shut!",
                     freeParkingQuery: "Otira Viaduct Lookout",
           parking: "FREE: Wide sealed pull-off at Otira Viaduct Lookout on right side of SH73 (100% Free).",
-                    parkingQuery: "Otira Viaduct Lookout"
+                    parkingQuery: "Otira Viaduct Lookout",
+          attire: {
+            dressCode: "Heavy windbreaker/puffer jacket, warm fleece mid-layer, long pants, and a warm beanie. High alpine mountain pass.",
+            footwear: "Sturdy closed shoes.",
+            insects: "Zero bugs, but watch out for Kea parrots (they like to chew unattended jackets, bags, and car trims!).",
+            wetRisk: "Low (gravel/concrete lookout).",
+            weather: "❄️ Alpine pass chill! Strong mountain windchill often feels like 4°C–7°C.",
+            extraClothes: false,
+            badges: ["❄️ Alpine Chill","💨 Heavy Windbreaker","🦜 Kea Alert"]
+          }
         },
         {
           time: "1:15 PM",
@@ -484,7 +547,17 @@ const TRIP_DATA = {
           freeParking: "Dedicated Punchbowl Road Carpark just off SH73 in Arthur's Pass village (100% Free DOC carpark with toilets and footbridge track entrance; do not park on highway shoulder).",
                     freeParkingQuery: "Devils Punchbowl Car Park Arthurs Pass",
           parking: "FREE: Dedicated Punchbowl Road Carpark off SH73 in Arthur's Pass village (100% Free).",
-                    parkingQuery: "Devils Punchbowl Car Park Arthurs Pass"
+                    parkingQuery: "Devils Punchbowl Car Park Arthurs Pass",
+          attire: {
+            dressCode: "💦 WATERPROOF RAIN JACKET WITH HOOD IS MANDATORY! Moisture-wicking base layer and quick-dry activewear pants (DO NOT wear heavy denim jeans—they will soak up mist and stay cold!).",
+            footwear: "Sturdy hiking boots or trail runners with excellent wet-rock traction (over 200 steep wooden steps and damp gravel paths that can be slippery).",
+            insects: "Low to moderate sandflies in damp beech forest near riverbed.",
+            wetRisk: "💦 HIGH WATERFALL SPRAY & MIST! The viewing platform is directly inside the 131m waterfall's roaring mist cone. You will get wet within seconds.",
+            weather: "Cool, damp mountain gorge (8°C–11°C). Cold mist rapidly drops body heat.",
+            extraClothes: true,
+            extraClothesNote: "🎒 Pack a spare dry shirt, dry socks, and extra pants in the car trunk to change into after the hike!",
+            badges: ["💦 High Spray Alert","🎒 Spare Clothes in Car","🥾 Trail Footwear"]
+          }
         },
         {
           time: "3:45 PM",
@@ -496,7 +569,16 @@ const TRIP_DATA = {
           freeParking: "Official DOC sealed carpark at the end of Kokatahi-Gorge Road (100% Free, modern flush toilets, picnic shelters, and trackhead).",
                     freeParkingQuery: "Hokitika Gorge Carpark",
           parking: "FREE: Official DOC sealed carpark at end of Kokatahi-Gorge Road (100% Free).",
-                    parkingQuery: "Hokitika Gorge Carpark"
+                    parkingQuery: "Hokitika Gorge Carpark",
+          attire: {
+            dressCode: "🦟 HIGH SANDFLY ALERT! Wear light-colored long-sleeve shirt and full-length lightweight trousers (tuck bottoms into socks!). Avoid dark navy or black clothing, which actively attracts sandflies.",
+            footwear: "Comfortable walking shoes or trail runners (well-formed gravel trail, wooden boardwalks, and suspension bridges).",
+            insects: "🚨 EXTREME SANDFLY HOTSPOT! West Coast black sandflies bite voraciously around exposed ankles, wrists, and necks. Liberally apply 40% DEET (Bushman aerosol) BEFORE stepping out of the car!",
+            wetRisk: "Moderate (gorge river mist and lush rainforest humidity).",
+            weather: "Mild West Coast rainforest climate (~13°C–16°C).",
+            extraClothes: false,
+            badges: ["🦟 Extreme Sandfly Risk","🧥 Long Sleeves & Pants","🧴 40% DEET Bushman"]
+          }
         },
         {
           time: "6:15 PM",
@@ -508,7 +590,16 @@ const TRIP_DATA = {
           freeParking: "Beachside parking bays along Beach Street / Stafford Street, steps from the driftwood sign and 2 Weld Street stay (100% Free, no time restrictions).",
                     freeParkingQuery: "Hokitika Beach Driftwood Sign",
           parking: "FREE: Beachside parking bays along Beach Street / Stafford Street (100% Free).",
-                    parkingQuery: "Hokitika Beach Driftwood Sign"
+                    parkingQuery: "Hokitika Beach Driftwood Sign",
+          attire: {
+            dressCode: "Warm windproof jacket, cozy hoodie/sweater, long pants, and a light beanie. Coastal Tasman Sea breezes at dusk.",
+            footwear: "Closed walking sneakers or boots (avoid sandals/flip-flops—coarse driftwood beach stones and evening sandflies).",
+            insects: "Moderate sandflies active at dusk around washed-up driftwood.",
+            wetRisk: "Low (damp sand near surf line).",
+            weather: "Brisk coastal breeze (~11°C–13°C), dropping quickly at sunset.",
+            extraClothes: false,
+            badges: ["💨 Coastal Windbreaker","👟 Closed Footwear"]
+          }
         }
       ],
       tips: "Check-in at 2 Weld Street is between 2:00 PM – 8:30 PM. Keep your 40% DEET handy for Hokitika Gorge!"
@@ -536,7 +627,16 @@ const TRIP_DATA = {
           name: "Drive South along West Coast Highway (SH6)",
           desc: "Cruise south past historic Ross gold country and ancient podocarp rainforest into Glacier Country (~1 hr 45 min drive).",
           cost: "FREE",
-          type: "drive"
+          type: "drive",
+          attire: {
+            dressCode: "Comfortable layered driving clothes, sunglasses ready for rapid West Coast sunlight shifts.",
+            footwear: "Casual driving shoes.",
+            insects: "Low inside car.",
+            wetRisk: "Dry.",
+            weather: "Mild West Coast (~13°C–16°C).",
+            extraClothes: false,
+            badges: ["🚗 Road-Trip Wear","🕶️ Sunglasses"]
+          }
         },
         {
           time: "9:45 AM",
@@ -549,7 +649,16 @@ const TRIP_DATA = {
           freeParking: "Spacious sealed rest area bay right off SH6 with picnic tables and lake edge jetty (100% Free).",
                     freeParkingQuery: "Lake Ianthe Rest Area SH6",
           parking: "FREE: Spacious sealed rest area bay right off SH6 (100% Free).",
-                    parkingQuery: "Lake Ianthe Rest Area SH6"
+                    parkingQuery: "Lake Ianthe Rest Area SH6",
+          attire: {
+            dressCode: "Light fleece or cardigan, long pants.",
+            footwear: "Sneakers or slip-on shoes.",
+            insects: "🦟 High Sandfly Activity at the lake edge and wooden jetty! Spray Bushman DEET on exposed ankles before stepping out.",
+            wetRisk: "Low (wooden jetty).",
+            weather: "Crisp morning lake air (~10°C–13°C).",
+            extraClothes: false,
+            badges: ["🦟 Sandfly Jetty Alert","🧥 Light Fleece"]
+          }
         },
         {
           time: "10:45 AM",
@@ -561,7 +670,16 @@ const TRIP_DATA = {
           freeParking: "Your accommodation at 9 Cron Street is only 200m / 3-min flat walk from The Helicopter Line base—leave your car at your chalet for free! Alternatively, free customer parking directly outside The Helicopter Line base.",
                     freeParkingQuery: "9 Cron Street Franz Josef Glacier",
           parking: "FREE: Free guest parking at 9 Cron Street chalet (200m walk) or free customer parking at Heli-base.",
-                    parkingQuery: "9 Cron Street Franz Josef Glacier"
+                    parkingQuery: "9 Cron Street Franz Josef Glacier",
+          attire: {
+            dressCode: "Base layer + warm insulating fleece/down jacket. Have your windproof outer jacket ready.",
+            footwear: "Sturdy closed-toe hiking boots or solid runners.",
+            insects: "None.",
+            wetRisk: "Dry indoor briefing base.",
+            weather: "Indoor temperature.",
+            extraClothes: false,
+            badges: ["🚁 Glacier Base Prep"]
+          }
         },
         {
           time: "11:30 AM",
@@ -569,7 +687,17 @@ const TRIP_DATA = {
           desc: "Soar over ice pinnacles and deep blue crevasses with a spectacular alpine snow landing high on Franz Josef Glacier. Pre-booked commercial flight.",
           cost: "Pre-booked (~$300-$600)",
           type: "attraction",
-          locationQuery: "Franz Josef Glacier New Zealand"
+          locationQuery: "Franz Josef Glacier New Zealand",
+          attire: {
+            dressCode: "❄️ 3-LAYER ALPINE SYSTEM! Moisture-wicking base layer + thick warm fleece or down puffer + 100% windproof/waterproof outer shell. Warm beanie covering ears, neck gaiter, and insulated gloves. 🕶️ UV 400 Polarized Sunglasses are MANDATORY (glacier snow reflects up to 85% of blinding UV light; bare eyes will suffer snow blindness).",
+            footwear: "Sturdy, waterproof hiking boots with ankle support (operator supplies crampons or specialized ice boots for walking on glacial ice).",
+            insects: "Zero on the glacier ice shelf.",
+            wetRisk: "Moderate (crunchy glacial snow and meltwater pools on ice). Water-resistant outer pants recommended.",
+            weather: "❄️ Freezing alpine conditions (0°C to 4°C + rotor wash windchill) on the glacier.",
+            extraClothes: true,
+            extraClothesNote: "🎒 Keep a spare pair of thick wool socks and a dry shirt in the car for after your glacier flight.",
+            badges: ["❄️ Alpine Glacier Chill","🕶️ UV Sunglasses Mandatory","🥾 Sturdy Boots","🧤 Gloves & Beanie"]
+          }
         },
         {
           time: "Afternoon",
@@ -581,7 +709,16 @@ const TRIP_DATA = {
           freeParking: "Free street parking along Cron Street or Franz Josef village centre public carpark on Cowan St / Main Road (100% Free, no meters or fees anywhere in the village).",
                     freeParkingQuery: "Franz Josef Village Public Car Park",
           parking: "FREE: Street parking along Cron Street or village centre public carpark (100% Free).",
-                    parkingQuery: "Franz Josef Village Public Car Park"
+                    parkingQuery: "Franz Josef Village Public Car Park",
+          attire: {
+            dressCode: "Cozy casual sweater, flannel shirt, comfortable jeans or leisure pants.",
+            footwear: "Casual boots or sneakers.",
+            insects: "Low in village.",
+            wetRisk: "Dry.",
+            weather: "Mild afternoon village atmosphere (~13°C–15°C).",
+            extraClothes: false,
+            badges: ["☕ Cozy Alpine Village"]
+          }
         },
         {
           time: "Night",
@@ -593,7 +730,16 @@ const TRIP_DATA = {
           freeParking: "Walk from 9 Cron Street stay (3-min flat walk), or park at DOC Glacier Visitor Centre carpark on Cowan Street (100% Free).",
                     freeParkingQuery: "Terrace Walk Franz Josef",
           parking: "FREE: Walk from 9 Cron Street (3 mins) or DOC Glacier Visitor Centre carpark on Cowan St (100% Free).",
-                    parkingQuery: "Terrace Walk Franz Josef"
+                    parkingQuery: "Terrace Walk Franz Josef",
+          attire: {
+            dressCode: "Dark-colored warm jacket, long pants, warm layer. (Dark clothing prevents startling the glowworms). Bring a red-light torch or smartphone torch with a red cellophane/finger filter.",
+            footwear: "Sturdy closed-toe shoes or trail sneakers with good grip (unpaved dirt/gravel trail walked in the dark).",
+            insects: "Moderate nocturnal mosquitoes/sandflies in native bush. Light repellent on wrists and neck.",
+            wetRisk: "Damp rainforest ground and dew.",
+            weather: "Chilly nighttime rainforest air (~7°C–10°C).",
+            extraClothes: false,
+            badges: ["🔦 Night Bush Walk","🧥 Dark Warm Layers"]
+          }
         }
       ],
       tips: "Check-in at 9 Cron Street is after 2:00 PM. Bring a phone torch for the Terrace Walk path, but turn it off completely to see the glowworms glow!"
@@ -620,7 +766,17 @@ const TRIP_DATA = {
           name: "Automatic Backup Flight Window",
           desc: "Weather backup window reserved in case Day 3 helicopter flight was delayed or rescheduled due to alpine cloud cover.",
           cost: "Weather Contingency",
-          type: "attraction"
+          type: "attraction",
+          attire: {
+            dressCode: "Keep thermal base layers, warm down jacket, beanie, gloves, and sunglasses accessible if flight is called.",
+            footwear: "Hiking boots.",
+            insects: "None.",
+            wetRisk: "Moderate on ice.",
+            weather: "Alpine snow.",
+            extraClothes: true,
+            extraClothesNote: "Keep glacier daypack ready in car.",
+            badges: ["🚁 Flight Contingency","❄️ Thermal Standby"]
+          }
         },
         {
           time: "Morning",
@@ -632,7 +788,16 @@ const TRIP_DATA = {
           freeParking: "Spacious sealed visitor carpark at Matheson Cafe, end of Cook Flat Road (Fox Glacier) — 100% Free, modern DOC restrooms, gift shop, and cafe trackhead.",
                     freeParkingQuery: "Lake Matheson Carpark Fox Glacier",
           parking: "FREE: Spacious sealed visitor carpark at Matheson Cafe, end of Cook Flat Road (100% Free).",
-                    parkingQuery: "Lake Matheson Carpark Fox Glacier"
+                    parkingQuery: "Lake Matheson Carpark Fox Glacier",
+          attire: {
+            dressCode: "🦟 HIGH SANDFLY ALERT! Wear light-colored long-sleeve active top, full-length hiking pants, and a light morning fleece. Apply Bushman 40% DEET before starting the track. Hat and sunglasses for morning lake reflections.",
+            footwear: "Comfortable trail runners or walking shoes (4.4 km flat gravel loop with timber boardwalks, ~1.5 hrs).",
+            insects: "🚨 HIGH SANDFLY ALERT around the reflection jetties and lakeside native podocarp forest.",
+            wetRisk: "Low (well-maintained gravel trail and boardwalks, morning dew).",
+            weather: "Crisp early morning air (6°C–10°C), warming nicely as the sun climbs.",
+            extraClothes: false,
+            badges: ["🦟 High Sandfly Alert","🧥 Long Sleeves & Pants","👟 Trail Runners"]
+          }
         },
         {
           time: "Afternoon",
@@ -644,7 +809,16 @@ const TRIP_DATA = {
           freeParking: "Glacier Access Road carpark (end of Franz Josef Glacier Access Rd) with wide parking bays and DOC trail signage (100% Free).",
                     freeParkingQuery: "Peters Pool Franz Josef",
           parking: "FREE: Glacier Access Road carpark at end of Franz Josef Glacier Access Rd (100% Free).",
-                    parkingQuery: "Peters Pool Franz Josef"
+                    parkingQuery: "Peters Pool Franz Josef",
+          attire: {
+            dressCode: "Light breathable jacket or fleece, active pants or leggings, sunglasses.",
+            footwear: "Comfortable sneakers or walking shoes (flat, easy 1.1 km return forest path).",
+            insects: "Moderate sandflies near kettle lake edge.",
+            wetRisk: "Low.",
+            weather: "Mild afternoon (~13°C–15°C).",
+            extraClothes: false,
+            badges: ["👟 Easy Walk","🕶️ Activewear"]
+          }
         },
         {
           time: "Late Afternoon",
@@ -656,7 +830,16 @@ const TRIP_DATA = {
           freeParking: "Shares the main Franz Josef Glacier Access Road carpark (100% Free). Clearly signposted fork off the main valley trail.",
                     freeParkingQuery: "Sentinel Rock Franz Josef",
           parking: "FREE: Shares the main Franz Josef Glacier Access Road carpark (100% Free).",
-                    parkingQuery: "Sentinel Rock Franz Josef"
+                    parkingQuery: "Sentinel Rock Franz Josef",
+          attire: {
+            dressCode: "Windbreaker or light jacket, active pants. Short uphill climb to elevated glacier valley viewpoint.",
+            footwear: "Grippy trail sneakers or hiking shoes (short rocky moraine path and steps).",
+            insects: "Low.",
+            wetRisk: "Low.",
+            weather: "Cool glacial valley breeze (~11°C–14°C).",
+            extraClothes: false,
+            badges: ["🥾 Moraine Trail Grip","💨 Windbreaker"]
+          }
         }
       ],
       tips: "Early morning at Lake Matheson offers the calmest water for mirror reflections. Stop at Matheson Café for hot coffee."
@@ -699,7 +882,16 @@ const TRIP_DATA = {
           name: "Drive South on SH6 with Views of Fox Glacier",
           desc: "Depart Franz Josef driving south along highway SH6 with elevated roadside views over the Fox Glacier valley and lush podocarp rainforest.",
           cost: "FREE",
-          type: "drive"
+          type: "drive",
+          attire: {
+            dressCode: "Comfortable layered road-trip clothes, sunglasses.",
+            footwear: "Casual shoes.",
+            insects: "Low.",
+            wetRisk: "Dry.",
+            weather: "Mild West Coast (~13°C–16°C).",
+            extraClothes: false,
+            badges: ["🚗 Road-Trip Wear"]
+          }
         },
         {
           time: "10:45 AM",
@@ -712,7 +904,16 @@ const TRIP_DATA = {
           freeParking: "Large sealed clifftop carpark right off SH6 with modern DOC restrooms and elevated ocean viewing platforms (100% Free).",
                     freeParkingQuery: "Knights Point Lookout West Coast",
           parking: "FREE: Large sealed clifftop carpark with modern DOC restrooms right off SH6 (100% Free).",
-                    parkingQuery: "Knights Point Lookout West Coast"
+                    parkingQuery: "Knights Point Lookout West Coast",
+          attire: {
+            dressCode: "Heavy windproof jacket or hoodie, long pants. Exposed 100m cliff overlooking the wild Tasman Sea.",
+            footwear: "Flat walking sneakers.",
+            insects: "Low (windy coastal bluff).",
+            wetRisk: "Low (ocean spray stays offshore).",
+            weather: "💨 Strong coastal maritime gusts (11°C–14°C).",
+            extraClothes: false,
+            badges: ["💨 Roaring Forties Winds","🧥 Heavy Windbreaker"]
+          }
         },
         {
           time: "Midday",
@@ -724,7 +925,17 @@ const TRIP_DATA = {
           freeParking: "Dedicated DOC pull-in carparks right along SH6 for both Thunder Creek Falls (2-min walk) and Fantail Falls (2-min walk) (100% Free).",
                     freeParkingQuery: "Thunder Creek Falls Carpark Haast Pass",
           parking: "FREE: Dedicated DOC pull-in carparks right along SH6 for both waterfalls (100% Free).",
-                    parkingQuery: "Thunder Creek Falls Carpark Haast Pass"
+                    parkingQuery: "Thunder Creek Falls Carpark Haast Pass",
+          attire: {
+            dressCode: "💦 WATERPROOF JACKET + 🦟 MAXIMUM BUG DEFENSE! Long sleeves, long pants tucked into socks. Haast Pass is notorious for aggressive sandflies. Apply Bushman 40% DEET before getting out of car.",
+            footwear: "Trail shoes or hiking boots with wet-stone grip (gravel riverbed at Fantail Falls).",
+            insects: "🚨 EXTREME SANDFLY INFESTATION! Sandflies swarm around damp waterfall basins. Do not leave car doors or windows open!",
+            wetRisk: "💦 MODERATE TO HIGH WATERFALL SPRAY near Thunder Creek Falls base (28m drop).",
+            weather: "Humid native beech forest (~12°C–15°C).",
+            extraClothes: true,
+            extraClothesNote: "🎒 Keep spare dry socks and a towel in the car trunk.",
+            badges: ["🦟 Extreme Sandfly Risk","💦 Waterfall Spray","🎒 Spare Socks in Car"]
+          }
         },
         {
           time: "Early Afternoon",
@@ -736,7 +947,16 @@ const TRIP_DATA = {
           freeParking: "Makarora Blue Pools Carpark (large gravel DOC carpark off SH6, 100% Free. Follow the 30-min flat beech forest track across swing bridges).",
                     freeParkingQuery: "Blue Pools Carpark Makarora",
           parking: "FREE: Makarora Blue Pools Carpark off SH6 (100% Free).",
-                    parkingQuery: "Blue Pools Carpark Makarora"
+                    parkingQuery: "Blue Pools Carpark Makarora",
+          attire: {
+            dressCode: "🦟 HIGH SANDFLY ACTIVITY! Light-colored long sleeves, light-colored full-length active pants. 🕶️ Polarized sunglasses are essential to spot giant rainbow and brown trout swimming deep in the crystal-clear turquoise pools from the suspension bridges.",
+            footwear: "Comfortable walking shoes or trail runners (well-graded 3 km return gravel track through beech forest).",
+            insects: "🚨 HIGH SANDFLY ALERT on the swing bridges and pebble riverbank. If you stop walking, they swarm. Keep moving!",
+            wetRisk: "Low on track. (Glacial water is freezing ~8°C if dipping feet at the gravel shore).",
+            weather: "Sheltered alpine valley (~14°C–17°C).",
+            extraClothes: false,
+            badges: ["🦟 High Sandfly Alert","🕶️ Polarized Sunnies","👟 Walking Shoes"]
+          }
         },
         {
           time: "Late Afternoon",
@@ -748,7 +968,16 @@ const TRIP_DATA = {
           freeParking: "Elevated gravel lay-bys on the lake-side of SH6 at The Neck (where Lake Hāwea and Lake Wānaka are separated by 1 km of land) — 100% Free.",
                     freeParkingQuery: "The Neck Lake Hawea Lookout",
           parking: "FREE: Elevated gravel lay-bys on lake-side of SH6 at The Neck (100% Free).",
-                    parkingQuery: "The Neck Lake Hawea Lookout"
+                    parkingQuery: "The Neck Lake Hawea Lookout",
+          attire: {
+            dressCode: "Windproof jacket or fleece, long pants, sunglasses. Mountain pass saddle funnels strong winds between Lake Wānaka and Lake Hāwea.",
+            footwear: "Casual sneakers.",
+            insects: "Low.",
+            wetRisk: "Dry.",
+            weather: "Brisk alpine gusts (~11°C–14°C).",
+            extraClothes: false,
+            badges: ["💨 Mountain Saddle Winds","🧥 Windbreaker"]
+          }
         },
         {
           time: "Sunset",
@@ -760,7 +989,16 @@ const TRIP_DATA = {
           freeParking: "Wanaka Station Park Carpark (end of Homestead Close) or Roys Bay Carpark on Mt Aspiring Rd (100% Free public lakeside carparks, flat 2-minute stroll along the shoreline path).",
                     freeParkingQuery: "Wanaka Station Park Car Park",
           parking: "FREE: Wanaka Station Park Carpark or Roys Bay Carpark on Mt Aspiring Rd (100% Free, 2-min stroll).",
-                    parkingQuery: "Wanaka Station Park Car Park"
+                    parkingQuery: "Wanaka Station Park Car Park",
+          attire: {
+            dressCode: "Smart-casual evening layers (stylish sweater, trench/jacket, jeans/chinos). Great photo opportunity at sunset.",
+            footwear: "Flat walking shoes or sneakers (flat lakefront gravel path).",
+            insects: "Low.",
+            wetRisk: "Low (gravel lakefront).",
+            weather: "Chilly sunset lake breeze (~9°C–12°C).",
+            extraClothes: false,
+            badges: ["📸 Photo-Ready Sunset","👟 Casual Flat Shoes"]
+          }
         }
       ],
       tips: "Check-in at Albert Town Sanctuary (67 Frye Crescent) is after 2:00 PM. Enjoy dinner in Wānaka village."
@@ -804,7 +1042,16 @@ const TRIP_DATA = {
           freeParking: "Free on-site customer carpark at Wanaka Lavender Farm (36 Morris Road, Albert Town) — 100% Free for farm visitors.",
                     freeParkingQuery: "Wanaka Lavender Farm Carpark",
           parking: "FREE: Free on-site customer carpark at Wanaka Lavender Farm (100% Free).",
-                    parkingQuery: "Wanaka Lavender Farm Carpark"
+                    parkingQuery: "Wanaka Lavender Farm Carpark",
+          attire: {
+            dressCode: "Bright, photo-friendly casual clothes (whites, pastels, or cheerful colors contrast beautifully with purple lavender rows). Sun hat and sunglasses.",
+            footwear: "Clean walking sneakers or comfortable flats.",
+            insects: "Low sandflies. Friendly honeybees in lavender rows (mind where you step in open shoes).",
+            wetRisk: "Dry garden grounds.",
+            weather: "Sunny spring morning (~14°C–17°C).",
+            extraClothes: false,
+            badges: ["📸 Photo Outfit","👒 Sun Protection"]
+          }
         },
         {
           time: "11:15 AM",
@@ -817,7 +1064,16 @@ const TRIP_DATA = {
           freeParking: "Ample roadside carparking directly in front of and opposite Cardrona Hotel on Crown Range Road (100% Free).",
                     freeParkingQuery: "Cardrona Hotel Crown Range Road",
           parking: "FREE: Roadside carparking directly in front of and opposite Cardrona Hotel (100% Free).",
-                    parkingQuery: "Cardrona Hotel Crown Range Road"
+                    parkingQuery: "Cardrona Hotel Crown Range Road",
+          attire: {
+            dressCode: "Casual layers (flannel, cardigan, or light jacket; jeans). Quintessential historic high-country tavern.",
+            footwear: "Casual sneakers or boots.",
+            insects: "None.",
+            wetRisk: "Dry.",
+            weather: "Mountain valley air (~12°C–15°C).",
+            extraClothes: false,
+            badges: ["🍻 Alpine Tavern Casual"]
+          }
         },
         {
           time: "12:00 PM",
@@ -829,7 +1085,16 @@ const TRIP_DATA = {
           freeParking: "Summit Saddle viewing carparks at 1,121m elevation on both sides of Crown Range Road (100% Free panoramic alpine pull-ins).",
                     freeParkingQuery: "Crown Range Summit Viewpoint",
           parking: "FREE: Summit Saddle viewing carparks at 1,121m elevation on Crown Range Road (100% Free).",
-                    parkingQuery: "Crown Range Summit Viewpoint"
+                    parkingQuery: "Crown Range Summit Viewpoint",
+          attire: {
+            dressCode: "❄️ HEAVY WINDPROOF OUTER JACKET + BEANIE! New Zealand's highest paved highway summit (1,121 meters). Exposed alpine saddle with gale-force Antarctic gusts.",
+            footwear: "Closed-toe shoes or boots with tread for roadside gravel view pull-ins.",
+            insects: "None.",
+            wetRisk: "Dry alpine road.",
+            weather: "❄️ Freezing windchill! Summit temperatures often 3°C–8°C even in midday sunshine.",
+            extraClothes: false,
+            badges: ["❄️ Alpine Windchill (1121m)","💨 Heavy Jacket","🧢 Beanie"]
+          }
         },
         {
           time: "1:00 PM",
@@ -841,7 +1106,16 @@ const TRIP_DATA = {
           freeParking: "Large free customer carpark at the AJ Hackett Bungy Centre (Gibbston Highway SH6, 100% Free access to viewing deck and historic suspension bridge).",
                     freeParkingQuery: "AJ Hackett Bungy Kawarau Bridge Carpark",
           parking: "FREE: Large customer carpark at AJ Hackett Bungy Centre (100% Free).",
-                    parkingQuery: "AJ Hackett Bungy Kawarau Bridge Carpark"
+                    parkingQuery: "AJ Hackett Bungy Kawarau Bridge Carpark",
+          attire: {
+            dressCode: "Windbreaker or light sweater, casual pants. (If jumping bungy, wear secure clothing with no loose items or scarves).",
+            footwear: "Secure closed-toe sneakers or walking shoes.",
+            insects: "Low.",
+            wetRisk: "Dry viewing deck.",
+            weather: "River gorge breeze (~13°C–16°C).",
+            extraClothes: false,
+            badges: ["🌉 Bridge Viewing","👟 Secure Shoes"]
+          }
         },
         {
           time: "2:00 PM",
@@ -856,7 +1130,16 @@ const TRIP_DATA = {
                     paidParkingCost: "~$4.50 – $5.00/hr ($30 daily max)",
                     paidParkingQuery: "Man Street Carpark Queenstown",
           parking: "FREE: Park Street by Queenstown Gardens (free 2–4 hrs, 7-min flat walk) or One Mile Carpark (free all-day). PAID: Man Street Carpark (~$4.50–$5/hr).",
-                    parkingQuery: "Park Street Queenstown Gardens Carpark"
+                    parkingQuery: "Park Street Queenstown Gardens Carpark",
+          attire: {
+            dressCode: "Smart-casual dining wear for lakefront restaurant or pub.",
+            footwear: "Casual town shoes or sneakers.",
+            insects: "None.",
+            wetRisk: "Dry.",
+            weather: "Pleasant afternoon (~14°C–17°C).",
+            extraClothes: false,
+            badges: ["🍽️ Smart-Casual Townwear"]
+          }
         },
         {
           time: "4:30 PM",
@@ -871,7 +1154,16 @@ const TRIP_DATA = {
                     paidParkingCost: "~$4.50/hr",
                     paidParkingQuery: "Church Street Carpark Queenstown",
           parking: "FREE: Park Street perimeter of Queenstown Gardens (100% Free, 2–4 hr bays). PAID BACKUP: Church St Carpark (~$4.50/hr).",
-                    parkingQuery: "Park Street Queenstown Gardens Carpark"
+                    parkingQuery: "Park Street Queenstown Gardens Carpark",
+          attire: {
+            dressCode: "Light windbreaker or sweater, activewear pants or jeans, sunglasses. Shaded pine forest and lakefront perimeter.",
+            footwear: "Comfortable flat walking shoes or sneakers (flat paved and gravel loop).",
+            insects: "Low.",
+            wetRisk: "Low.",
+            weather: "Cool lakeside breeze at dusk (~11°C–14°C).",
+            extraClothes: false,
+            badges: ["🌲 Peninsula Stroll","👟 Walking Sneakers"]
+          }
         }
       ],
       tips: "Check-in at Lower Shotover (6 Nobles Lane) is after 3:00 PM. Steamer Wharf is great for afternoon drinks."
@@ -904,7 +1196,16 @@ const TRIP_DATA = {
           freeParking: "Ramshaw Lane Public Carpark (large free sealed carpark directly behind Buckingham Street along the Arrow River) or Roman Catholic Church / Merioneth St free overflow carpark (100% Free public council parking).",
                     freeParkingQuery: "Ramshaw Lane Carpark Arrowtown",
           parking: "FREE: Ramshaw Lane Public Carpark directly behind Buckingham Street (100% Free, no meters).",
-                    parkingQuery: "Ramshaw Lane Carpark Arrowtown"
+                    parkingQuery: "Ramshaw Lane Carpark Arrowtown",
+          attire: {
+            dressCode: "Chilly morning layers: knit sweater or light jacket, comfortable pants, sunglasses. Heritage tree-lined streets and historic mining cottages.",
+            footwear: "Comfortable walking shoes or sneakers (cobblestones, wooden boardwalks, and dirt heritage trails).",
+            insects: "Low.",
+            wetRisk: "Low.",
+            weather: "Crisp shaded valley morning (~9°C–13°C), warming with sun.",
+            extraClothes: false,
+            badges: ["🏘️ Heritage Stroll","👟 Comfortable Walkers"]
+          }
         },
         {
           time: "11:00 AM",
@@ -916,7 +1217,17 @@ const TRIP_DATA = {
           freeParking: "Shotover Jet River Base carpark, Gorge Road, Arthur's Point (100% Free dedicated customer parking directly next to check-in terminal).",
                     freeParkingQuery: "Shotover Jet Arthurs Point Carpark",
           parking: "FREE: Shotover Jet River Base carpark, Gorge Road, Arthur's Point (100% Free on-site).",
-                    parkingQuery: "Shotover Jet Arthurs Point Carpark"
+                    parkingQuery: "Shotover Jet Arthurs Point Carpark",
+          attire: {
+            dressCode: "💦 HIGH GET-WET & SPEED WINDCHILL ALERT! Wear a warm fleece or thermal sweater underneath. AVOID heavy cotton jeans (if jeans get soaked at 95 km/h, they stay freezing cold!). Wear quick-dry synthetic track pants or water-resistant trousers. Operator provides full-length spray jacket and life jacket. Snug sunglasses or glasses strap recommended.",
+            footwear: "Water-resistant closed-toe shoes or sneakers (deck floor can get splashed during 360-degree spins).",
+            insects: "Zero at 95 km/h boat speeds.",
+            wetRisk: "💦 HIGH WATER SPLASH & RIVER SPRAY! 360-degree spins and canyon maneuvers spray river water across all passengers.",
+            weather: "Severe windchill: 95 km/h boat speed over freezing glacial river water feels icy even on a sunny day! Bring a light beanie or neck warmer.",
+            extraClothes: true,
+            extraClothesNote: "🎒 DEFINITELY PACK A FULL CHANGE OF DRY PANTS, SHIRT & SOCKS IN THE CAR TRUNK for immediately after the jetboat ride!",
+            badges: ["💦 High Splash & Spray","🎒 Spare Clothes in Car","⚡ 95 km/h Windchill","🧥 Quick-Dry Layers"]
+          }
         },
         {
           time: "12:30 PM – 2:00 PM",
@@ -931,7 +1242,16 @@ const TRIP_DATA = {
                     paidParkingCost: "~$4.50 – $5.00/hr",
                     paidParkingQuery: "Man Street Carpark Queenstown",
           parking: "FREE: Park Street by Queenstown Gardens (free 2–4 hrs, 6-min walk). PAID: Man St or Church St Carpark (~$4.50–$5/hr).",
-                    parkingQuery: "Park Street Queenstown Gardens Carpark"
+                    parkingQuery: "Park Street Queenstown Gardens Carpark",
+          attire: {
+            dressCode: "Fresh casual clothes, sweater/jacket.",
+            footwear: "Casual sneakers or town shoes.",
+            insects: "None.",
+            wetRisk: "Dry.",
+            weather: "Sunny Queenstown midday (~15°C–18°C).",
+            extraClothes: false,
+            badges: ["🍔 Central Lunch Casual"]
+          }
         },
         {
           time: "2:00 PM – 3:45 PM",
@@ -946,7 +1266,16 @@ const TRIP_DATA = {
                     paidParkingCost: "~$4.50/hr (metered 8:00 AM – 6:00 PM)",
                     paidParkingQuery: "Church Street Carpark Queenstown",
           parking: "FREE: Park Street bays by Queenstown Gardens (free 2–4 hrs, 5-min walk). PAID: Church St / Athol St Carpark (~$4.50/hr).",
-                    parkingQuery: "Park Street Queenstown Gardens Carpark"
+                    parkingQuery: "Park Street Queenstown Gardens Carpark",
+          attire: {
+            dressCode: "Comfortable casual shopping & strolling attire, sunglasses.",
+            footwear: "Flat walking shoes.",
+            insects: "None.",
+            wetRisk: "Dry.",
+            weather: "Pleasant afternoon (~14°C–17°C).",
+            extraClothes: false,
+            badges: ["🛍️ Leisure Townwear"]
+          }
         },
         {
           time: "4:00 PM – 4:45 PM",
@@ -961,7 +1290,16 @@ const TRIP_DATA = {
                     paidParkingCost: "~$4.50/hr (metered until 6:00 PM)",
                     paidParkingQuery: "Church Street Carpark Queenstown",
           parking: "FREE: Park Street bays (free 2–4 hrs, 6-min walk) or street bays after 6 PM. PAID: Church Street Carpark (~$4.50/hr).",
-                    parkingQuery: "Park Street Queenstown Gardens Carpark"
+                    parkingQuery: "Park Street Queenstown Gardens Carpark",
+          attire: {
+            dressCode: "❄️ SUB-ZERO (-10°C) INDOOR ARCTIC BAR! Venue provides heavy insulated hooded winter parka and warm gloves. ⚠️ YOU MUST WEAR: Warm full-length pants (jeans, heavy trousers, or thermals; NO bare legs, shorts, skirts, or light dresses without thermal tights) and warm socks.",
+            footwear: "Closed-toe shoes or boots are mandatory (NO sandals, thongs, or open footwear).",
+            insects: "None.",
+            wetRisk: "Dry solid ice.",
+            weather: "❄️ Constant -10°C interior.",
+            extraClothes: false,
+            badges: ["❄️ Sub-Zero (-10°C)","👖 Long Warm Pants Required","👟 Closed Shoes Mandatory"]
+          }
         },
         {
           time: "5:00 PM – 6:30 PM",
@@ -973,7 +1311,16 @@ const TRIP_DATA = {
           freeParking: "Kelvin Heights Golf Course & Reserve carparks at the end of Peninsula Road for sunset views over Lake Wakatipu (100% Free public carparks).",
                     freeParkingQuery: "Kelvin Heights Peninsula Carpark Queenstown",
           parking: "FREE: Kelvin Heights Golf Course & Reserve carparks at end of Peninsula Road (100% Free).",
-                    parkingQuery: "Kelvin Heights Peninsula Carpark Queenstown"
+                    parkingQuery: "Kelvin Heights Peninsula Carpark Queenstown",
+          attire: {
+            dressCode: "Warm windbreaker or down jacket, cozy fleece, long pants, beanie. Exposed southern lakefront faces brisk evening southerlies.",
+            footwear: "Comfortable walking shoes or sneakers.",
+            insects: "Low.",
+            wetRisk: "Low.",
+            weather: "Chilly dusk breeze off Lake Wakatipu (~8°C–11°C).",
+            extraClothes: false,
+            badges: ["🌅 Sunset Lake Breeze","🧥 Warm Down Jacket"]
+          }
         }
       ],
       tips: "Dress warmly for the ice bar! Sunset reflections over Kelvin Heights are spectacular around 6:00 PM."
@@ -1006,7 +1353,16 @@ const TRIP_DATA = {
           freeParking: "Oxenbridge Mill Carpark at the end of Gorge Road (Arthur's Point) or Edith Cavell Bridge parking area (100% Free DOC reserves).",
                     freeParkingQuery: "Oxenbridge Mill Carpark Arthurs Point",
           parking: "FREE: Oxenbridge Mill Carpark at end of Gorge Road or Edith Cavell Bridge area (100% Free).",
-                    parkingQuery: "Oxenbridge Mill Carpark Arthurs Point"
+                    parkingQuery: "Oxenbridge Mill Carpark Arthurs Point",
+          attire: {
+            dressCode: "Breathable morning activewear, light fleece or hoodie, active pants/leggings.",
+            footwear: "Grippy trail sneakers or hiking shoes (damp forest floor and unpaved tunnel paths).",
+            insects: "Low.",
+            wetRisk: "Low (damp dirt under canopy).",
+            weather: "Crisp shaded valley morning (~9°C–12°C).",
+            extraClothes: false,
+            badges: ["🌲 Forest Morning Walk","👟 Grippy Runners"]
+          }
         },
         {
           time: "10:00 AM",
@@ -1018,7 +1374,16 @@ const TRIP_DATA = {
           freeParking: "Bob's Cove trackhead carpark (Glenorchy-Queenstown Rd, 14 km from town) and Bennett's Bluff elevated carpark platform (lake side with safe pedestrian underpass) — 100% Free.",
                     freeParkingQuery: "Bennetts Bluff Lookout Carpark Glenorchy Road",
           parking: "FREE: Bob's Cove trackhead carpark and Bennett's Bluff elevated platform carpark (100% Free).",
-                    parkingQuery: "Bennetts Bluff Lookout Carpark Glenorchy Road"
+                    parkingQuery: "Bennetts Bluff Lookout Carpark Glenorchy Road",
+          attire: {
+            dressCode: "Breathable active hiking layers (t-shirt + light zip jacket), comfortable hiking pants or shorts (if warm), sunglasses, and sunscreen. Gentle uphill climb to Picnic Point lookout.",
+            footwear: "Sturdy sneakers or trail runners (dirt path, tree roots, and pebble shoreline).",
+            insects: "Low to moderate sandflies near pebble beach.",
+            wetRisk: "Low (clear lake shoreline).",
+            weather: "Pleasant sunny lakeside (~14°C–17°C).",
+            extraClothes: false,
+            badges: ["🥾 Trail Runners","🕶️ Sun Protection"]
+          }
         },
         {
           time: "12:15 PM",
@@ -1030,7 +1395,16 @@ const TRIP_DATA = {
           freeParking: "Free customer parking directly outside Mrs Woolly's General Store on Oban Street, plus free unmetered angle street parking in town (100% Free).",
                     freeParkingQuery: "Mrs Woollys General Store Glenorchy",
           parking: "FREE: Customer parking directly outside Mrs Woolly's on Oban Street (100% Free).",
-                    parkingQuery: "Mrs Woollys General Store Glenorchy"
+                    parkingQuery: "Mrs Woollys General Store Glenorchy",
+          attire: {
+            dressCode: "Relaxed country townwear, light sweater/jacket.",
+            footwear: "Casual shoes.",
+            insects: "Low indoors.",
+            wetRisk: "Dry.",
+            weather: "Comfortable (~14°C–16°C).",
+            extraClothes: false,
+            badges: ["☕ Country Cafe Casual"]
+          }
         },
         {
           time: "1:15 PM",
@@ -1042,7 +1416,16 @@ const TRIP_DATA = {
           freeParking: "Glenorchy Wharf Carpark at the end of Mull Street (100% Free public parking right in front of the iconic red boat shed and lagoon boardwalk).",
                     freeParkingQuery: "Glenorchy Wharf Car Park",
           parking: "FREE: Glenorchy Wharf Carpark at end of Mull Street (100% Free public parking).",
-                    parkingQuery: "Glenorchy Wharf Car Park"
+                    parkingQuery: "Glenorchy Wharf Car Park",
+          attire: {
+            dressCode: "🦟 HIGH SANDFLY ALERT! Wear light-colored long-sleeve shirt and full-length lightweight trousers. Apply Bushman 40% DEET to wrists and ankles before walking onto the wetland boardwalk. Sun hat and sunglasses for reflective water photography.",
+            footwear: "Comfortable walking sneakers or trail shoes (flat timber boardwalk and gravel paths).",
+            insects: "🚨 VERY ACTIVE SANDFLIES around wetland lagoon grasses and the historic red boat shed. Avoid dark clothes which attract them!",
+            wetRisk: "Low (raised timber boardwalk).",
+            weather: "Alpine basin (~12°C–15°C) with brisk winds across Lake Wakatipu.",
+            extraClothes: false,
+            badges: ["🦟 High Sandfly Alert","🧥 Long Sleeves & Pants","🧴 40% DEET Bushman"]
+          }
         },
         {
           time: "2:00 PM – 4:00 PM",
@@ -1054,7 +1437,16 @@ const TRIP_DATA = {
           freeParking: "Roadside gravel pull-in bays along Paradise Road and Mount Aspiring National Park trailhead parking past Dart River bridge (100% Free).",
                     freeParkingQuery: "Paradise Valley Glenorchy",
           parking: "FREE: Roadside pull-in bays along Paradise Road and Mount Aspiring trailhead (100% Free).",
-                    parkingQuery: "Paradise Valley Glenorchy"
+                    parkingQuery: "Paradise Valley Glenorchy",
+          attire: {
+            dressCode: "Windbreaker or warm fleece, outdoor pants. You'll be hopping in and out of the car for iconic Lord of the Rings photo spots (Isengard, Lothlórien beech forest).",
+            footwear: "Outdoor sneakers or boots (unpaved gravel roads, river stones, and grassy paddocks).",
+            insects: "Moderate sandflies near Dart River gravel flats.",
+            wetRisk: "Low (gravel fords).",
+            weather: "Glacier-fed mountain valley with cool alpine breezes (~11°C–14°C).",
+            extraClothes: false,
+            badges: ["🏔️ Alpine Windbreaker","🥾 Outdoor Trail Shoes"]
+          }
         }
       ],
       tips: "The road into Paradise Valley is unsealed but smooth and easily handled at moderate speeds in your SUV."
@@ -1102,7 +1494,16 @@ const TRIP_DATA = {
                     paidParkingCost: "~$25 – $30 per day",
                     paidParkingQuery: "Queenstown Airport Park and Ride",
           parking: "FREE: Hawthorne Drive commuter parking bays near Frankton Bus Shelter (free all day). PAID: Airport Park & Ride (~$25–$30/day).",
-                    parkingQuery: "Frankton Bus Shelter Queenstown"
+                    parkingQuery: "Frankton Bus Shelter Queenstown",
+          attire: {
+            dressCode: "Comfortable, stretchy layered travel clothes for long scenic coach journey (t-shirt + soft sweater + easily removable jacket). Coach has climate control, but brief roadside scenic stops (Mirror Lakes, Eglinton Valley, Homer Tunnel) are icy cold!",
+            footwear: "Comfortable walking boots or sturdy sneakers.",
+            insects: "Low inside coach.",
+            wetRisk: "Dry coach cabin.",
+            weather: "Coach is heated; outside alpine mountain stops can be 3°C–8°C.",
+            extraClothes: false,
+            badges: ["🚌 Comfortable Coach Layers"]
+          }
         },
         {
           time: "1:00 PM",
@@ -1110,7 +1511,17 @@ const TRIP_DATA = {
           desc: "Board your scenic catamaran cruise past soaring glacier-carved cliffs (Mitre Peak), stand on the bow beneath thundering Stirling Falls, and spot wild fur seals and dolphins. Pre-booked commercial cruise.",
           cost: "Pre-booked Cruise",
           type: "attraction",
-          locationQuery: "Milford Sound Visitor Terminal"
+          locationQuery: "Milford Sound Visitor Terminal",
+          attire: {
+            dressCode: "💦 WATERPROOF RAIN JACKET WITH HOOD IS MANDATORY! Warm insulating mid-layer (fleece or down jacket), warm beanie, and neck buff. Quick-dry hiking pants (avoid heavy denim that absorbs water). 🦟 Sandflies are severe at the visitor terminal and boat wharf—apply Bushman 40% DEET before boarding!",
+            footwear: "Waterproof shoes or hiking boots with non-slip rubber soles (metal deck stairs and viewing decks get wet).",
+            insects: "🚨 EXTREME SANDFLY ALERT at the Milford Sound cruise wharf and bus terminal! (They vanish once the boat reaches open deep fjord waters).",
+            wetRisk: "💦 HIGH WATERFALL SPRAY! Cruise vessels pull the bow right under the roaring 150m Stirling Falls. Standing on the outer viewing deck gives you an exhilarating, glacial drenching!",
+            weather: "Chilly fjord winds (6°C–11°C) + heavy moisture/rain (Fiordland averages 200 rainy days per year).",
+            extraClothes: true,
+            extraClothesNote: "🎒 PACK A FULL CHANGE OF DRY CLOTHES & EXTRA SOCKS IN YOUR COACH DAYPACK to change into after the cruise!",
+            badges: ["💦 High Waterfall Spray","🦟 Extreme Sandfly Terminal","🎒 Spare Clothes in Daypack","🧥 100% Waterproof Shell"]
+          }
         },
         {
           time: "8:00 PM",
@@ -1118,7 +1529,16 @@ const TRIP_DATA = {
           desc: "Arrive back in Queenstown by coach after an unforgettable journey through Fiordland. Head out for a relaxed, casual dinner.",
           cost: "Dinner (~$25-$35)",
           type: "food",
-          locationQuery: "Queenstown CBD"
+          locationQuery: "Queenstown CBD",
+          attire: {
+            dressCode: "Fresh dry sweater, comfortable pants, and warm evening jacket for Queenstown return.",
+            footwear: "Dry casual shoes or sneakers.",
+            insects: "None.",
+            wetRisk: "Dry.",
+            weather: "Queenstown evening (~10°C–12°C).",
+            extraClothes: false,
+            badges: ["🍽️ Dry Cozy Townwear"]
+          }
         }
       ],
       tips: "Bring a waterproof jacket for standing on the cruise bow when the boat noses under waterfalls!"
@@ -1161,7 +1581,16 @@ const TRIP_DATA = {
           freeParking: "Sealed summit lookout carparks on both north and southbound sides of SH8 (100% Free scenic viewing pull-offs).",
                     freeParkingQuery: "Lindis Pass Viewpoint Carpark",
           parking: "FREE: Sealed summit lookout carparks on both sides of SH8 (100% Free).",
-                    parkingQuery: "Lindis Pass Viewpoint Carpark"
+                    parkingQuery: "Lindis Pass Viewpoint Carpark",
+          attire: {
+            dressCode: "Comfortable road-trip clothes + windproof jacket for the 971m Lindis Pass summit lookout.",
+            footwear: "Casual walking sneakers.",
+            insects: "Low.",
+            wetRisk: "Dry.",
+            weather: "Exposed tussock pass with gusty mountain winds (~9°C–13°C).",
+            extraClothes: false,
+            badges: ["💨 Alpine Pass Windbreaker"]
+          }
         },
         {
           time: "11:00 AM",
@@ -1175,7 +1604,16 @@ const TRIP_DATA = {
                     paidParkingQuery: "Omarama Clay Cliffs Carpark Henburn Road",
           noFreeParking: true,
           parking: "PAID ACCESS ONLY: No free parking available (private station land). Cost: $5 cash honesty box per vehicle at Henburn Rd access gate.",
-                    parkingQuery: "Omarama Clay Cliffs Carpark Henburn Road"
+                    parkingQuery: "Omarama Clay Cliffs Carpark Henburn Road",
+          attire: {
+            dressCode: "Breathable activewear, flexible hiking pants, sunglasses, and sun hat. Pale clay pinnacles reflect intense sunlight into the canyon gullies.",
+            footwear: "Sturdy hiking boots or trail sneakers with aggressive grip (loose dry scree, steep gravel slopes, and narrow clay ravines; smooth sneakers slide easily).",
+            insects: "Low (arid inland high country).",
+            wetRisk: "Low (dry canyon, but clay becomes extremely slippery if wet).",
+            weather: "Dry sunny inland basin (~14°C–18°C), sheltered heat inside slot ravines.",
+            extraClothes: false,
+            badges: ["🥾 Grippy Trail Shoes","🕶️ High UV Sunnies","🧢 Sun Hat"]
+          }
         },
         {
           time: "12:15 PM",
@@ -1187,7 +1625,16 @@ const TRIP_DATA = {
           freeParking: "Spacious private driveway parking at 15 Sealy Street accommodation (100% Free, secure on-site parking).",
                     freeParkingQuery: "15 Sealy Street Twizel",
           parking: "FREE: Private driveway parking at 15 Sealy Street accommodation (100% Free).",
-                    parkingQuery: "15 Sealy Street Twizel"
+                    parkingQuery: "15 Sealy Street Twizel",
+          attire: {
+            dressCode: "Casual comfortable daywear.",
+            footwear: "Casual sneakers.",
+            insects: "Low.",
+            wetRisk: "Dry.",
+            weather: "Mild afternoon (~14°C–17°C).",
+            extraClothes: false,
+            badges: ["🏡 Casual Daywear"]
+          }
         },
         {
           time: "2:00 PM",
@@ -1199,7 +1646,16 @@ const TRIP_DATA = {
           freeParking: "Spacious scenic viewing carpark off SH80 overlooking Lake Pukaki; Mount Cook Alpine Salmon shop trailer on site (100% Free).",
                     freeParkingQuery: "Peters Lookout Lake Pukaki Carpark",
           parking: "FREE: Spacious scenic viewing carpark off SH80 overlooking Lake Pukaki (100% Free).",
-                    parkingQuery: "Peters Lookout Lake Pukaki Carpark"
+                    parkingQuery: "Peters Lookout Lake Pukaki Carpark",
+          attire: {
+            dressCode: "Windproof jacket, warm fleece, sunglasses (intense turquoise glacial water reflection). Exposed lake bluff funnels strong winds directly off Mount Cook.",
+            footwear: "Flat sneakers or walking shoes.",
+            insects: "Low.",
+            wetRisk: "Dry viewpoint.",
+            weather: "💨 Strong, cold lakefront gusts (~10°C–14°C).",
+            extraClothes: false,
+            badges: ["💨 Fierce Lake Pukaki Winds","🕶️ Polarized Sunnies","🧥 Windproof Shell"]
+          }
         },
         {
           time: "3:00 PM – 5:00 PM",
@@ -1211,7 +1667,16 @@ const TRIP_DATA = {
           freeParking: "Blue Lakes & Tasman Glacier Carpark (end of Tasman Valley Rd) — 100% Free DOC trackhead with modern flush toilets and trail map boards. Follow the flat Tasman Lake / Jetty Track (20 mins to iceberg lake shore) rather than the steep 300-stair view track!",
                     freeParkingQuery: "Tasman Glacier Carpark Mt Cook",
           parking: "FREE: Blue Lakes & Tasman Glacier Carpark at end of Tasman Valley Rd (100% Free DOC trackhead).",
-                    parkingQuery: "Tasman Glacier Carpark Mt Cook"
+                    parkingQuery: "Tasman Glacier Carpark Mt Cook",
+          attire: {
+            dressCode: "Windproof outer jacket, insulating fleece layer, long pants, warm beanie, sunglasses. Glacial moraine track ending at a terminal lake with floating icebergs.",
+            footwear: "Sturdy walking shoes or trail runners (rocky moraine steps and gravel paths).",
+            insects: "Low.",
+            wetRisk: "Low on track; cold glacial breeze near shoreline.",
+            weather: "❄️ Chilly glacial microclimate (7°C–11°C) with persistent icy downdrafts from the glacier.",
+            extraClothes: false,
+            badges: ["❄️ Glacial Downdraft","🥾 Moraine Steps Grip","🧥 Insulating Fleece"]
+          }
         }
       ],
       tips: "Peter's Lookout on Lake Pukaki is an unforgettable photo spot with the salmon shop right on site!"
@@ -1255,7 +1720,16 @@ const TRIP_DATA = {
           freeParking: "White Horse Hill Campground & Day-use Carpark (end of Hooker Valley Rd). 100% Free DOC public carpark. Arrive by 8:30 AM sharp to guarantee a spot at the trackhead; avoids having to park miles down the road verges!",
                     freeParkingQuery: "White Horse Hill Campground Mt Cook",
           parking: "FREE: White Horse Hill Campground & Day-use Carpark (100% Free DOC parking). Arrive by 8:30 AM!",
-                    parkingQuery: "White Horse Hill Campground Mt Cook"
+                    parkingQuery: "White Horse Hill Campground Mt Cook",
+          attire: {
+            dressCode: "Wear your complete hiking outfit from the start to hit the trail promptly by 8:30 AM.",
+            footwear: "Hiking boots.",
+            insects: "Low.",
+            wetRisk: "Alpine morning dew.",
+            weather: "Crisp early morning (~4°C–7°C).",
+            extraClothes: false,
+            badges: ["🥾 Early Alpine Start"]
+          }
         },
         {
           time: "8:45 AM – 12:30 PM",
@@ -1267,7 +1741,17 @@ const TRIP_DATA = {
           freeParking: "Direct trackhead at White Horse Hill Carpark (100% Free DOC parking with toilets, picnic shelter, and potable water).",
                     freeParkingQuery: "White Horse Hill Campground Mt Cook",
           parking: "FREE: Direct trackhead at White Horse Hill carpark (100% Free DOC parking).",
-                    parkingQuery: "White Horse Hill Campground Mt Cook"
+                    parkingQuery: "White Horse Hill Campground Mt Cook",
+          attire: {
+            dressCode: "❄️ 3-4 LAYER ALPINE SYSTEM! Moisture-wicking thermal base layer (merino or synthetic) + warm fleece mid-layer + 100% windproof & waterproof outer shell jacket with hood. Flexible hiking pants (avoid heavy denim). The Hooker Valley acts as a natural wind tunnel between Mount Sefton and Mount Cook—gusts frequently reach 60 km/h on the 3 suspension swing bridges! Beanie, neck warmer, and UV 400 sunglasses are essential (glacier ice glare).",
+            footwear: "Sturdy hiking boots or rugged trail runners with deep lug soles (10 km return gravel track, rocky moraine sections, and wet wooden suspension bridge slats).",
+            insects: "Low bug activity in high alpine valley.",
+            wetRisk: "Low in clear weather; moderate if mountain clouds/rain roll in or spray from Hooker River torrents beneath bridges.",
+            weather: "High alpine variable weather: starts around 4°C–8°C, freezing windchill across the terminal glacier lake beneath Aoraki / Mt Cook.",
+            extraClothes: true,
+            extraClothesNote: "🎒 KEEP SPARE SOCKS & CLEAN DRY RUNNERS IN THE CAR AT WHITE HORSE HILL to slip into after completing the 10 km hike!",
+            badges: ["❄️ Alpine Windchill","🥾 Hiking Boots","🎒 Spare Socks in Car","🧥 3-Layer System","🕶️ UV Glacier Sunnies"]
+          }
         },
         {
           time: "12:30 PM – 1:30 PM",
@@ -1279,7 +1763,16 @@ const TRIP_DATA = {
           freeParking: "Mount Cook Village public visitor carparks beside Old Mountaineers Cafe, Sir Edmund Hillary Alpine Centre, and Hermitage Hotel (100% Free public visitor bays).",
                     freeParkingQuery: "Mount Cook Village Public Carpark",
           parking: "FREE: Mount Cook Village public visitor carparks beside Old Mountaineers Cafe & Hermitage Hotel (100% Free).",
-                    parkingQuery: "Mount Cook Village Public Carpark"
+                    parkingQuery: "Mount Cook Village Public Carpark",
+          attire: {
+            dressCode: "Throw on your warm packable down puffer jacket immediately when stopping to retain body heat.",
+            footwear: "Hiking boots or slip into clean sneakers.",
+            insects: "Low. Keep an eye out for inquisitive Kea parrots near shelters.",
+            wetRisk: "Covered DOC shelter.",
+            weather: "Cool alpine valley (~10°C–13°C).",
+            extraClothes: false,
+            badges: ["🥪 Warm Down Puffer","🦜 Kea Lookout"]
+          }
         },
         {
           time: "1:30 PM – 3:30 PM",
@@ -1291,7 +1784,16 @@ const TRIP_DATA = {
           freeParking: "White Horse Hill carpark (direct trail link to Kea Point) or Hermitage Hotel public visitor parking bays in Mount Cook Village (100% Free).",
                     freeParkingQuery: "The Hermitage Hotel Mount Cook Carpark",
           parking: "FREE: White Horse Hill carpark (trail connects) or Hermitage Hotel public visitor parking (100% Free).",
-                    parkingQuery: "The Hermitage Hotel Mount Cook Carpark"
+                    parkingQuery: "The Hermitage Hotel Mount Cook Carpark",
+          attire: {
+            dressCode: "Breathable hiking layers for Kea Point Track (1 hr return), or peel off outer shell for cozy smart-casual comfort at the Hermitage Hotel alpine lounge.",
+            footwear: "Hiking boots for track, or clean casual shoes for hotel lounge.",
+            insects: "Low.",
+            wetRisk: "Low.",
+            weather: "Alpine breeze (~10°C–13°C).",
+            extraClothes: false,
+            badges: ["🥾 Moraine Walk / Lounge"]
+          }
         },
         {
           time: "Late Afternoon",
@@ -1303,7 +1805,16 @@ const TRIP_DATA = {
           freeParking: "Twizel Market Place centre (ample free parking in front of shops, four square supermarket, and cafes; 100% Free, no time restrictions).",
                     freeParkingQuery: "Twizel Market Place",
           parking: "FREE: Twizel Market Place centre (ample free parking, 100% Free).",
-                    parkingQuery: "Twizel Market Place"
+                    parkingQuery: "Twizel Market Place",
+          attire: {
+            dressCode: "Comfortable evening clothes for casual dinner in Twizel.",
+            footwear: "Casual shoes.",
+            insects: "Low.",
+            wetRisk: "Dry.",
+            weather: "Twizel evening (~9°C–12°C).",
+            extraClothes: false,
+            badges: ["🍽️ Evening Relax"]
+          }
         }
       ],
       tips: "Hooker Valley track is mostly flat gravel and boardwalks. Dress in windproof layers as the valley breezes can be brisk."
@@ -1341,7 +1852,16 @@ const TRIP_DATA = {
           name: "Scenic Morning Drive from Twizel to Lake Tekapo",
           desc: "Depart your Twizel accommodation and take the easy 40-minute drive northeast along SH8 into Lake Tekapo.",
           cost: "FREE",
-          type: "drive"
+          type: "drive",
+          attire: {
+            dressCode: "Comfortable layers, sunglasses ready for Mackenzie Basin sunlight.",
+            footwear: "Casual sneakers.",
+            insects: "Low.",
+            wetRisk: "Dry.",
+            weather: "Crisp sunny morning (~11°C–14°C).",
+            extraClothes: false,
+            badges: ["🚗 Road-Trip Wear"]
+          }
         },
         {
           time: "10:30 AM",
@@ -1356,7 +1876,16 @@ const TRIP_DATA = {
                     paidParkingCost: "$8 NZD vehicle toll (payable at the automated barrier gate by card/cash; open 9:00 AM – 5:00 PM)",
                     paidParkingQuery: "Mt John Observatory Carpark Tekapo",
           parking: "FREE: Tekapo Springs trackhead carpark (free parking, 45-min scenic hike). PAID DRIVE: Godley Peaks Rd summit road ($8 vehicle toll at gate).",
-                    parkingQuery: "Mt John Summit Trackhead Tekapo Springs"
+                    parkingQuery: "Mt John Summit Trackhead Tekapo Springs",
+          attire: {
+            dressCode: "❄️ HEAVY WINDPROOF JACKET, WARM SWEATER & BEANIE! Mount John summit stands at 1,029m with completely open 360-degree exposure. Blustery alpine winds sweep across the Mackenzie Basin constantly.",
+            footwear: "Flat walking shoes or sneakers (gravel summit trails and outdoor cafe terrace).",
+            insects: "None (high windy peak).",
+            wetRisk: "Dry.",
+            weather: "💨 Cold, blustery alpine winds (~8°C–12°C) with significant wind chill.",
+            extraClothes: false,
+            badges: ["💨 Blustery Alpine Peak","🧥 Heavy Windbreaker","🧢 Beanie","☕ Astro Cafe"]
+          }
         },
         {
           time: "12:30 PM",
@@ -1368,7 +1897,16 @@ const TRIP_DATA = {
           freeParking: "Tekapo Village Centre public carparks along State Highway 8 / Hamilton Drive (100% Free public council parking, ample space, no meters).",
                     freeParkingQuery: "Lake Tekapo Village",
           parking: "FREE: Tekapo Village Centre public carparks along SH8 / Hamilton Drive (100% Free).",
-                    parkingQuery: "Lake Tekapo Village"
+                    parkingQuery: "Lake Tekapo Village",
+          attire: {
+            dressCode: "Smart-casual village clothing, light jacket.",
+            footwear: "Casual shoes.",
+            insects: "Low.",
+            wetRisk: "Dry.",
+            weather: "Mild afternoon (~13°C–16°C).",
+            extraClothes: false,
+            badges: ["🍽️ Village Lunch Casual"]
+          }
         },
         {
           time: "2:00 PM",
@@ -1380,7 +1918,16 @@ const TRIP_DATA = {
           freeParking: "Official visitor carpark on Pioneer Drive (100% Free public council parking, 2-min walk along footbridge; overflow free parking across footbridge at Village Centre).",
                     freeParkingQuery: "Church of the Good Shepherd Carpark Tekapo",
           parking: "FREE: Official visitor carpark on Pioneer Drive (100% Free, 2-min walk across footbridge).",
-                    parkingQuery: "Church of the Good Shepherd Carpark Tekapo"
+                    parkingQuery: "Church of the Good Shepherd Carpark Tekapo",
+          attire: {
+            dressCode: "Photo-friendly casual layers, sunglasses. Secure hats with a chin strap or hold onto them—frequent sudden gusts off Lake Tekapo!",
+            footwear: "Comfortable walking shoes or sneakers (flat lakefront gravel and cobblestones).",
+            insects: "Low.",
+            wetRisk: "Low (gravel shoreline).",
+            weather: "Brisk lakefront breeze (~12°C–15°C).",
+            extraClothes: false,
+            badges: ["📸 Photo-Ready","💨 Secure Sun Hats","👟 Flat Shoes"]
+          }
         },
         {
           time: "Late Afternoon",
@@ -1392,7 +1939,16 @@ const TRIP_DATA = {
           freeParking: "Peaceful gravel parking bays at the Lake Alexandrina South Outlet reserve (100% Free public conservation reserve, tranquil non-motorized waters).",
                     freeParkingQuery: "Lake Alexandrina South Outlet Carpark",
           parking: "FREE: Peaceful gravel parking bays at Lake Alexandrina South Outlet reserve (100% Free).",
-                    parkingQuery: "Lake Alexandrina South Outlet Carpark"
+                    parkingQuery: "Lake Alexandrina South Outlet Carpark",
+          attire: {
+            dressCode: "Windproof fleece or light jacket, long pants, sunglasses. Peaceful wildlife wetland track.",
+            footwear: "Sturdy walking sneakers or trail shoes (grassy lakeside track and gravel).",
+            insects: "Moderate midges/sandflies around lakeside reeds at dusk. Light insect repellent.",
+            wetRisk: "Low (grassy shoreline).",
+            weather: "Cooling afternoon breeze (~10°C–13°C).",
+            extraClothes: false,
+            badges: ["🦆 Peaceful Shoreline","👟 Walking Shoes"]
+          }
         },
         {
           time: "Night",
@@ -1404,7 +1960,17 @@ const TRIP_DATA = {
           freeParking: "Cowans Hill reserve carpark or Tekapo lakefront parking off Pioneer Drive (100% Free public parking. Remember: dim headlights upon approach to preserve night vision).",
                     freeParkingQuery: "Cowans Hill Carpark Lake Tekapo",
           parking: "FREE: Cowans Hill reserve carpark or Tekapo lakefront parking off Pioneer Drive (100% Free).",
-                    parkingQuery: "Cowans Hill Carpark Lake Tekapo"
+                    parkingQuery: "Cowans Hill Carpark Lake Tekapo",
+          attire: {
+            dressCode: "❄️ MAXIMUM WINTER THERMAL LAYERING! Thermal merino base layer (tops and long john bottoms) + thick wool/fleece sweater + heavy insulated down winter parka with hood. Thermal beanie covering ears, neck warmer/scarf, and insulated windproof gloves. You will be standing or sitting stationary outside in the pitch-black for 60–90 minutes at 0°C to 4°C with zero tree shelter and icy winds off the Southern Alps! Grab a blanket from the car to wrap over your shoulders.",
+            footwear: "Thick merino wool socks and insulated closed shoes or boots. (Thin street shoes allow freezing ground frost to penetrate your feet within minutes!).",
+            insects: "Zero (freezing night temperature).",
+            wetRisk: "Heavy freezing dew on lake stones and grass.",
+            weather: "❄️ Sub-zero to near-freezing (0°C–4°C) with biting mountain windchill.",
+            extraClothes: true,
+            extraClothesNote: "🎒 Keep a thermal car blanket and extra warm fleece in the back seat of the car.",
+            badges: ["❄️ Sub-Zero Thermal Gear","🧤 Beanie & Insulated Gloves","🌌 Dark Sky Stargazing","🧥 Heavy Down Parka"]
+          }
         },
         {
           time: "Late Night",
@@ -1416,7 +1982,16 @@ const TRIP_DATA = {
           freeParking: "Private driveway parking at 15 Sealy Street accommodation in Twizel (100% Free).",
                     freeParkingQuery: "15 Sealy Street Twizel",
           parking: "FREE: Private driveway parking at 15 Sealy Street accommodation (100% Free).",
-                    parkingQuery: "15 Sealy Street Twizel"
+                    parkingQuery: "15 Sealy Street Twizel",
+          attire: {
+            dressCode: "Cozy warm clothes with car heater running for the late-night drive back.",
+            footwear: "Comfortable driving shoes.",
+            insects: "None.",
+            wetRisk: "Dry.",
+            weather: "Freezing night outside (~1°C–3°C).",
+            extraClothes: false,
+            badges: ["🚗 Night Drive"]
+          }
         }
       ],
       tips: "Tonight you sleep at your Twizel Airbnb (15 Sealy Street) for your 3rd night. Pack your bags tonight for tomorrow morning's final checkout and drive to Christchurch Airport."
@@ -1455,7 +2030,16 @@ const TRIP_DATA = {
           desc: "Check out of 15 Sealy Street, Twizel and head northeast past Lake Tekapo toward Christchurch via scenic highways SH8 and SH79.",
           cost: "FREE",
           type: "drive",
-          locationQuery: "15 Sealy Street Twizel"
+          locationQuery: "15 Sealy Street Twizel",
+          attire: {
+            dressCode: "Comfortable road-trip & flight travel attire (t-shirt, sweatshirt or cardigan, comfortable trousers/jeans).",
+            footwear: "Comfortable walking shoes.",
+            insects: "None.",
+            wetRisk: "Dry.",
+            weather: "Crisp morning (~8°C–11°C).",
+            extraClothes: false,
+            badges: ["✈️ Travel Day Attire"]
+          }
         },
         {
           time: "10:30 AM",
@@ -1467,7 +2051,16 @@ const TRIP_DATA = {
           freeParking: "Main Street parking bays in Fairlie right outside the bakery (74 Main St) or along Regent Street (100% Free angle & parallel street parking).",
                     freeParkingQuery: "Fairlie Bakehouse 74 Main St Fairlie",
           parking: "FREE: Main Street parking bays in Fairlie right outside bakery or along Regent St (100% Free).",
-                    parkingQuery: "Fairlie Bakehouse 74 Main St Fairlie"
+                    parkingQuery: "Fairlie Bakehouse 74 Main St Fairlie",
+          attire: {
+            dressCode: "Casual travel clothes.",
+            footwear: "Casual shoes.",
+            insects: "None.",
+            wetRisk: "Dry.",
+            weather: "Mild morning (~12°C–15°C).",
+            extraClothes: false,
+            badges: ["🥧 Bakehouse Casual"]
+          }
         },
         {
           time: "11:30 AM – 1:00 PM",
@@ -1479,14 +2072,32 @@ const TRIP_DATA = {
           freeParking: "Geraldine Domain Carpark on Cox Street or Talbot Street public carpark (both 100% Free public council carparks, right beside Barker's & Cheese Co).",
                     freeParkingQuery: "Talbot Street Carpark Geraldine",
           parking: "FREE: Geraldine Domain Carpark on Cox Street or Talbot Street public carpark (100% Free).",
-                    parkingQuery: "Talbot Street Carpark Geraldine"
+                    parkingQuery: "Talbot Street Carpark Geraldine",
+          attire: {
+            dressCode: "Smart-casual village clothing, light jacket.",
+            footwear: "Comfortable walking sneakers or flats for boutique shopping.",
+            insects: "None.",
+            wetRisk: "Dry.",
+            weather: "Pleasant sunny afternoon (~15°C–18°C).",
+            extraClothes: false,
+            badges: ["🧀 Artisan Tasting","👟 Walking Shoes"]
+          }
         },
         {
           time: "1:00 PM – 3:00 PM",
           name: "Drive across the Canterbury Plains to Christchurch",
           desc: "Drive across the wide Canterbury Plains into Christchurch with scenic pastoral views.",
           cost: "FREE",
-          type: "drive"
+          type: "drive",
+          attire: {
+            dressCode: "Comfortable flight-ready clothing.",
+            footwear: "Casual shoes.",
+            insects: "None.",
+            wetRisk: "Dry.",
+            weather: "Mild (~16°C–18°C).",
+            extraClothes: false,
+            badges: ["🚗 Road-Trip Wear"]
+          }
         },
         {
           time: "3:00 PM",
@@ -1501,7 +2112,16 @@ const TRIP_DATA = {
                     paidParkingCost: "~$8 (30–60m) / $35 daily",
                     paidParkingQuery: "Christchurch Airport Short Stay Express",
           parking: "FREE: APEX Depot return bays (free return). PAID OPTION: Airport Short Stay Express (~$8/hr) if curbside drop-off is needed.",
-                    parkingQuery: "Apex Car Rentals Christchurch Airport"
+                    parkingQuery: "Apex Car Rentals Christchurch Airport",
+          attire: {
+            dressCode: "Flight travel layers (comfortable pants, breathable top, jacket for airport air-conditioning).",
+            footwear: "Slip-on or comfortable airport walking shoes.",
+            insects: "None.",
+            wetRisk: "Dry terminal.",
+            weather: "Airport indoor climate.",
+            extraClothes: false,
+            badges: ["✈️ Airport Departure"]
+          }
         }
       ],
       tips: "Check out of 15 Sealy Street Twizel by 9:00 AM. Total drive to Christchurch Airport is ~3.5 hrs plus stops. Refuel before car return."
@@ -1521,7 +2141,9 @@ const TRIP_DATA = {
     { id: "p11", category: "Electronics & Nav", item: "Car Phone Mount & USB-C / Lightning Cables", checked: false, note: "For in-car GPS navigation in Mitsubishi ASX" },
     { id: "p12", category: "Electronics & Nav", item: "Camera / Drone & Extra Memory Cards", checked: false, note: "Epic South Island landscapes" },
     { id: "p13", category: "Electronics & Nav", item: "Power Bank Portable Battery", checked: false, note: "For long scenic day drives" },
-    { id: "p14", category: "Apparel & Gear", item: "Swimwear for Hot Pools / Tekapo Springs", checked: false, note: "Tekapo springs or relaxation" }
+    { id: "p14", category: "Apparel & Gear", item: "Swimwear for Hot Pools / Tekapo Springs", checked: false, note: "Tekapo springs or relaxation" },
+    { id: "p15", category: "Apparel & Gear", item: "Car Trunk Spare Clothes & Extra Dry Socks Kit", checked: false, note: "Dedicated bag in car trunk with spare dry shirts, quick-dry pants & thick socks for post-jetboat/waterfall spray" },
+    { id: "p16", category: "Apparel & Gear", item: "Waterproof Phone Pouch / Dry Bag", checked: false, note: "Crucial for Shotover/Kawarau high-speed jetboat spins and Milford Sound waterfall bow plunge" }
   ]
 };
 
@@ -1855,6 +2477,7 @@ class NZTripApp {
               <h4 class="activity-name">${act.name}</h4>
               <p class="activity-desc">${act.desc}</p>
               ${this.renderParkingBox(act)}
+              ${this.renderAttireBox(act)}
             </div>
           ${mapsUrl ? `
             <div class="activity-actions">
@@ -2118,6 +2741,122 @@ class NZTripApp {
     `;
   }
 
+  renderAttireBox(act) {
+    if (!act.attire) return '';
+
+    const attire = act.attire;
+    const isHighBug = (attire.badges || []).some(b => b.includes('Sandfly') || b.includes('Bug') || b.includes('DEET'));
+    const isHighWet = (attire.badges || []).some(b => b.includes('Spray') || b.includes('Splash') || b.includes('Water'));
+    const isCold = (attire.badges || []).some(b => b.includes('Alpine') || b.includes('Sub-Zero') || b.includes('Chill') || b.includes('Thermal') || b.includes('Freeze'));
+    const hasSpare = !!attire.extraClothes;
+
+    let quickBadges = '';
+    if (isHighBug) {
+      quickBadges += `<span class="attire-summary-chip chip-bug">🦟 Bug Alert</span>`;
+    }
+    if (isHighWet) {
+      quickBadges += `<span class="attire-summary-chip chip-wet">💦 Splash / Wet</span>`;
+    }
+    if (isCold) {
+      quickBadges += `<span class="attire-summary-chip chip-cold">❄️ Cold / Thermal</span>`;
+    }
+    if (hasSpare) {
+      quickBadges += `<span class="attire-summary-chip chip-spare">🎒 Spare in Car</span>`;
+    }
+    if (!quickBadges) {
+      if ((attire.badges || []).some(b => b.includes('Boots') || b.includes('Trail') || b.includes('Grippy'))) {
+        quickBadges = `<span class="attire-summary-chip chip-boots">🥾 Trail Footwear</span>`;
+      } else {
+        quickBadges = `<span class="attire-summary-chip chip-casual">👟 Casual / Comfy</span>`;
+      }
+    }
+
+    return `
+      <details class="attire-accordion">
+        <summary class="attire-summary" title="Click to view/hide attire & gear recommendations">
+          <div class="attire-summary-left">
+            <span class="attire-sign-badge">👕</span>
+            <span class="attire-summary-title">Attire & Gear Guide</span>
+            ${quickBadges}
+          </div>
+          <div class="attire-summary-right">
+            <span class="attire-action-toggle"></span>
+            <svg class="attire-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </div>
+        </summary>
+        <div class="attire-accordion-content">
+          <div class="activity-attire-box">
+            <div class="attire-header">
+              <span class="attire-icon">🧥</span>
+              <strong>Attire, Layering & Field Conditions</strong>
+            </div>
+
+            <div class="attire-tier attire-tier-outfit">
+              <div class="attire-tier-header">
+                <span class="attire-tier-badge badge-outfit">👔 Recommended Outfit & Layers</span>
+              </div>
+              <div class="attire-desc">${attire.dressCode}</div>
+            </div>
+
+            <div class="attire-tier attire-tier-footwear">
+              <div class="attire-tier-header">
+                <span class="attire-tier-badge badge-footwear">🥾 Footwear Advice</span>
+              </div>
+              <div class="attire-desc">${attire.footwear}</div>
+            </div>
+
+            <div class="attire-conditions-grid">
+              ${attire.insects ? `
+                <div class="attire-condition-card ${isHighBug ? 'condition-warning' : 'condition-neutral'}">
+                  <div class="condition-label">
+                    <span class="condition-icon">🦟</span>
+                    <strong>Insects & Sandflies:</strong>
+                  </div>
+                  <div class="condition-text">${attire.insects}</div>
+                </div>
+              ` : ''}
+
+              ${attire.wetRisk ? `
+                <div class="attire-condition-card ${isHighWet ? 'condition-splash' : 'condition-neutral'}">
+                  <div class="condition-label">
+                    <span class="condition-icon">💦</span>
+                    <strong>Water & Splash Risk:</strong>
+                  </div>
+                  <div class="condition-text">${attire.wetRisk}</div>
+                </div>
+              ` : ''}
+
+              ${attire.weather ? `
+                <div class="attire-condition-card ${isCold ? 'condition-cold' : 'condition-neutral'}">
+                  <div class="condition-label">
+                    <span class="condition-icon">❄️</span>
+                    <strong>Weather & Temperature:</strong>
+                  </div>
+                  <div class="condition-text">${attire.weather}</div>
+                </div>
+              ` : ''}
+
+              ${attire.extraClothes ? `
+                <div class="attire-condition-card condition-spare">
+                  <div class="condition-label">
+                    <span class="condition-icon">🎒</span>
+                    <strong>Car Trunk Tip:</strong>
+                  </div>
+                  <div class="condition-text">${attire.extraClothesNote || 'Keep a spare change of clothes & extra dry socks in the car trunk!'}</div>
+                </div>
+              ` : ''}
+            </div>
+          </div>
+          <div class="attire-collapse-row">
+            <button type="button" class="btn-attire-close" onclick="this.closest('details').removeAttribute('open')">
+              ▲ Hide Attire Info
+            </button>
+          </div>
+        </div>
+      </details>
+    `;
+  }
+
   setDay10Option(option) {
     this.renderTimelineView();
   }
@@ -2331,7 +3070,7 @@ ${stay ? `- Tonight's stay: ${stay.name} in ${stay.city} (${stay.address}). Chec
 
 Your Mission:
 Give concise, highly practical, actionable advice tailored for on-the-road travelers.
-Keep in mind essential trip rules: Biosecurity footwear clean on arrival, 40% DEET Bushman repellent for sandflies (Hokitika/Haast/Milford), Springfield/Fox Glacier/Twizel fuel stops, offline Google Maps everywhere, Omarama Clay Cliffs $5 cash honesty box, Hooker Valley 8:30 AM early arrival rule, Mt John 5 PM toll road closing, and alpine layering.
+Keep in mind essential trip rules: Biosecurity footwear clean on arrival, 40% DEET Bushman repellent for sandflies (Hokitika/Haast/Milford), Springfield/Fox Glacier/Twizel fuel stops, offline Google Maps everywhere, Omarama Clay Cliffs $5 cash honesty box, Hooker Valley 8:30 AM early arrival rule, Mt John 5 PM toll road closing, alpine 3-layer system, insect/sandfly protection (light-colored clothing, 40% DEET Bushman repellent), and having spare dry clothes/socks in the car trunk for jetboat & waterfall spray.
 - State specific distances, approximate drive times, exact names for Google Maps search, reputable bakeries/cafes, scenic roadside viewpoints, petrol stops, or bad-weather alternatives.
 - Use clean formatting with **bold** for place names, section titles (###), and bullet points.
 - Provide thorough, complete answers without cutting off. Conclude with a helpful travel tip.`;
@@ -3024,6 +3763,14 @@ Keep in mind essential trip rules: Biosecurity footwear clean on arrival, 40% DE
           (act.parking && act.parking.toLowerCase().includes(term)) ||
           (act.freeParking && act.freeParking.toLowerCase().includes(term)) ||
           (act.paidParking && act.paidParking.toLowerCase().includes(term)) ||
+          (act.attire && (
+            (act.attire.dressCode && act.attire.dressCode.toLowerCase().includes(term)) ||
+            (act.attire.insects && act.attire.insects.toLowerCase().includes(term)) ||
+            (act.attire.wetRisk && act.attire.wetRisk.toLowerCase().includes(term)) ||
+            (act.attire.weather && act.attire.weather.toLowerCase().includes(term)) ||
+            (act.attire.footwear && act.attire.footwear.toLowerCase().includes(term)) ||
+            (act.attire.badges && act.attire.badges.some(b => b.toLowerCase().includes(term)))
+          )) ||
           act.cost.toLowerCase().includes(term) ||
           day.title.toLowerCase().includes(term) ||
           day.baseCity.toLowerCase().includes(term)
@@ -3068,6 +3815,7 @@ Keep in mind essential trip rules: Biosecurity footwear clean on arrival, 40% DE
               <h4 class="activity-name">${act.name}</h4>
               <p class="activity-desc">${act.desc}</p>
               ${this.renderParkingBox(act)}
+              ${this.renderAttireBox(act)}
             </div>
             ${mapsUrl ? `
               <div class="activity-actions">

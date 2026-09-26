@@ -1,5 +1,5 @@
 // Service Worker for NZ Trip Companion PWA
-const CACHE_NAME = 'nz-trip-v15';
+const CACHE_NAME = 'nz-trip-v16';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
